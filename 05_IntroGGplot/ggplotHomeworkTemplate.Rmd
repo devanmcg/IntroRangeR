@@ -1,0 +1,73 @@
+---
+title: "Introduction to ggplot"
+author: " your name here"
+date: " "
+output:
+  word_document: default
+---
+
+```{r setup, echo=FALSE, message = FALSE, results='hide'}
+# Do not mess with this code chunk
+knitr::opts_chunk$set(message = FALSE, warning=FALSE, 
+                      echo=TRUE, eval=TRUE)
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(s20x)
+```
+
+
+
+```{r package_loading}
+
+```
+
+
+## Data structure 
+
+
+
+```{r structure}
+
+
+```
+
+
+## Scatterplot
+
+### Simple defaults
+
+
+
+```{r simple_ScatPlot}
+
+
+
+```
+
+### Add a categorical variable
+
+
+```{r cat_ScatPlot}
+
+
+
+```
+
+
+### Plotting linear relationships
+
+
+
+```{r trendline_ScatPlot}
+
+
+
+```
+
+
+### Facet by categorical variable
+
+
+```{r facet_ScatPlot}
+
+
+```

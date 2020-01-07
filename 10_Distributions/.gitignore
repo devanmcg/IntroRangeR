@@ -1,0 +1,14 @@
+*.Rproj.user
+*.Rproj
+*.Rhistory
+*.Ruserdata
+*.log
+*.httr-oauth
+*.ini
+*.jpeg
+
+IntroDistributionsHomeworkAssignment.Rmd
+
+IntroDistributionsHomeworkSolution.Rmd
+IntroDistributionsHomeworkSolution.html
+IntroDistributionsHomeworkSolution.pdf

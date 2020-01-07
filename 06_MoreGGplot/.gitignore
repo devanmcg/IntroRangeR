@@ -1,0 +1,14 @@
+*.Rproj.user
+*.Rproj
+*.Rhistory
+*.Ruserdata
+*.log
+*.httr-oauth
+*.ini
+*.jpeg
+
+MoreGGplotHomeworkAssignment.Rmd
+
+MoreGGplotHomeworkSolution.Rmd
+MoreGGplotHomeworkSolution.html
+MoreGGplotHomeworkSolution.pdf

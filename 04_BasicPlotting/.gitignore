@@ -1,0 +1,14 @@
+*.Rproj.user
+*.Rproj
+*.Rhistory
+*.Ruserdata
+*.log
+*.httr-oauth
+*.ini
+*.jpeg
+
+BasicPlottingHomeworkAssignment.Rmd
+
+BasicPlottingHomeworkSolution.Rmd
+BasicPlottingHomeworkSolution.html
+BasicPlottingHomeworkSolution.pdf

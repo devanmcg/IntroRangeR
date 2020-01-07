@@ -1,0 +1,57 @@
+---
+title: "Assignment title"
+author: "your name goes here"
+date: '`r format(Sys.Date(), "%d %B %Y")`'
+output: word_document
+---
+
+```{r setup, echo=FALSE, warning=FALSE, message = FALSE, results='hide'}
+# Do not mess with this code chunk
+knitr::opts_chunk$set(message = FALSE, warning=FALSE, 
+                      echo=TRUE, eval=TRUE)
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(s20x)
+```
+
+
+
+```{r package_loading}
+
+
+```
+
+## Data structure 
+
+
+```{r variable_classes}
+
+
+```
+
+## Boxplot 
+
+
+
+```{r boxplot1}
+
+```
+
+
+
+```{r boxplot2}
+
+```
+
+## Means and error bars
+
+```{r summary_stats}
+
+
+```
+
+
+
+```{r mean_errbar}
+
+```
+

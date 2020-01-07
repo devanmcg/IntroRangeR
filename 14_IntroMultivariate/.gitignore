@@ -1,0 +1,14 @@
+*.Rproj.user
+*.Rproj
+*.Rhistory
+*.Ruserdata
+*.log
+*.httr-oauth
+*.ini
+*.jpeg
+
+IntroMultivariateHomeworkAssignment.Rmd
+
+IntroMultivariateHomeworkSolution.Rmd
+IntroMultivariateHomeworkSolution.html
+IntroMultivariateHomeworkSolution.pdf

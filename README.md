@@ -1,6 +1,6 @@
 # IntroRangeR
  
-This is a public repository for my NDSU graduate seminar *Introduction to ***R***. 
+This is a public repository for my NDSU graduate seminar *Introduction to* ***R***. 
 Fork or bookmark for most of the most recent course materials (homework solutions excluded!).
 
 ## History 

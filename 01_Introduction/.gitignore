@@ -8,5 +8,7 @@
 *.jpeg
 
 FetchSurveyData.R
+RangeRstats.Rmd
+RangeRstats.html
 
 

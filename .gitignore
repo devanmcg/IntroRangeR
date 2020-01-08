@@ -6,5 +6,8 @@
 *.httr-oauth
 *.ini
 *.jpeg
-.Rproj.user
-.httr-oauth
+*.Rproj.user
+*.httr-oauth
+
+RangeRstats.Rmd
+RangeRstats.html

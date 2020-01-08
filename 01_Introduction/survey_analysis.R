@@ -8,169 +8,145 @@
 #
 #
 # START Code Chunk 1
-
+#
 # Install, load packages
   # This script uses several external packages. 
   # To install them semi-automatically, 
   # first install the pacman PACkage MANagement package:
-    install.packages("pacman")
+  if (!require("pacman")) install.packages("pacman")
   # Once installed, pacman will take care of the rest for you:
-    pacman::p_load(maps, rgdal, ggmap,  
-                   maptools, tidyverse, grid, broom, 
-                   tm, SnowballC, wordcloud, gridExtra, chron)
+    pacman::p_load(tidyverse, grid, gridExtra, 
+                   maps,  ggmap, maptools,  
+                   tm, SnowballC, wordcloud)
+ # Set the working directory to your R folder: 
+    setwd("E:/R") # specific path might vary!
 #
 # END Code Chunk 1
-
+#
 # START Code Chunk 2
 #
   # Fetch survey data
-  # To complete the survey: https://goo.gl/forms/EceTzhp1QML0BFVg2
-  responses <- url("https://docs.google.com/spreadsheets/d/e/2PACX-1vToeOasZ6tIwTVI0CuZN2fB9ZKztXeIyWdeQDnDx0f0o9XDYgurE1DlzNQvUqRfMNKLGr-j8bQ0qCF6/pub?output=csv")
-  # Set up the survey data
-  survey.d <- 
-    read.csv(responses)  %>%
-      mutate(Timestamp = as.POSIXct(Timestamp, format="%m/%d/%Y %H:%M:%S"), 
-             Year = lubridate::year(Timestamp), 
-             Month = lubridate::month(Timestamp)) %>%
-        filter(Year == format(Sys.Date(), "%Y") ) %>% # Limit responses to those from this year
-          select(-Timestamp, -Year, -Month) 
-  
-   #names(survey.d) 
-  colnames(survey.d) <- c("degree", "program", "USundergrad", "water", 
-                          "relationship", "gender", "UndergradWhere", 
-                          "INTundergrad", "moist", "previous")
-  survey.d <- select(survey.d, -gender, -UndergradWhere, -previous) 
-  
+  survey.d <- read.csv("./data/SurveyResponsesSP20.csv")
 #
 # END Code Chunk 2
-  
-
+#
 # START Code Chunk 3
+#
   # Bar graphs
-    degree.gg <- ggplot(survey.d, aes(x=reorder(degree,degree, function(x)-length(x)), 
+    (degree.gg <- ggplot(survey.d, aes(x=reorder(degree,degree, 
+                                                 function(x)-length(x)), 
                                       fill=factor(degree))) + 
       geom_bar() +
         labs(x = "Degree type", y = "Number of students") + 
         scale_fill_brewer(palette = "Set1") + 
-        theme_bw() + 
-        theme(axis.text.x = element_text(angle = 33, hjust = 1),
-              axis.text=element_text(size=12, color="black"), 
-              axis.title=element_text(size=12,face="bold"),
-              legend.key.width= unit(2, "cm"), 
-              legend.text=element_text(size=12), 
-              legend.title=element_text(size=12, face="bold"), 
-              legend.position = "none") 
+        theme_bw(16) + 
+        theme(axis.text=element_text(color="black"), 
+              axis.title=element_text(face="bold"),
+              panel.grid.major.x  = element_blank(),
+              legend.position = "none") )
     
-  program.gg <- ggplot(survey.d, aes(x=reorder(program,program, function(x)-length(x)), 
-                                     fill=factor(program))) + 
+  (program.gg <- ggplot(survey.d, aes(x=reorder(program,program, 
+                                                function(x)-length(x)), 
+                                      fill=factor(program))) + 
     geom_bar() +
       labs(x = "Program", y = "Number of students") + 
        scale_fill_brewer(palette = "Set1") + 
-      theme_bw() +  
-      theme(axis.text.x = element_text(angle = 33, hjust = 1),
-            axis.text=element_text(size=12, color="black"), 
-            axis.title=element_text(size=12,face="bold"),
-            legend.key.width= unit(2, "cm"), 
-            legend.text=element_text(size=12), 
-            legend.title=element_text(size=12, face="bold"), 
-            legend.position = "none")
+      theme_bw(16) +  
+      theme(axis.text=element_text(color="black"),
+            axis.text.x = element_text(angle = 33, hjust = 1),
+            axis.title=element_text(face="bold"),
+            panel.grid.major.x  = element_blank(),
+            legend.position = "none") ) 
+  
   grid.arrange(degree.gg, program.gg, ncol=2)
 # 
 # END Code Chunk 3
-  
-#
+#  
 # START Code Chunk 4
 # 
-  both.gg <- ggplot(survey.d, aes(x=reorder(program,program, function(x)-length(x)), 
-                                  fill=factor(degree))) + 
+  ggplot(survey.d, aes(x=reorder(program,program, 
+                                 function(x)-length(x)), 
+                       fill=factor(degree))) + 
     geom_bar() +
     labs(x = "Program", y = "Number of students") + 
     scale_fill_brewer(palette = "Set1", name="Degree") + 
-    theme_bw() +  
-    theme(axis.text.x = element_text(angle = 33, hjust = 1),
-          axis.text=element_text(size=12, color="black"), 
-          axis.title=element_text(size=12,face="bold"),
+    theme_bw(16) +  
+    theme(axis.text=element_text(color="black"),
+          axis.text.x = element_text(angle = 33, hjust = 1),
+          axis.title=element_text(face="bold"),
           legend.key.width= unit(1, "cm"), 
           legend.text=element_text(size=12), 
           legend.title=element_text(size=12, face="bold"), 
+          panel.grid.major.x  = element_blank(),
           legend.position = "top")
-  
-  wet.gg <- ggplot(survey.d, aes(x=reorder(water,water, function(x)-length(x)), 
-                                 fill=factor(program))) + 
+#
+# END Code Chunk 4
+#
+# START Code Chunk 5
+#
+  ggplot(survey.d, aes(x=reorder(water,water, 
+                                 function(x)-length(x)), 
+                      fill=factor(program))) + 
     geom_bar() +
     labs(x = "Which implies greater water content?", 
          y = "Number of students") + 
     scale_fill_brewer(palette = "Set1", name="Program") + 
-    theme_bw() +  
-    theme(axis.text.x = element_text(angle = 33, hjust = 1),
-          axis.text=element_text(size=12, color="black"), 
-          axis.title=element_text(size=12,face="bold"),
+    theme_bw(16) +  
+    theme(axis.text=element_text(color="black"),
+          axis.text.x = element_text(angle = 33, hjust = 1),
+          axis.title=element_text(face="bold"),
           legend.key.width= unit(1, "cm"), 
           legend.text=element_text(size=12), 
           legend.title=element_text(size=12, face="bold"), 
+          panel.grid.major.x  = element_blank(),
           legend.position = "top")
-
-  grid.arrange(both.gg, wet.gg, ncol=2)
-#
-# END Code Chunk 3 
-  
-#
-# START Code Chunk 4
-  states.md <- map_data("state")
-  l48 <- subset(states.md, region !="alaska")
-  survey.d$USundergrad <- as.character(survey.d$USundergrad)
-  
-  ug.us <- survey.d %>% drop_na(USundergrad, degree) 
-  ug.us <- data.frame(degree=ug.us$degree, 
-                             geocode(c(ug.us$USundergrad), source="dsk") )  
-  
- US.gg <- ggplot() +coord_map() + theme_minimal() + 
-   geom_polygon(data=l48, aes(x=long, y=lat, group=group), 
-                color="white", fill="grey90", size=0.25) + 
-   stat_sum(data=ug.us, aes(x=lon, y=lat, 
-                                   size=factor(..n..), 
-                                   fill=degree), 
-            geom = "point", pch=24, 
-            col="black")  +
-   scale_size_discrete(range = c(2, 6), guide=FALSE) + 
-   theme(legend.position = "bottom") +
-   labs(x="longitude", y="latitude", title="Where we did our undergrad")
- 
- world.md <- map_data("world")
- world.md <- subset(world.md, region !="Antarctica")
- survey.d$INTundergrad <- as.character(survey.d$INTundergrad)
- 
- ug.int <- survey.d %>%  drop_na(INTundergrad, degree) 
- ug.int <- data.frame(degree=ug.int$degree, 
-                             geocode(c(ug.int$INTundergrad), source="dsk") )  
-  ug.int <- drop_na( ug.int ) 
- #' Where you all are from. The bigger the symbol, the more of you are from there:
- int.gg <- ggplot() +coord_quickmap() + theme_minimal() + 
-   geom_polygon(data=world.md, aes(x=long, y=lat, group=group), 
-                color="white", fill="grey90", size=0.25) + 
-   stat_sum(data=ug.int, aes(x=lon, y=lat, 
-                                    size=factor(..n..), 
-                                    fill=degree), 
-            geom = "point", pch=24, 
-            col="black")  +
-   scale_size_discrete(range = c(2, 6), guide=FALSE) + 
-   theme(legend.position = "bottom") +
-   labs(x="longitude", y="latitude")
- 
- grid.arrange(US.gg, int.gg, ncol=1)
- #
- # END Code Chunk 4
- 
- 
- # START Code Chunk 5
- #
- # Make a word cloud of relationships with data
- #
-  datCorpus <- Corpus(VectorSource(survey.d$relationship))
-  datCorpus <- tm_map(datCorpus, removeWords, stopwords('english'))
-  wordcloud(datCorpus$content, scale=c(4,0.5),min.freq=1,max.words=Inf,
-            random.order=FALSE, random.color=TRUE)
-  
 #
 # END Code Chunk 5
-  
+#  
+# START Code Chunk 6
+#
+  # Get some map data
+  l48.md <- map_data("state") %>% filter(region !="alaska")
+  world.md <- map_data("world") %>% filter(region !="Antarctica") 
+#
+ ggplot() +coord_map("polyconic") + theme_minimal(16) + 
+   geom_polygon(data=l48.md, aes(x=long, y=lat, group=group), 
+                color="white", fill="grey90", size=0.25) + 
+   stat_sum(data=survey.d %>%
+                  filter(country == "United States"), 
+            aes(x=long, y=lat, 
+               size=factor(..n..), 
+               fill=degree), 
+            geom = "point", pch=24, col="black")  +
+   scale_size_discrete(range = c(2, 6), guide=FALSE) + 
+   theme(legend.position = "bottom") +
+   labs(x="longitude", y="latitude", title="Where we did our undergrad")  
+  #' Where you all are from. The bigger the symbol, the more of you are from there:
+ ggplot() +coord_quickmap( ) + theme_minimal(16) + 
+   geom_polygon(data=world.md, aes(x=long, y=lat, group=group), 
+                color="white", fill="grey90", size=0.25) + 
+   stat_sum(data=survey.d,
+            aes(x=long, y=lat, 
+                size=factor(..n..), 
+                fill=degree), 
+            geom = "point", pch=24, col="black")  +
+   scale_size_discrete(range = c(2, 6), guide=FALSE) + 
+   theme(legend.position = "bottom") +
+   labs(x="longitude", y="latitude", title="Where we ALL did our undergrad")
+#
+# END Code Chunk 6
+#
+# START Code Chunk 7
+#
+  # Make a word cloud of relationships with data
+  #
+  datCorpus <- Corpus(VectorSource(survey.d$relationship))
+  datCorpus <- tm_map(datCorpus, removeWords, stopwords('english'))
+  wordcloud(datCorpus$content, 
+            scale=c(4,0.5),
+            min.freq=1,
+            max.words=Inf,
+            random.order=FALSE, 
+            random.color=TRUE)
+#
+# END Code Chunk 7

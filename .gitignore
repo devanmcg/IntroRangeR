@@ -6,4 +6,5 @@
 *.httr-oauth
 *.ini
 *.jpeg
-
+.Rproj.user
+.httr-oauth

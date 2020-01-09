@@ -4,7 +4,7 @@
 *.Ruserdata
 *.log
 *.httr-oauth
-* .httr-oauth-SUSPENDED
+*.httr-oauth-SUSPENDED
 *.ini
 *.jpeg
 *.Rproj.user

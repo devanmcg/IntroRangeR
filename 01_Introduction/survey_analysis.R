@@ -106,33 +106,45 @@
 # START Code Chunk 6
 #
   # Get some map data
-  l48.md <- map_data("state") %>% filter(region !="alaska")
-  world.md <- map_data("world") %>% filter(region !="Antarctica") 
-#
- ggplot() +coord_map("polyconic") + theme_minimal(16) + 
-   geom_polygon(data=l48.md, aes(x=long, y=lat, group=group), 
-                color="white", fill="grey90", size=0.25) + 
-   stat_sum(data=survey.d %>%
-                  filter(country == "United States"), 
-            aes(x=long, y=lat, 
-               size=factor(..n..), 
-               fill=degree), 
-            geom = "point", pch=24, col="black")  +
-   scale_size_discrete(range = c(2, 6), guide=FALSE) + 
-   theme(legend.position = "bottom") +
-   labs(x="longitude", y="latitude", title="Where we did our undergrad")  
-  #' Where you all are from. The bigger the symbol, the more of you are from there:
- ggplot() +coord_quickmap( ) + theme_minimal(16) + 
-   geom_polygon(data=world.md, aes(x=long, y=lat, group=group), 
-                color="white", fill="grey90", size=0.25) + 
-   stat_sum(data=survey.d,
-            aes(x=long, y=lat, 
-                size=factor(..n..), 
-                fill=degree), 
-            geom = "point", pch=24, col="black")  +
-   scale_size_discrete(range = c(2, 6), guide=FALSE) + 
-   theme(legend.position = "bottom") +
-   labs(x="longitude", y="latitude", title="Where we ALL did our undergrad")
+  world.md <- map_data("world") %>% filter(region !="Antarctica")
+  l48.md <- map_data("state") 
+  
+  #
+  us.gg <- 
+  ggplot() +coord_map("polyconic") + theme_minimal(16) + 
+    geom_polygon(data=l48.md, aes(x=long, y=lat, group=group), 
+                 color="white", fill="grey90", size=0.25) + 
+    stat_sum(data=survey.d %>%
+               filter(country == "United States"), 
+             aes(x=long, y=lat, 
+                 size=factor(..n..), 
+                 fill=degree), 
+             geom = "point", pch=24, col="black")  +
+    scale_size_discrete(range = c(2, 6), guide=FALSE) + 
+    theme(legend.position = "bottom") +
+    labs(x="longitude", y="latitude", 
+         title = "Where we did our undergrad") 
+  
+  # Can't leave Alaska out
+    ak.md <- world.md %>% filter(region == "USA", 
+                                 subregion == "Alaska", 
+                                 long <= -120, 
+                                 lat >= 50) 
+    us.gg +     geom_path(data=ak.md, aes(x=long, y=lat, group=group), 
+                             color="black",  size=0.25) 
+
+   ggplot() +coord_quickmap( ) + theme_minimal(16) + 
+     geom_polygon(data=world.md, aes(x=long, y=lat, group=group), 
+                  color="white", fill="grey90", size=0.25) + 
+     stat_sum(data=survey.d,
+              aes(x=long, y=lat, 
+                  size=factor(..n..), 
+                  fill=degree), 
+              geom = "point", pch=24, col="black")  +
+     scale_size_discrete(range = c(2, 6), guide=FALSE) + 
+     theme(legend.position = "bottom") +
+     labs(x="longitude", y="latitude", 
+          title="Where we ALL did our undergrad")
 #
 # END Code Chunk 6
 #

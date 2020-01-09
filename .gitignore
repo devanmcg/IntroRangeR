@@ -10,4 +10,6 @@
 *.httr-oauth
 
 RangeRstats.Rmd
+RangeRstats.md
 RangeRstats.html
+RangeRstats_files/

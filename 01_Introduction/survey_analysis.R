@@ -91,13 +91,10 @@
     labs(x = "Which implies greater water content?", 
          y = "Number of students") + 
     scale_fill_brewer(palette = "Set1", name="Program") + 
-    theme_bw(16) +  
+    theme_bw(18) +  
     theme(axis.text=element_text(color="black"),
-          axis.text.x = element_text(angle = 33, hjust = 1),
           axis.title=element_text(face="bold"),
-          legend.key.width= unit(1, "cm"), 
-          legend.text=element_text(size=12), 
-          legend.title=element_text(size=12, face="bold"), 
+          legend.title=element_text(face="bold"), 
           panel.grid.major.x  = element_blank(),
           legend.position = "top")
 #
@@ -110,7 +107,7 @@
   l48.md <- map_data("state") 
   
   #
-  us.gg <- 
+  (us.gg <- 
   ggplot() +coord_map("polyconic") + theme_minimal(16) + 
     geom_polygon(data=l48.md, aes(x=long, y=lat, group=group), 
                  color="white", fill="grey90", size=0.25) + 
@@ -123,7 +120,7 @@
     scale_size_discrete(range = c(2, 6), guide=FALSE) + 
     theme(legend.position = "bottom") +
     labs(x="longitude", y="latitude", 
-         title = "Where we did our undergrad") 
+         title = "Where we did our undergrad") )
   
   # Can't leave Alaska out
     ak.md <- world.md %>% filter(region == "USA", 

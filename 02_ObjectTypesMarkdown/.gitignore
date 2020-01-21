@@ -5,6 +5,12 @@
 *.log
 *.httr-oauth
 *.ini
-*.jpeg
+*.Rmd
+*.pdf
+*.html
+*.txt
+
+figure/
+rsconnect/
 
 ExamplePlotScript.R

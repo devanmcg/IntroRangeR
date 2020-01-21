@@ -46,7 +46,7 @@
 		
 		dim(cars)  	      # Dimensions of the object
 		names(cars)	      # Displays column headings
-		head(cars)	    # Displays top six lines of the data
+		head(cars)	      # Displays top six lines of the data
 		tail(cars)        # Displays bottom six lines
 		class(cars)	      # Data frame, matrix, etc.
 		class(cars$speed) # Returns class of specific column

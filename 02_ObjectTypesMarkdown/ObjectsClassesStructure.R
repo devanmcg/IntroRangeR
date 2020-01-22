@@ -63,14 +63,16 @@
 		column = "speed"
 		head(cars[[column]]) # Useful in programming (eg, if name, position changes)
 		
-		columns <- names(cars)
-		columns
-		length(columns)
+		# Silly example script:
 		
-		for( i in 1:length(columns)) {
-		  column = columns[i]
-		  print(head(cars[[column]]))  
-		}
+  		columns <- names(cars)
+  		columns
+  		length(columns)
+  		
+  		for( i in 1:length(columns)) {
+  		  column = columns[i]
+  		  print(head(cars[[column]]))  
+  		}
 	  
 		# Evaluate specific rows and cells 
 		

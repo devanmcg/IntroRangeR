@@ -43,7 +43,7 @@
 
 # Changing component classes with as. fun via mutate verb
 
-  mtcars <- mutate_at(mtcars, vars(cyl, vs, gear, carb, am), as.factor)
+  mtcars <- mutate_at(mtcars, vars(cyl, vs, gear, carb, am), as.character)
   mtcars <- mutate(mtcars, am = recode(am, "0"="Automatic",   
                                            "1"="Manual")) 
   mtcars <-  rename(mtcars, transmission = am)
@@ -75,15 +75,22 @@
 # to define relationships between variables one wants to calculate. 
 # This function is analogous to making a PivotTable in Excel.
 
-  aggregate(hp ~ cyl, data=mtcars2, FUN=mean)  
+  means <-  aggregate(hp ~ continent, data=mtcars2, FUN=mean) 
+  means
+  
+  # Add means to a base plot. 
+  # Note plot behavior differs between characters and factors.
+    boxplot(hp ~ continent, mtcars2, las=1)
+      points(hp ~ as.factor(continent), means, 
+             pch=24, bg="blue", cex=2)
 
 # The tidy way is to group and summarize:
   
   mtcars2 %>% # pipe operator 'pours' data down
     group_by(cyl) %>%
       summarize(mean_hp = mean(hp)) 
-  
-  # Easy to add another level: 
+
+# Easy to add another level: 
   
   mtcars2 %>% 
     group_by(transmission, cyl) %>%

@@ -2,6 +2,9 @@
 # Devan Allen McGranahan (devan.mcgranahan@gmail.com)
 # 
 # Lesson 5: Introducing ggplot 
+#
+  if (!require("pacman")) install.packages("pacman")
+    pacman::p_load(tidyverse)
 # 
 # Load data
 #
@@ -17,56 +20,18 @@
 # Must still deal with structure
   str(mtcars2)
     
-    mtcars2$vs <- as.factor(mtcars2$vs)
-    mtcars2$gear <- as.factor(mtcars2$gear)
-    mtcars2$carb <- as.factor(mtcars2$carb)
+    mtcars2 <- mutate_at(mtcars, vars(vs, gear, 
+                                      carb, cyl), as.character)
   str(mtcars2)
 #
 # Getting into ggplot
 #
-  pacman::p_load(ggplot2)
-    
-    # Two main functions: 
-      # qplot() or "quick plot" - takes aesthetics and geometry in-line
-      # ggplot() builds plot as aesthetics and geometries are added
-        # Some aesthetics (aes) include: x, y, color, shape, line type...
-        # Some geometries (geoms) include: point, boxplot, line, text...
- 
-    # Recall the base way: 
-      plot(mpg ~ cyl, data = mtcars2)   # Formula format
-      with(mtcars2, plot(x=cyl, y=mpg)) # Weird way w/out formula
-    
-    # Neither qplot nor ggplot read formula format. 
-    # Arguments must be specified. 
-    # qplot assumes order is x, y:
-       
-      qplot(cyl, mpg, data = mtcars2)  # Incorrect. Note X axis.
-      class(mtcars2$cyl) # Right, cyl is stored as numeric
-      mtcars2$cyl <- as.factor(mtcars2$cyl) # Store as factor
-      class(mtcars2$cyl)
-      qplot(cyl, mpg, data = mtcars2)  # Still incorrect! 
-                                       # But again, note X axis.
-                                       # qplot treats cyl as factor, 
-                                       # But assumes wrong geometry. 
-      qplot(cyl, mpg, data = mtcars2, geom="boxplot")
-      qplot(hp, mpg, data = mtcars2)  # Correct geometry assumption
-     
-    # The power of ggplot lies in *aesthetics mapping*
-    # Instead of subsetting and specifying colors, sizes, etc, 
-    # You tell ggplot which variables you want to plot by, and ggplot
-    # finds them in your data and applies default (but customizeable)
-    # parameters like color (often "colour" since the author is Kiwi):
-    
-      qplot(cyl, mpg, data = mtcars2, colour=origin, geom="boxplot")
-      qplot(hp, mpg, data = mtcars2, colour=origin)
-      qplot(hp, mpg, data = mtcars2, colour=origin, shape=am)
-      mtcars2$am <- as.factor(mtcars2$am)
-      qplot(hp, mpg, data = mtcars2, colour=origin, shape=am)
-      qplot(hp, mpg, data = mtcars2, facets=~origin, colour=am)
-      qplot(hp, mpg, data = mtcars2, facets=am~origin, colour=cyl)
-    
-    # Adding regression lines are beyond qplot. Need to jump to ggplot:
-    
+  # Three main components: 
+    # call to the ggplot function -- ggplot() 
+    # specify data.frame
+    # identify aesthetics -- variables to be plotted -- aes() 
+    # define a geometry -- how the plot should look
+  
       ggplot(data=mtcars2, aes(x=hp, y=mpg)) # Empty! No geometry
       ggplot(data=mtcars2, aes(x=hp, y=mpg)) +
         geom_point() 
@@ -151,19 +116,20 @@
              axis.text = element_text(size=12))
    
      ggplot(data=mtcars2, 
-            aes(x=hp, y=mpg, 
-                fill=cyl, 
-                shape=cyl,
-                size=wt)) +
-       geom_point() +
-       theme_bw() +
-       scale_shape_manual(values=c(21,22,24)) + 
+            aes(x=hp, y=mpg)) +
+       geom_smooth(method="lm", color="black", se=FALSE) +
+       geom_point(aes(fill=cyl, 
+                      shape=cyl,
+                      size=wt)) +
+       theme_bw(16) +
+       scale_shape_manual(name="Engine\ncylinders", 
+                          values=c(21,22,24)) + 
+       scale_fill_viridis_d(name="Engine\ncylinders") + 
        scale_size_continuous(guide=FALSE) +
-       theme(axis.title = element_text(size=14), 
-             axis.text = element_text(size=12)) +
-       labs(x="Horsepower", y="Miles per gallon", 
+       labs(x="Engine power (horsepower)",
+            y="Fuel economy (miles/gallon)", 
             title="Fuel efficiency declines as engine power increases",
-            caption="Point sizes scaled to car weight") 
+            caption="Point sizes scaled to car weight")
    
 
   

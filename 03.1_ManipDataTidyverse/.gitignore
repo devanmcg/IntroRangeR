@@ -1,0 +1,15 @@
+*.Rproj.user
+*.Rproj
+*.Rhistory
+*.Ruserdata
+*.log
+*.httr-oauth
+*.ini
+*.jpeg
+
+
+*.Rmd
+*.html
+*.pdf
+
+rsconnect/

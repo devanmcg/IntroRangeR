@@ -14,7 +14,7 @@
 # two options: 
   # Read from a locally-saved .csv file:
   setwd(".../R") 
-  mtcars_origins <- read.csv("./data/mtcars_origins.csv")
+  mtcars_origins <- read_csv("./data/mtcars_origins.csv")
   
   # Read from a Google Sheets file published  
     # online in .csv format:
@@ -25,6 +25,7 @@
 # Data manipulation 
 #
 #
+  str(mtcars)
   head(mtcars)    
 
 # Adding variables 
@@ -52,6 +53,7 @@
 
 # Merge (combine) columns from two data.frames into one:
 
+  str(mtcars_origins)
   mtcars2 <- full_join(mtcars, mtcars_origins, by="make.model" )
   str(mtcars2)
 
@@ -68,6 +70,22 @@
                                                 "North America", 
                                             ifelse((country=="Japan"), 
                                                    "Asia", "Europe")))
+  
+# More complicated distinctions can be sorted with case_when() : 
+  mtcars2 <- mutate(mtcars2, 
+                      sportiness = case_when(
+                        make.model %in% c("Pontiac Firebird", "Camero Z28", 
+                                          "Maserati Bora", "Duster 360", 
+                                          "Dodge Challenger",  "AMC Javelin", 
+                                          "Lotus Europa", "Ford Pantera L", 
+                                          "Ferrari Dino", "Porsche 914-2") ~ "Pretty sporty", 
+                        make.model %in% c("Fiat X1-9", "Hornet Sportabout", 
+                                         "Datsun 710", "Mazda RX4", "Merc 450SLC") ~ "Kinda sporty", 
+                        make.model %in% c("Chrysler Imperial", "Lincoln Continental", 
+                                         "Cadillac Fleetwood", "Merc 450SE") ~ "Total boat", 
+                        TRUE ~ "Not sporty"  ))
+  
+  str(mtcars2)
 
 # Calculate descriptive statistics
 
@@ -75,31 +93,31 @@
 # to define relationships between variables one wants to calculate. 
 # This function is analogous to making a PivotTable in Excel.
 
-  means <-  aggregate(hp ~ continent, data=mtcars2, FUN=mean) 
+  means <-  aggregate(hp ~ sportiness, data=mtcars2, FUN=mean) 
   means
   
   # Add means to a base plot. 
   # Note plot behavior differs between characters and factors.
-    boxplot(hp ~ continent, mtcars2, las=1)
-      points(hp ~ as.factor(continent), means, 
+    boxplot(hp ~ sportiness, mtcars2, las=1)
+      points(hp ~ as.factor(sportiness), means, 
              pch=24, bg="blue", cex=2)
 
 # The tidy way is to group and summarize:
   
   mtcars2 %>% # pipe operator 'pours' data down
-    group_by(cyl) %>%
+    group_by(sportiness) %>%
       summarize(mean_hp = mean(hp)) 
 
 # Easy to add another level: 
   
   mtcars2 %>% 
-    group_by(transmission, cyl) %>%
+    group_by(transmission, sportiness) %>%
       summarize(mean_hp = mean(hp)) 
   
   # Just as easy to add another operation, too: 
   
   mtcars2 %>% 
-    group_by(transmission, cyl) %>%
+    group_by(transmission, sportiness) %>%
       summarize(mean_hp = mean(hp), 
                 sd_hp = sd(hp)) 
 

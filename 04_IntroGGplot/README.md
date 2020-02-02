@@ -6,4 +6,4 @@ Here are some helpful resources for learning how to use *ggplot* and just thinki
 ## **ggplot2** how-to pages 
 
 ## General graphing resources 
-*[https://www.r-bloggers.com/choosing-colour-palettes-part-ii-educated-choices/](Choosing color palettes) 
+*[Choosing color palettes](https://www.r-bloggers.com/choosing-colour-palettes-part-ii-educated-choices/)

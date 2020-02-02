@@ -7,8 +7,9 @@
 *.ini
 *.jpeg
 
-*.Rmd
 *.html
-*.pdf
 
 rsconnect/
+
+MoreGGplotHomeworkAssignment.Rmd
+MoreGGplotHomeworkSolution.Rmd

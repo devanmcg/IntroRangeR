@@ -1,7 +1,7 @@
 # An Introduction to R
 # Devan Allen McGranahan (devan.mcgranahan@gmail.com)
 # 
-# Lesson 5: Introducing ggplot 
+# Lesson 4: Introducing ggplot 
 #
   if (!require("pacman")) install.packages("pacman")
     pacman::p_load(tidyverse)

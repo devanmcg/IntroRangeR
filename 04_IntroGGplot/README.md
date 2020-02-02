@@ -7,4 +7,4 @@ Here are some helpful resources for learning how to use *ggplot* and just thinki
 * [Beautiful plotting in R: A ggplot2 cheatsheet](http://http://zevross.com/blog/2014/08/04/beautiful-plotting-in-r-a-ggplot2-cheatsheet-3)
 
 ## General graphing resources 
-*[Choosing color palettes](https://www.r-bloggers.com/choosing-colour-palettes-part-ii-educated-choices/)
+* [Choosing color palettes](https://www.r-bloggers.com/choosing-colour-palettes-part-ii-educated-choices/)

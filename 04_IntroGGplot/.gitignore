@@ -9,6 +9,5 @@
 
 *.Rmd
 *.html
-*.pdf
 
 rsconnect/

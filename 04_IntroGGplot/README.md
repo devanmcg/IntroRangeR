@@ -10,6 +10,7 @@ Here are some helpful resources for learning how to use *ggplot* and just thinki
 * [Using and modifying ggplot themes](http://www.sthda.com/english/wiki/ggplot2-themes-and-background-colors-the-3-elements)
 
 ## General graphing resources 
+* [A chapter by Edward Tufte about data-ink maximization](https://github.com/devanmcg/rangeR/blob/master/Analysis%20of%20Ecosystems/readings/Tufte%20chap%206%20Data-Ink%20Maximization.pdf)
 * [Choosing color palettes](https://www.r-bloggers.com/choosing-colour-palettes-part-ii-educated-choices/)
 * [Ugly Charts](https://flowingdata.com/category/visualization/ugly-visualization/) 
 * [5 tips on designing colorblind-friendly visualizations](https://www.tableau.com/about/blog/2016/4/examining-data-viz-rules-dont-use-red-green-together-53463) 

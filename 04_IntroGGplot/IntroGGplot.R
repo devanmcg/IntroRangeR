@@ -20,7 +20,7 @@
 # Must still deal with structure
   str(mtcars2)
     
-    mtcars2 <- mutate_at(mtcars, vars(vs, gear, 
+    mtcars2 <- mutate_at(mtcars2, vars(vs, gear, 
                                       carb, cyl), as.character)
   str(mtcars2)
 #

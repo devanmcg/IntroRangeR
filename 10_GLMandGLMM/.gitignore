@@ -1,0 +1,14 @@
+*.Rproj.user
+*.Rproj
+*.Rhistory
+*.Ruserdata
+*.log
+*.httr-oauth
+*.ini
+*.jpeg
+
+GLM_HomeworkAssignment.Rmd
+
+GLM_HomeworkSolution.Rmd
+GLM_HomeworkSolution.html
+GLM_HomeworkSolution.pdf

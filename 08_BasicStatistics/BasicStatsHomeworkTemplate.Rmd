@@ -1,0 +1,103 @@
+---
+title: "Basic statistical analysis"
+author: "your name here"
+date: '`r format(Sys.Date(), "%d %B %Y")`'
+output: word_document
+---
+
+```{r setup, echo=FALSE, warning=FALSE, message = FALSE, results='hide'}
+# Do not mess with this code chunk
+  if (!require("pacman")) install.packages("pacman")
+  pacman::p_load(s20x, knitr)
+  knitr::opts_chunk$set(message = FALSE, warning=FALSE, 
+                 echo=TRUE, eval=TRUE)
+```
+
+
+## Data structure 
+
+
+
+```{r package_loading}
+
+
+```
+
+
+## A basic pairwise comparison
+
+
+```{r plot, fig.cap="If you can read this I failed to make a caption."}
+
+
+```
+
+
+```{r distribution, fig.cap="If you can read this I failed to make a caption."}
+
+
+```
+
+
+```{r test1}
+
+
+
+```
+
+## Multiple-factor comparison
+
+
+```{r RearrangeData, echo=FALSE}
+# Don't mess with this chunk!
+pacman::p_load(dplyr)
+StaWa <- starwars %>% 
+              filter(mass < 1000) %>%
+              mutate(taxa = case_when(
+                       species == "Droid" ~ "Droid", 
+                      species == "Human" ~ "Human",
+                       TRUE ~ "Biological")) %>%
+              filter( ! ((taxa == "Biological" & mass > 120) | (taxa=="Human" & mass < 50)) )
+# Curious about all this? We will learn it soon!
+```
+
+
+
+```{r MultiLevelFactor, fig.cap="If you can read this I failed to make a caption."}
+
+
+
+```
+
+
+```{r test2}
+
+
+```
+
+
+
+```{r test3}
+
+
+
+```
+
+
+## Linear regression 
+
+### Simple 
+
+
+```{r simple_regression, fig.cap="If you can read this I failed to make a caption."}
+
+
+
+```
+
+### Multiple 
+
+
+```{r multiple_regression, fig.cap="If you can read this I failed to make a caption."}
+
+```

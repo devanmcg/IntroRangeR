@@ -1,0 +1,14 @@
+*.Rproj.user
+*.Rproj
+*.Rhistory
+*.Ruserdata
+*.log
+*.httr-oauth
+*.ini
+*.jpeg
+
+BasicStatsHomeworkAssignment.Rmd
+
+BasicStatsHomeworkSolution.Rmd
+BasicStatsHomeworkSolution.html
+BasicStatsHomeworkSolution.pdf

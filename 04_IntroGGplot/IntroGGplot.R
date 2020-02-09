@@ -16,12 +16,7 @@
 # published online in .csv format:
   csvURL <- url("https://docs.google.com/spreadsheets/d/e/2PACX-1vRba0jYQ4pAd8pX0ikaDGamvm_k6zstaAoCOKIz_zi-pnR8qDL6V-NxGc6cp189hmkrG-BoA2Jm32qN/pub?output=csv")
   mtcars2 <- read.csv(csvURL)
-
-# Must still deal with structure
-  str(mtcars2)
-    
-    mtcars2 <- mutate_at(mtcars2, vars(vs, gear, 
-                                      carb, cyl), as.character)
+#
   str(mtcars2)
 #
 # Getting into ggplot

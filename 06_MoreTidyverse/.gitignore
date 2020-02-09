@@ -1,0 +1,12 @@
+*.Rproj.user
+*.Rproj
+*.Rhistory
+*.Ruserdata
+*.log
+*.httr-oauth
+*.ini
+*.jpeg
+
+MoreTidyverseHomeworkSolution.Rmd
+MoreTidyverseHomeworkSolution.html
+MoreTidyverseHomeworkSolution.pdf

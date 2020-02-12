@@ -1,73 +1,97 @@
-if (!require("pacman")) install.packages("pacman")
-pacman::p_load(permute, MASS, plyr, ggplot2)
+# An Introduction to R
+# Devan Allen McGranahan (devan.mcgranahan@gmail.com)
+# 
+# Lesson 7: Introduction to data distributions
+#
 
-data(jackal)
-
-str(jackal)
+  if (!require("pacman")) install.packages("pacman")
+  pacman::p_load(permute, tidyverse)
+  
+  data(jackal)
+  as_tibble(jackal)
 
 # Does the length of jackal teeth vary by sex?
-j.sum <- ddply(jackal, .(Sex), 
-               summarise, 
+j.sum <- jackal %>% 
+          group_by(Sex) %>%
+            summarise( 
                mean=mean(Length), 
-               se=round(sqrt(var(Length)/length(Length)),2))
+               se=sd(Length)/sqrt(length(Length)) )
 j.sum
 
-# Plot the tooth length data
-jn.gg <- ggplot(jackal, aes(x=Length)) + theme_bw() + 
-              geom_histogram(aes(y=..density..),      
-                 binwidth=1,
-                 colour="black", fill="lightgreen") 
-jn.gg
+# Plot the tooth length data 
+  # Histogram: Where the actual data actually are 
+  jn.gg <- ggplot(jackal, aes(x=Length)) + theme_bw(16) + 
+                geom_histogram(aes(y=..density..),      
+                   binwidth=1,
+                   colour="black", fill="lightgreen") 
+  jn.gg
+  
+  # Kernel density estimate: smoothed interpolation of actual data
+  (jn.gg <- jn.gg + geom_density(alpha=.2, fill="#FF6666") )
 
-(jn.gg <- jn.gg + geom_density(alpha=.2, fill="#FF6666") )
+# MASS::fitdistr is a workhorse function for providing parameter estimates
+  MASS::fitdistr(jackal$Length, "normal")
 
-fitdistr(jackal$Length, "normal")
+  # Feed the parameter estimates into stat_function to see 
+  # the theoretical distribution of the data 
+  # i.e. how a statistical model assumes the data look 
+  
+    jn.gg <- jn.gg + 
+              stat_function(data=jackal, 
+                           fun = dnorm, # normal distribution function
+                           args=list(mean=111,
+                                     sd=3.78),
+                           colour="blue", 
+                           size=1.1) 
+    jn.gg
+  
+  # Modify range to get better picture of what model assumes 
+    jn.gg + xlim(c(mean(jackal$Length)-15, 
+                   mean(jackal$Length)+15))
 
-jn.gg <- jn.gg + stat_function(data=jackal, fun = dnorm, 
-                               args=list(mean=111,
-                                         sd=3.78),
-                               colour="blue", size=1.1) 
-jn.gg
-
-jn.gg + xlim(c(mean(jackal$Length)-15, 
-               mean(jackal$Length)+15))
-
-
-# What the t-test actually compares
+#
+# t  - t e s t s 
+#
+# What does a t-test actually compare? 
 
 # Actual data:
-  ggplot(data=jackal, aes(x=Length)) + theme_bw() + 
+(ggt <-  ggplot(data=jackal, aes(x=Length)) + theme_bw(16) + 
     xlim(c(mean(jackal$Length)-15, 
            mean(jackal$Length)+15)) +
     geom_histogram(aes(y=..density.., fill=Sex),      
                    binwidth=1, colour="black") +
-    geom_density(aes(fill=Sex), alpha=.3)
-
+    geom_density(aes(fill=Sex), alpha=.3) ) 
+    
 # Theoretical distributions
-  ggplot(data=jackal, aes(x=Length)) + theme_bw() + 
-    xlim(c(mean(jackal$Length)-15, 
-           mean(jackal$Length)+15)) +
+  # Note that stat_function doesn't use aes() so can't map by a variable. 
+  # Splitting a stat_function by a variable in one plot requires 
+  # filtering and calling stat_function for each subset of the data. 
+  ggt +
     stat_function(data=jackal, fun = dnorm, 
-                  args=list(mean=mean(subset(jackal, 
+                  args=list(mean=mean(filter(jackal, 
                                              Sex=="Male")$Length),
                             sd=sd(jackal$Length)),
-                  colour="blue", size=1.1) +
+                  colour="blue", size=2)  + 
     stat_function(data=jackal, fun = dnorm, 
-                  args=list(mean=mean(subset(jackal, 
+                  args=list(mean=mean(filter(jackal, 
                                              Sex=="Female")$Length),
                             sd=sd(jackal$Length)),
-                  colour="orange", size=1.1) 
+                  colour="orange", size=2) +
+    annotate("text", x=c(100, 120), y=0.12, 
+             label = c("Female", "Male"), 
+             color=c("orange", "blue"), 
+             size=10)
   
 # Calculate a t statistic 
   
-  j.sum
+  j.sum <- as.data.frame(j.sum) # just removes the extra info of a tibble
   
-  X1 <- j.sum[1,2]
-  X2 <- j.sum[2,2]
-  se1 <- j.sum[1,3]
-  se2 <- j.sum[2,3]
+  X1 = j.sum[1,2]
+  X2 = j.sum[2,2]
+  se1 = j.sum[1,3]
+  se2 = j.sum[2,3]
   
-  (X1-X2)/sqrt(se1^2 + se2^2)
+  (X1-X2)/sqrt(se1^2 + se2^2) 
   
 # run a t test
   # Welch's t test with function t.test(): 
@@ -76,30 +100,40 @@ jn.gg + xlim(c(mean(jackal$Length)-15,
   
   
 # Alternate distributions 
+  # Load some data from github
+  load(url("https://github.com/devanmcg/IntroRangeR/raw/master/data/swha.dat.Rdata") )
   
-  str(swha.dat) # Swainson's Hawks 
+  as_tibble(swha.dat) # Swainson's Hawk counts before and during Rx fires 
 
 # Are these data normal?
-  swha.gg <- ggplot(swha.dat, aes(x=diff)) + theme_bw() + 
-    geom_histogram(aes(y=..density..),      
-                   binwidth=1,
-                   colour="black", fill="white") +
-    geom_density(alpha=.2, fill="#FF6666") 
-  swha.gg
+  swha_gg <- ggplot(swha.dat, aes(x=diff)) + theme_bw(16) + 
+              geom_histogram(aes(y=..density..),      
+                             binwidth=1,
+                             colour="black", fill="lightgreen") +
+              geom_density(alpha=.2, fill="#FF6666")  
   
-  swha.gg + stat_function(data=swha.dat, fun = dnorm, 
-                          args=list(mean=mean(swha.dat$diff),
-                                    sd=sd(swha.dat$diff)),
-                          colour="blue", size=1.1) 
+  swha_gg + 
+    stat_function(data=swha.dat, 
+                  fun = dnorm, 
+                  args=list(mean=mean(swha.dat$diff),
+                            sd=sd(swha.dat$diff)),
+                  colour="blue", 
+                  size=1.1)  + 
+    xlim(c(-30, 60)) +
+    labs(title = "Normal (Gaussian) distribution")
  
   # Check for a Gamma distribution
-  fitdistr(swha.dat$diff+0.001, "Gamma")
-  
-  swha.gg + stat_function(data=swha.dat, fun = dgamma, 
-                          args=list(shape=1.86, 
-                                    rate=0.101),
-                          colour="blue", size=1.1) 
-  
+    fitdistr(swha.dat$diff+0.001, "Gamma")
+    
+    swha_gg + stat_function(data=swha.dat, 
+                            fun = dgamma, 
+                            args=list(shape=1.86, 
+                                      rate=0.101),
+                            colour="blue", 
+                            size=1.1) + 
+      xlim(c(-1, 60)) +
+      labs(title = "Gamma distribution")
+    
 # These data are differences:
   # if there is an effect, the difference is 
   # significantly different from zero. 
@@ -109,13 +143,38 @@ jn.gg + xlim(c(mean(jackal$Length)-15,
   
    mean(swha.dat$diff)
   
-  # Test difference from zero with normal distribution
-    swha.norm <- rnorm(1000, mean=mean(swha.dat$diff),
-                             sd=sd(swha.dat$diff))
-    round(quantile(swha.norm, prob=c(0.025,0.975),na.rm=TRUE),0)
+  # Test difference from zero with two distributions 
+  # using simulated data 
+    # Create simulated data using r*dist functions
+     swha_dist <- tibble(normal = rnorm(1000, # randomly generate 1000 on a normal dist
+                                       mean=mean(swha.dat$diff),
+                                       sd=sd(swha.dat$diff)), 
+                        gamma = rgamma(1000, # randomly generate 1000 on a Gamma dist
+                                       shape=1.86, 
+                                       rate=0.101 ) ) %>%
+                    gather(dist, value) 
     
-  # Test difference from zero with Gamma distribution
-    swha.gam <- rgamma(1000,shape=1.86, rate=0.101 )
+  # Calculate quantiles that define 95% confidence interval 
+     swha_dist %>%
+      group_by(dist) %>%
+        summarize(`2.5%` = round(quantile(value, prob=0.025,na.rm=TRUE), 0), 
+                  `97.5%` = round(quantile(value, prob=0.975,na.rm=TRUE), 0))
     
-    round(quantile(swha.gam, prob=c(0.025,0.975),na.rm=TRUE),0)
+  # Visualize distributions of simulated data with respect to zero (no effect)
+    swha_dist %>%
+      ggplot() + theme_bw(16) + 
+        geom_hline(yintercept = 0, size=1.5, lty=2) + 
+        geom_violin(aes(x=dist, y=value, 
+                         fill=dist), 
+                    alpha=0.75, show.legend = F) +
+        coord_flip() + # rotate to horizontal graph 
+      geom_violin(data=swha.dat, aes(x=1.5, y=diff), fill=NA, size=1.5) + 
+       geom_jitter(data=swha.dat, 
+                   aes(x=1.5, y=diff), width = 0.1, 
+                   size=4, pch=21, stroke=1.5, 
+                   col="grey80", bg="grey20") +
+       annotate("text", x=1.5, y=65, label="Actual data", 
+                size=6, fontface="bold")
+    
+
   

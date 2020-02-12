@@ -36,6 +36,15 @@
     # check out the reverse:
       separate(spp_tbl, SampleID, c("Pasture","Treatment","Point"))  
 
+# Data formats: Wide vs long 
+  # spp_tbl in wide format--column for each species values. 
+  # gather into long format: 
+    spp_long <-gather(spp_tbl, species, abundance, -SampleID) 
+    spp_long 
+  
+  # spread them back out: 
+    spread(spp_long, species, abundance)
+
 # Uh oh:
   man_tbl # what's with BareSoil??
 

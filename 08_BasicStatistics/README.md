@@ -1,6 +1,6 @@
 # Homework assignment
 
-[Template](https://github.com/devanmcg/IntroRangeR/blob/master/08_BasicStatistics/BasicStatsHomeworkTemplate.Rmd)(`.Rmd`)
+[Template](https://github.com/devanmcg/IntroRangeR/blob/master/08_BasicStatistics/BasicStatsHomeworkTemplate.Rmd) (`.Rmd`)
 
 ## Data structure 
 

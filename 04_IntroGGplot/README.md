@@ -18,7 +18,7 @@ Here are some helpful resources for learning how to use *ggplot* and just thinki
 # Homework assignment 
 
 *There is an [R markdown template](https://github.com/devanmcg/IntroRangeR/blob/master/04_IntroGGplot/ggplotHomeworkTemplate.Rmd) (`.Rmd`) specifically for this assignment that you can download locally and open in R studio.
-Just add your name in the header and add your script to the code chunks (no need to create additional code chunks).
+Just add your name in the header and add your script to the code chunks (no need to create additional code chunks).*
 
 Apply script from class  to a novel dataset (`iris`, which comes with R) to create scatterplots with `ggplot` from **ggplot2**. 
 Load the required package.

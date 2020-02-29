@@ -14,7 +14,7 @@ Steps:
    - In R studio, go *File > New file... > R markdown*
    - Enter a title like "My first R markdown file", your name, and select MS Word.
 * Modify the text and R script
-   - The grey areas that start with ```{r} and end with ``` are the code chunks. 
+   - The grey areas that start with ` ```{r}` and end with ` ``` ` are the code chunks. 
   Anything in there is read as R script as if you were sending it to the console.
    - Anything outside the chunks is read as regular text. 
   - In the chunk, a line that starts with # is a comment (it is R code, remember?)

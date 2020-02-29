@@ -27,7 +27,7 @@ j.sum
   jn.gg
   
   # Kernel density estimate: smoothed interpolation of actual data
-  (jn.gg <- jn.gg + geom_density(alpha=.2, fill="#FF6666") )
+  (jn.gg <- jn.gg + geom_density(alpha=.5, fill="lightblue") )
 
 # MASS::fitdistr is a workhorse function for providing parameter estimates
   MASS::fitdistr(jackal$Length, "normal")
@@ -38,7 +38,7 @@ j.sum
   
     jn.gg <- jn.gg + 
               stat_function(data=jackal, 
-                           fun = dnorm, # normal distribution function
+                           fun = dnorm, # distribution, normal function
                            args=list(mean=111,
                                      sd=3.78),
                            colour="blue", 
@@ -46,8 +46,21 @@ j.sum
     jn.gg
   
   # Modify range to get better picture of what model assumes 
-    jn.gg + xlim(c(mean(jackal$Length)-15, 
-                   mean(jackal$Length)+15))
+    (jn.gg <- jn.gg + xlim(c(mean(jackal$Length)-15, 
+                      mean(jackal$Length)+15)) ) 
+    
+  # Can also view data as if log-transformed (log-normal distribution)
+    
+    MASS::fitdistr(jackal$Length, "lognormal")
+    
+    jn.gg + 
+      stat_function(data=jackal, 
+                    fun = dlnorm, # distribution, log-normal  function
+                    args=list(meanlog=4.71,
+                              sd=0.03),
+                    lty=5,
+                    colour="blue", 
+                    size=1.1) 
 
 #
 # t  - t e s t s 
@@ -119,20 +132,34 @@ j.sum
                             sd=sd(swha.dat$diff)),
                   colour="blue", 
                   size=1.1)  + 
-    xlim(c(-30, 60)) +
-    labs(title = "Normal (Gaussian) distribution")
+    xlim(c(-30, 60))  + 
+    stat_function(data=swha.dat, 
+                  fun = dlnorm, 
+                  args=list(meanlog=mean(log(swha.dat$diff+1)),
+                            sdlog=sd(log(swha.dat$diff+1))),
+                  colour="blue", 
+                  lty=5,
+                  size=1.1)  + 
+    labs(title = "Normal (Gaussian) & log-normal")
  
-  # Check for a Gamma distribution
+  # Check a Gamma distribution
     fitdistr(swha.dat$diff+0.001, "Gamma")
     
     swha_gg + stat_function(data=swha.dat, 
                             fun = dgamma, 
                             args=list(shape=1.86, 
                                       rate=0.101),
-                            colour="blue", 
+                            colour="darkred", 
                             size=1.1) + 
+      stat_function(data=swha.dat, 
+                    fun = dlnorm, 
+                    args=list(meanlog=mean(log(swha.dat$diff+1)),
+                              sdlog=sd(log(swha.dat$diff+1))),
+                    colour="blue", 
+                    lty=5,
+                    size=1.1)  +  
       xlim(c(-1, 60)) +
-      labs(title = "Gamma distribution")
+      labs(title = "Gamma + log-normal distribution")
     
 # These data are differences:
   # if there is an effect, the difference is 
@@ -149,6 +176,9 @@ j.sum
      swha_dist <- tibble(normal = rnorm(1000, # randomly generate 1000 on a normal dist
                                        mean=mean(swha.dat$diff),
                                        sd=sd(swha.dat$diff)), 
+                         LogNormal = rlnorm(1000, # randomly generate 1000 on a log-normal dist
+                                                    meanlog=mean(log(swha.dat$diff+1)),
+                                                    sdlog=sd(log(swha.dat$diff+1))), 
                         gamma = rgamma(1000, # randomly generate 1000 on a Gamma dist
                                        shape=1.86, 
                                        rate=0.101 ) ) %>%
@@ -173,7 +203,7 @@ j.sum
                    aes(x=1.5, y=diff), width = 0.1, 
                    size=4, pch=21, stroke=1.5, 
                    col="grey80", bg="grey20") +
-       annotate("text", x=1.5, y=65, label="Actual data", 
+       annotate("text", x=1.5, y=100, label="Actual data", 
                 size=6, fontface="bold")
     
 

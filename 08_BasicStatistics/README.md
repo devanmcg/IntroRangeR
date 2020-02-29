@@ -1,5 +1,7 @@
 # Homework assignment
 
+[Template](https://github.com/devanmcg/IntroRangeR/blob/master/08_BasicStatistics/BasicStatsHomeworkTemplate.Rmd)(`.Rmd`)
+
 ## Data structure 
 
 This assignment uses the `starwars` data from the **tidyverse** package. 

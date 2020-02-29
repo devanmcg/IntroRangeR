@@ -22,7 +22,7 @@ Steps:
   - In the chunk, a line that starts with `#` is a comment (it is R code, remember?)
   - Outside the chunk, a line that starts with # is made Heading Level 1 (`##` = Heading Level 2, `###`=Heading Level 3, etc)
 * knit into a Word document with the `Knit` button.
-* Save the Word document and upload here to complete the assignment.
+* Save & submit the Word document to complete the assignment.
 
 The Internet is full of R markdown help and advice. 
 Especially from the R markdown folks themselves. 

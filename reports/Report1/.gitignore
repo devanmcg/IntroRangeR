@@ -11,7 +11,7 @@
 *.log
 *.out
 *.tex
-*.synchtex.gz
+*.synctex.gz
 
 *.Rnw
 *.Rmd

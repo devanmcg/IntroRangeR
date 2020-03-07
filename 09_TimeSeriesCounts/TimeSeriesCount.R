@@ -1,8 +1,14 @@
-pacman::p_load(plyr, dplyr,  ggplot2)
-
-clev.d <- read.csv("./course materials/class session materials/data/AllClevelandCrimeData.csv")
-
-str(clev.d)
+# An Introduction to R
+# Devan Allen McGranahan (devan.mcgranahan@gmail.com)
+# 
+# Lesson 9: Working with count data & time series
+#
+  if (!require("pacman")) install.packages("pacman")
+  pacman::p_load(tidyverse) 
+  
+  clev.d <- read.csv("./data/AllClevelandCrimeData.csv")
+  
+  str(clev.d)
 
 # How many types of crimes occur in Cleveland? 
   nlevels(clev.d$ReportedCharge)
@@ -18,22 +24,21 @@ str(clev.d)
     geom_bar(aes(x=GeneralCharge), stat="count")
   
   # Potentially useful, but messy plot
-
-  charges.gg <- ggplot(clev.d)  + theme_bw(14) +
-                  geom_bar(aes(x=reorder(GeneralCharge, 
-                                         GeneralCharge,
-                                         function(x)-length(x))), 
-                           stat="count")
+    charges.gg <- ggplot(clev.d)  + theme_bw(14) +
+                    geom_bar(aes(x=reorder(GeneralCharge, 
+                                           GeneralCharge,
+                                           function(x)-length(x))), 
+                             stat="count")
   charges.gg
   charges.gg <- charges.gg +
-    labs(x="Charge type", y="Frequency of incidents") 
+                  labs(x="Charge type", y="Frequency of incidents") 
 
   charges.gg
   
   charges.gg <- charges.gg +
-    theme(axis.text.x=element_text(angle=45, hjust=1),
-          legend.position=c(0.75,0.8), 
-          legend.key.width=unit(0.25, "in"))
+                  theme(axis.text.x=element_text(angle=45, hjust=1),
+                        legend.position=c(0.75,0.8), 
+                        legend.key.width=unit(0.25, "in"))
   charges.gg
   
 # Clearly a lot of charges aren't very frequent. 
@@ -52,9 +57,9 @@ str(clev.d)
   
 # To the research question: Which vary by game day? 
   
-  ddply(clev.d, .(ChargeType, GameDay), 
-        summarize, 
-        charges=length(GameDay))
+  clev.d %>%
+    group_by(ChargeType, GameDay) %>% 
+        summarize(charges=length(GameDay))
   
   ggplot(clev.d) + theme_bw(14) +
     geom_bar(aes(x=reorder(ChargeType, 
@@ -72,17 +77,17 @@ str(clev.d)
                       labels=c("No","Yes"))   
   
 # subset by multiple levels
-  gd.charges <- subset(clev.d, ChargeType %in% c("VIOLENT", 
+  gd.charges <- filter(clev.d, ChargeType %in% c("VIOLENT", 
                                                  "RESISTING ARREST",
                                                  "PROPERTY"))
   
   head(gd.charges$ChargeType)
   
   # Stop the shouting!
-  gd.charges$ChargeType <- tolower(gd.charges$ChargeType)
+  gd.charges <- gd.charges %>% mutate(ChargeType = tolower(ChargeType) )
   head(gd.charges$ChargeType)
   
-  ggplot(gd.charges) + theme_bw(14) +
+  ggplot(gd.charges) + theme_bw(16) +
     geom_bar(aes(x=reorder(ChargeType, 
                            ChargeType,
                            function(x)-length(x)), 
@@ -97,49 +102,48 @@ str(clev.d)
     scale_fill_brewer(palette="Set1", 
                       name="Game day?", 
                       labels=c("No","Yes")) 
-  
+#
+# T i m e  s e r i e s 
+#
 # Create a timestamp 
   head(gd.charges$Date) 
   head(gd.charges$Time)
   
-  gd.charges$time.stamp <- with(gd.charges, paste(Date, Time) ) 
-  head(gd.charges$time.stamp)
-  gd.charges$time.stamp <- strptime(gd.charges$time.stamp, 
-                                    "%m/%d/%Y %H:%M")
-  head(gd.charges$time.stamp)
-  class(gd.charges$time.stamp)
-  
-  # There are several date/time classes. 
-  # ggplot requires POSIXct
-  gd.charges$time.stamp <- as.POSIXct(gd.charges$time.stamp)
+  gd.charges <- gd.charges %>% unite('timestamp', c(Date, Time), sep =" " ) 
+  head(gd.charges$timestamp)
+  gd.charges <- gd.charges %>% mutate( timestamp = as.POSIXct(timestamp, 
+                                                              format = "%m/%d/%Y %H:%M") ) 
+
+  head(gd.charges$timestamp)
+  class(gd.charges$timestamp)
   
   # Now we can make a column just of hours
   # regardless of date
-  gd.charges$hour <- format(gd.charges$time.stamp, "%H")
+  gd.charges <- gd.charges %>% mutate(hour = format(timestamp, "%H") )
   head(gd.charges$hour)
-  gd.charges$hour <- as.numeric(gd.charges$hour)
+  gd.charges <- gd.charges %>% mutate(hour = as.numeric(hour) )
   
   # Start time at 8am
-  gd.charges$hr2 <- ifelse(gd.charges$hour<8,
-                           gd.charges$hour+24,
-                           gd.charges$hour)
+  gd.charges <- gd.charges %>% mutate(hr2 = ifelse( hour < 8,
+                                                     hour + 24,
+                                                     hour) )
   # Sum charges per hour
-  charges.hours <- ddply(gd.charges, 
-                         .(GameDay, 
-                          ChargeType, hr2),
-                     summarize, 
-                     charges=length(hr2))
+  charges.hours <- gd.charges %>%
+                       group_by(GameDay, ChargeType, hr2) %>%
+                        summarize(charges=length(hr2)) %>%
+                    ungroup 
   
-  charges.hours$GameDay <- ifelse(charges.hours$GameDay==0,
-                                  "No","Yes")
+  charges.hours <- charges.hours %>% mutate(GameDay = ifelse(GameDay==0,
+                                                             "No","Yes") )
   
-  charges.hours <- subset(charges.hours, hr2 != "NA")
+  charges.hours <- charges.hours %>% filter(hr2 != "NA")
   
- (hr.gg <- ggplot(data=charges.hours, 
-         aes(x=hr2, y=charges)) + theme_bw(14) + 
-    geom_bar(aes(fill=ChargeType), stat="identity",
-             colour="black") +
-    labs(x="Time of day", y="Number of reports") )
+ hr.gg <- ggplot(charges.hours, 
+                  aes(x=hr2, y=charges)) + theme_bw(14) + 
+            geom_bar(aes(fill=ChargeType), stat="identity",
+                     colour="black") +
+            labs(x="Time of day", y="Number of reports") 
+ hr.gg 
  
  hr.gg +
     scale_x_continuous(breaks=seq(8,28,2),

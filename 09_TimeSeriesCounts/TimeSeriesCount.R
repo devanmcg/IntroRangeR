@@ -32,13 +32,12 @@
   charges.gg
   charges.gg <- charges.gg +
                   labs(x="Charge type", y="Frequency of incidents") 
-
   charges.gg
   
+  # Axis formatting tricks in theme() 
   charges.gg <- charges.gg +
-                  theme(axis.text.x=element_text(angle=45, hjust=1),
-                        legend.position=c(0.75,0.8), 
-                        legend.key.width=unit(0.25, "in"))
+                  theme(axis.text.x=element_text(angle=45, hjust=1, color = "black"), 
+                        panel.grid.major.x = element_blank())
   charges.gg
   
 # Clearly a lot of charges aren't very frequent. 
@@ -51,9 +50,8 @@
              stat="count") +
     labs(x="Charge type", 
          y="Frequency of incidents") + 
-    theme(axis.text.x=element_text(angle=45, hjust=1),
-          legend.position=c(0.75,0.8), 
-          legend.key.width=unit(0.25, "in"))
+    theme(axis.text.x=element_text(angle=45, hjust=1, color = "black"), 
+          panel.grid.major.x = element_blank() )
   
 # To the research question: Which vary by game day? 
   
@@ -69,7 +67,8 @@
              stat="count") +
     labs(x="Charge type", 
          y="Frequency of incidents") + 
-    theme(axis.text.x=element_text(angle=45, hjust=1),
+    theme(axis.text.x=element_text(angle=45, hjust=1, color = "black"), 
+          panel.grid.major.x = element_blank(),
           legend.position=c(0.75,0.8), 
           legend.key.width=unit(0.25, "in")) +
     scale_fill_brewer(palette="Set1", 
@@ -96,7 +95,8 @@
              position = "dodge") +
     labs(x="Charge type", 
          y="Frequency of incidents") + 
-    theme(axis.text.x=element_text(angle=45, hjust=1),
+    theme(axis.text.x=element_text(angle=45, hjust=1, color = "black"), 
+          panel.grid.major.x = element_blank(),
           legend.position=c(0.75,0.8), 
           legend.key.width=unit(0.25, "in")) +
     scale_fill_brewer(palette="Set1", 
@@ -106,6 +106,9 @@
 # T i m e  s e r i e s 
 #
 # Create a timestamp 
+  # R has several date/time object classes. 
+  # tidyverse is compatible with POSIXct
+  
   head(gd.charges$Date) 
   head(gd.charges$Time)
   
@@ -124,9 +127,10 @@
   gd.charges <- gd.charges %>% mutate(hour = as.numeric(hour) )
   
   # Start time at 8am
+  # Note use of lubridate::hours from tidyverse
   gd.charges <- gd.charges %>% mutate(hr2 = ifelse( hour < 8,
-                                                     hour + 24,
-                                                     hour) )
+                                                      hour + 24,
+                                                      hour) )
   # Sum charges per hour
   charges.hours <- gd.charges %>%
                        group_by(GameDay, ChargeType, hr2) %>%

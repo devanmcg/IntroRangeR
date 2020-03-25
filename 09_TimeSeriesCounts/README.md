@@ -4,9 +4,11 @@
 
 Gerry Stokka, NDSU Animal Science, put these spikes in the noses of a few calves while they were still nursing on the range. 
 The idea is that they poke mama's udder, she resists nursing, and the calves learn to find their own food, essentially self-weaning. 
-Stokka's lab was curious how this affected their behavior once everyone was officially weaned and brought to the feedlot. 
 
 <img src="https://github.com/devanmcg/IntroRangeR/blob/master/09_TimeSeriesCounts/WeanySpikes.jpg" width="400">
+
+Stokka's lab was curious how this affected their behavior once everyone was officially weaned and brought to the feedlot.
+As the calves went on to the feedlot, I put a few of my [DIY GPS collars](https://onlinelibrary.wiley.com/doi/full/10.1002/ece3.4094) on a subset of the calves and logged their movements for seven days. 
 
 ## The assignment
 

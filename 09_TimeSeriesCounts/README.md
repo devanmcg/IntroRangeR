@@ -10,10 +10,16 @@ Stokka's lab was curious how this affected their behavior once everyone was offi
 
 ## The assignment
 
+### Graph 
 Use these data [CalfDistancesByMinute.Rdata](https://github.com/devanmcg/IntroRangeR/blob/master/data/CalfDistancesByMinute.Rdata)
 to reproduce the following graph as closely as possible:
 
 <img src="https://github.com/devanmcg/IntroRangeR/blob/master/09_TimeSeriesCounts/HourlyDistances-1.png" width="600">
+
+### Questions
+
+* How did not having a flap affect behavior over time?
+* What might account for differences between the two groups, and changes within?
 
 ### Hints 
 

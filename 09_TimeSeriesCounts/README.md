@@ -21,8 +21,3 @@ to reproduce the following graph as closely as possible:
  * You'll need to implement `summarize` at least twice on different `group_by` constructions. 
  * You'll likely need to use `as.POSIXct` again after other manipulations. 
  * Check out various `scale_x_` options when you get to your `ggplot`
- * Also check out `aes(group= )`
-
-
-
-

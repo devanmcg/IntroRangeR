@@ -7,6 +7,7 @@
 *.ini
 
 TimeSeriesCountHomeworkAssignment.Rmd
+HomeworkDataWorkup.R
 
 TimeSeriesCountHomeworkSolution.Rmd
 TimeSeriesCountHomeworkSolution.html

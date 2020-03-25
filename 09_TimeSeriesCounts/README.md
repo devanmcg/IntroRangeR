@@ -8,10 +8,21 @@ Stokka's lab was curious how this affected their behavior once everyone was offi
 
 <img src="https://github.com/devanmcg/IntroRangeR/blob/master/09_TimeSeriesCounts/WeanySpikes.jpg" width="400">
 
-* Make the following graph, based on having made the necessary modification to `mtcars`: 
+## The assignment
 
-<img src="https://github.com/devanmcg/IntroRangeR/blob/master/09_TimeSeriesCounts/HourlyDistances-1.png" width="500">
+Use these data [CalfDistancesByMinute.Rdata](https://github.com/devanmcg/IntroRangeR/blob/master/data/CalfDistancesByMinute.Rdata)
+to reproduce the following graph as closely as possible:
 
-The data file: 
-[CalfDistancesByMinute.Rdata](https://github.com/devanmcg/IntroRangeR/blob/master/data/CalfDistancesByMinute.Rdata)
+<img src="https://github.com/devanmcg/IntroRangeR/blob/master/09_TimeSeriesCounts/HourlyDistances-1.png" width="600">
+
+### Hints 
+
+ * Different scales of time can be `format`ted differently. 
+ * You'll need to implement `summarize` at least twice on different `group_by` constructions. 
+ * You'll likely need to use `as.POSIXct` again after other manipulations. 
+ * Check out various `scale_x_` options when you get to your `ggplot`
+ * Also check out `aes(group= )`
+
+
+
 

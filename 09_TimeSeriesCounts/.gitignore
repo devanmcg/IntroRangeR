@@ -5,7 +5,6 @@
 *.log
 *.httr-oauth
 *.ini
-*.jpeg
 
 TimeSeriesCountHomeworkAssignment.Rmd
 

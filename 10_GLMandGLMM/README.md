@@ -1,6 +1,6 @@
 # Lecture 
 
-![Lecture on youtube](https://youtu.be/cNrYEuMDfyo)
+[Lecture on youtube](https://youtu.be/cNrYEuMDfyo)
 
 # Homework assignment 
 

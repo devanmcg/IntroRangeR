@@ -5,7 +5,7 @@
 
 # Homework assignment 
 
-** Instructions
+## Instructions
 
 * For this assignment, include your code as an Appendix using the appropriate chunk from the mini-report assignment.
 * Try saving your assignment as *.pdf* before uploading to Blackboard (or for **LaTeX** users, `knit` straight to *.pdf* )

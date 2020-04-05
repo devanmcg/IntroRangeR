@@ -20,9 +20,9 @@ The course focuses on using the `tidyverse` for data manipulation, with the prim
 These materials assume one has **R** and **RStudio** installed on their computer. 
 Both are freely available.
 
-[https://www.r-project.org/](Download **R**)
+[Download **R**](https://www.r-project.org/)
 
-[https://rstudio.com/products/rstudio/download/](Download **RStudio**)
+[Download **RStudio**](https://rstudio.com/products/rstudio/download/)
 
 ## History 
 

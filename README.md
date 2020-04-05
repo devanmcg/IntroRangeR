@@ -15,6 +15,15 @@ One won't learn to do everything one needs for a thesis or report, but one will 
 
 The course focuses on using the `tidyverse` for data manipulation, with the primary intent of helping users get their data out of spreadsheet programs and doing as much of their data management as possible in the **R** environment. 
 
+## Required software 
+
+These materials assume one has **R** and **RStudio** installed on their computer. 
+Both are freely available.
+
+[https://www.r-project.org/](Download **R**)
+
+[https://rstudio.com/products/rstudio/download/](Download **RStudio**)
+
 ## History 
 
 The initial commit was pretty much as the course was at the end of the first run, in spring 2018. 

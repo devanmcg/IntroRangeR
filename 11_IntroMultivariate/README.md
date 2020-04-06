@@ -1,8 +1,19 @@
-# Lecture
+# Lectures
 
+## 11.1: Cluster analysis
 [Video available here on YouTube](https://youtu.be/3FFerYQbb-0) 
 
-# Homework 
+## 11.2: Ordination 
+
+*coming soon*
+
+## 11.3: Pretty plots 
+
+*coming soon*
+
+# Homework assignments 
+
+## 11.1: Cluster analysis
 
 Since I began teaching multivariate analyses--at the University of KwaZulu-Natal, South Africa, in 2014--I've had a few students from each class submit to having several 'traits' measured and recorded. 
 We use the dataset to demonstrate multivariate techniques in class. 
@@ -18,5 +29,11 @@ Refer to it in answering this question: *What do the axes of the variables sugge
 Refer to it in answering this question: *What is the optimal number of groups for the student trait dataset?*
 * Re-plot the cluster diagram with the optimal number of groups identified.
 
+## 11.2: Ordination 
 
+*coming soon*
+
+## 11.3: Pretty plots
+
+*coming soon*
 

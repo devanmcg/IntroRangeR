@@ -1,7 +1,11 @@
 # An Introduction to R
+#
 # Devan Allen McGranahan (devan.mcgranahan@gmail.com)
+#
+# YouTube lectures: https://www.youtube.com/playlist?list=PLKXOvaXmjIGcSHFMe2Wpsaw4yzvWR0AgQ
+# github repo: https://github.com/devanmcg/IntroRangeR
 # 
-# Lesson 1.2: Getting to know each other through data
+# Lesson 0: Getting to know each other through data
 #
 # This script demonstrates several R capacities
 # by chugging through the Get To Know You survey

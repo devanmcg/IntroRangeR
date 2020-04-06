@@ -1,5 +1,9 @@
 # An Introduction to R
+#
 # Devan Allen McGranahan (devan.mcgranahan@gmail.com)
+#
+# YouTube lectures: https://www.youtube.com/playlist?list=PLKXOvaXmjIGcSHFMe2Wpsaw4yzvWR0AgQ
+# github repo: https://github.com/devanmcg/IntroRangeR
 # 
 # Lesson 10: Fitting GLM and GLMM regression models
 #

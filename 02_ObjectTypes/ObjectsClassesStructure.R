@@ -1,5 +1,9 @@
 # An Introduction to R
+#
 # Devan Allen McGranahan (devan.mcgranahan@gmail.com)
+#
+# YouTube lectures: https://www.youtube.com/playlist?list=PLKXOvaXmjIGcSHFMe2Wpsaw4yzvWR0AgQ
+# github repo: https://github.com/devanmcg/IntroRangeR
 # 
 # Lesson 2: R objects, classes, and structure
 
@@ -16,8 +20,8 @@
 		# Save specific objects. 
 		# Always a good idea: after importing and manipulating data, 
 		# save specific objects
-		save(file.name, file="./file.name.Rdata") # saves to cwd
-		load("./file.name.Rdata") # Bring R objects into the workspace from cwd. 
+		save(file_name, file="./file_name.Rdata") # saves to cwd
+		load("./file_name.Rdata") # Bring R objects into the workspace from cwd. 
 			
 		# Save workspace: at the end of your session, you can save everything 
 		# on the current workspace. 
@@ -37,8 +41,10 @@
 		                 # All included functions are available.
 		p_load(dplyr)    # p_load is a pacman function that will run now. 
 		pacman::p_load(dplyr) # Alternative way to make a one-time call 
-		                        # to a specific function in a library. 
-		                        # Useful if you know two packages have same function!
+		                        # to a specific function in a library: 
+		                        #   PackageName::FunctionInPackage( )
+		                        # Useful if you know two packages have 
+		                        # same function and will compete. 
 		
 # Some diagnostic functions
 		
@@ -61,7 +67,8 @@
 		head(cars[1])     # Top six rows of first column
 
 		column = "speed"
-		head(cars[[column]]) # Useful in programming (eg, if name, position changes)
+		head(cars[[column]]) # Useful in programming 
+		                     # eg, if name or position can change
 		
 		# Silly example script:
 		
@@ -76,10 +83,10 @@
 	  
 		# Evaluate specific rows and cells 
 		
-		cars[1,] # Display row 1
+		cars[1,]   # Display row 1
 		cars[1:3,] # Display rows 1 through 3
 		cars[3:5,] # Display rows 3 through 5
-		cars[5,2] # Display component located in row 5, column 2
+		cars[5,2]  # Display component located in row 5, column 2
 		
 # A more complex dataset?
 		
@@ -92,7 +99,7 @@
 		mtcars$vs <- as.factor(mtcars$vs)
 		str(mtcars)
 		
-		# This can get repetitive if many conversions are required. 
+		# This is laborious if many conversions are required. 
 		# dplyr package from the tidyverse has a 'tidy' solution:
 
 		mtcars <- mutate_at(mtcars, vars(gear, carb), as.factor)

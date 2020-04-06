@@ -1,15 +1,10 @@
 # Lectures
 
-## 11.1: Cluster analysis
-[Video available here on YouTube](https://youtu.be/3FFerYQbb-0) 
+**11.1: Cluster analysis** [Video available here on YouTube](https://youtu.be/3FFerYQbb-0) 
 
-## 11.2: Ordination 
+**11.2: Ordination** *coming soon*
 
-*coming soon*
-
-## 11.3: Pretty plots 
-
-*coming soon*
+**11.3: Pretty plots** *coming soon*
 
 # Homework assignments 
 

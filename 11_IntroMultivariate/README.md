@@ -16,7 +16,7 @@ You will use those data, [StudentsLong.csv](https://github.com/devanmcg/IntroRan
 
 Ensure all script is included at the end of your document as an appendix. 
 
-* Load the data and ensure it is in the proper format for multivariate analysis. 
+* Load the data and ensure they are in the proper format for multivariate analysis. 
 * Present a scatterplot matrix. 
 Refer to it in answering this question: *What do the axes of the variables suggest you ought to do to the data prior to conducting a multivariate analysis?*
 * Present a cluster diagram based on a Euclidean distance matrix.

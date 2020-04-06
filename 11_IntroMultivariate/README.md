@@ -1,6 +1,6 @@
 # Lectures
 
-**11.1: Cluster analysis** [Video available here on YouTube](https://youtu.be/3FFerYQbb-0) 
+**11.1: Cluster analysis** [Video available here on YouTube](https://youtu.be/3FFerYQbb-0). Script: [IntroMultivariateClustering.R](https://github.com/devanmcg/IntroRangeR/blob/master/11_IntroMultivariate/IntroMultivariateClustering.R) 
 
 **11.2: Ordination** *coming soon*
 

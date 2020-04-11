@@ -1,5 +1,7 @@
 # Lectures
 
+As the course has moved online, I've broken the Introduction to Multivariate material into several smaller chunks:
+
 **11.1: Cluster analysis** 
 * [Video available here on YouTube](https://youtu.be/3FFerYQbb-0). 
 * Script: [IntroMultivariateClustering.R](https://github.com/devanmcg/IntroRangeR/blob/master/11_IntroMultivariate/IntroMultivariateClustering.R) 
@@ -8,9 +10,14 @@
 * 11.2.1: Fitting ordinations 
   - Video *coming soon*
   - Script *coming soon*
-* 11.2.2: Plotting & testing groups *coming soon*
+* 11.2.2: Plotting & testing groups 
+  - Video *coming soon*
+  - Script *coming soon*
 
-**11.3: Pretty plots** *coming soon*
+**11.3: Pretty plots** 
+Using `ggplot2` to present ordination graphics instead of base plotting functions.
+ * Video *coming soon*
+ * Script *coming soon*
 
 # Homework assignments 
 

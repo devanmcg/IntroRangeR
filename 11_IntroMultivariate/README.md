@@ -39,13 +39,9 @@ Refer to it in answering this question: *What is the optimal number of groups fo
 *coming soon*
 
 
-# D I S C L A I M E R:
-# We use PCA here for illustration 
-# (Euclidean distance is conceptually easy)
-# PCA is not the only choice for ordination... 
-# ...and for ecologists, it is rarely the best choice. 
-# The vegan package provides many alternatives to the 
-# Euclidean distance measure;  see ?vegdist.
-# See ?metaMDS and ?capscale for non-metric and metric
-# multidimensional scaling functions for analysis.
+# D I S C L A I M E R
 
+We use PCA here for illustration because Euclidean distance is conceptually easy to grasp. 
+But PCA is not the only choice for ordination, and for ecologists, it is rarely the best choice. 
+The vegan package provides many alternatives to the Euclidean distance measure;  see `?vegdist`.
+See`?metaMDS` and `?capscale` for non-metric and metric multidimensional scaling functions for analysis.

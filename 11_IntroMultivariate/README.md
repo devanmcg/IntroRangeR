@@ -46,4 +46,4 @@ But PCA is not the only choice for ordination, and for ecologists, it is rarely 
 The vegan package provides many alternatives to the Euclidean distance measure;  see `?vegdist`.
 See`?metaMDS` and `?capscale` for non-metric and metric multidimensional scaling functions for analysis.
 
-While I don't get into ordinations with other distance measures here in , you can check out my other course, [Analysis of Ecosystems](https://github.com/devanmcg/rangeR/tree/master/Analysis%20of%20Ecosystems). 
+While I don't get into ordinations with other distance measures here in *Introduction to* ***R***, you can check out my other course, [Analysis of Ecosystems](https://github.com/devanmcg/rangeR/tree/master/Analysis%20of%20Ecosystems). 

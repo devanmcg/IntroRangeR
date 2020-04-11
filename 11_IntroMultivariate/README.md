@@ -4,7 +4,11 @@
 * [Video available here on YouTube](https://youtu.be/3FFerYQbb-0). 
 * Script: [IntroMultivariateClustering.R](https://github.com/devanmcg/IntroRangeR/blob/master/11_IntroMultivariate/IntroMultivariateClustering.R) 
 
-**11.2: Ordination** *coming soon*
+**11.2: Ordination** 
+* 11.2.1: Fitting ordinations 
+  - Video *coming soon*
+  - Script *coming soon*
+* 11.2.2: Plotting & testing groups *coming soon*
 
 **11.3: Pretty plots** *coming soon*
 
@@ -33,4 +37,15 @@ Refer to it in answering this question: *What is the optimal number of groups fo
 ## 11.3: Pretty plots
 
 *coming soon*
+
+
+# D I S C L A I M E R:
+# We use PCA here for illustration 
+# (Euclidean distance is conceptually easy)
+# PCA is not the only choice for ordination... 
+# ...and for ecologists, it is rarely the best choice. 
+# The vegan package provides many alternatives to the 
+# Euclidean distance measure;  see ?vegdist.
+# See ?metaMDS and ?capscale for non-metric and metric
+# multidimensional scaling functions for analysis.
 

@@ -8,7 +8,7 @@ As the course has moved online, I've broken the Introduction to Multivariate mat
 
 **11.2: Ordination** 
 * 11.2.1: Fitting ordinations 
-  - Video *coming soon*
+  - [Video available here on YouTube](https://youtu.be/UsUbpj6C4QA).
   - Script *coming soon*
 * 11.2.2: Plotting & testing groups 
   - Video *coming soon*

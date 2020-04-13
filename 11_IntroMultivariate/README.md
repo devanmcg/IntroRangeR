@@ -9,7 +9,7 @@ As the course has moved online, I've broken the Introduction to Multivariate mat
 **11.2: Ordination** 
 * 11.2.1: Fitting ordinations 
   - [Video available here on YouTube](https://youtu.be/UsUbpj6C4QA).
-  - Script *coming soon*
+  - Script: [IntroMultivariateOrdinations.R](https://github.com/devanmcg/IntroRangeR/blob/master/11_IntroMultivariate/IntroMultivariateOrdinations.R)
 * 11.2.2: Plotting & testing groups 
   - Video *coming soon*
   - Script *coming soon*

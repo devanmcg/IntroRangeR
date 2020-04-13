@@ -70,3 +70,4 @@
     return(m1)
   }
   Meaner(data)
+  

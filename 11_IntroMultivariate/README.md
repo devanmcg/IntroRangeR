@@ -1,18 +1,20 @@
-# Lectures
+# Learn
+
+* Lectures* 
 
 As the course has moved online, I've broken the Introduction to Multivariate material into several smaller chunks:
 
 **11.1: Cluster analysis** 
-* [Video available here on YouTube](https://youtu.be/3FFerYQbb-0). 
+* [Video available here on YouTube](https://youtu.be/3FFerYQbb-0) 
 * Script: [IntroMultivariateClustering.R](https://github.com/devanmcg/IntroRangeR/blob/master/11_IntroMultivariate/IntroMultivariateClustering.R) 
 
 **11.2: Ordination** 
 * 11.2.1: Fitting ordinations 
-  - [Video available here on YouTube](https://youtu.be/UsUbpj6C4QA).
+  - [Video available here on YouTube](https://youtu.be/UsUbpj6C4QA)
   - Script: [IntroMultivariateOrdinations.R](https://github.com/devanmcg/IntroRangeR/blob/master/11_IntroMultivariate/IntroMultivariateOrdinations.R)
-* 11.2.2: Plotting & testing groups 
-  - Video *coming soon*
-  - Script *coming soon*
+* 11.2.2: Plotting and testing groups and gradients
+  - [Video on YouTube](https://youtu.be/HOQEtTofbjg)
+  - Script: [IntroMultivariateOrdGroupsGradients.R](https://github.com/devanmcg/IntroRangeR/blob/master/11_IntroMultivariate/IntroMultivariateOrdGroupsGradients.R), [IntroMultivariateOrds3D.R](https://github.com/devanmcg/IntroRangeR/blob/master/11_IntroMultivariate/IntroMultivariateOrds3D.R)
 
 **11.3: Pretty plots** 
 Using `ggplot2` to present ordination graphics instead of base plotting functions.

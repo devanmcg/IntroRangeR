@@ -1,14 +1,16 @@
-# Learn
+# Learn.
 
-* Lectures* 
+*Lectures* 
 
 As the course has moved online, I've broken the Introduction to Multivariate material into several smaller chunks:
 
 **11.1: Cluster analysis** 
+
 * [Video available here on YouTube](https://youtu.be/3FFerYQbb-0) 
 * Script: [IntroMultivariateClustering.R](https://github.com/devanmcg/IntroRangeR/blob/master/11_IntroMultivariate/IntroMultivariateClustering.R) 
 
 **11.2: Ordination** 
+
 * 11.2.1: Fitting ordinations 
   - [Video available here on YouTube](https://youtu.be/UsUbpj6C4QA)
   - Script: [IntroMultivariateOrdinations.R](https://github.com/devanmcg/IntroRangeR/blob/master/11_IntroMultivariate/IntroMultivariateOrdinations.R)
@@ -17,11 +19,15 @@ As the course has moved online, I've broken the Introduction to Multivariate mat
   - Script: [IntroMultivariateOrdGroupsGradients.R](https://github.com/devanmcg/IntroRangeR/blob/master/11_IntroMultivariate/IntroMultivariateOrdGroupsGradients.R), [IntroMultivariateOrds3D.R](https://github.com/devanmcg/IntroRangeR/blob/master/11_IntroMultivariate/IntroMultivariateOrds3D.R)
 
 **11.3: Pretty plots** 
+
 Using `ggplot2` to present ordination graphics instead of base plotting functions.
+
  * Video *coming soon*
  * Script *coming soon*
 
-# Homework assignments 
+# Do. 
+
+*Homework assignments* 
 
 ## 11.1: Cluster analysis
 
@@ -41,7 +47,20 @@ Refer to it in answering this question: *What is the optimal number of groups fo
 
 ## 11.2: Ordination 
 
-*coming soon*
+Fit, plot, and assess a PCA; test and plot by groups.
+
+* Same data as before: [StudentsLong.csv](https://github.com/devanmcg/IntroRangeR/raw/master/data/StudentsLong.csv). 
+* Your homework submission must include:
+  - Biplot of PCA
+  - Summary of axis importance by eigenvalues and proportion explained. 
+  - Scree plot and assessment of ordination. 
+  - Test grouping variables `continent` and `gender`
+  - Present a table of relevant test results. 
+  - Conduct any necessary tests for significant factors with > 2 levels. 
+  If such a term is not significant, describe the methods you would use for a post-hoc test.
+  - Plot the ordination with site scores displayed by factor levels for significant groups. 
+  Describe the variables that account for differences between the groups.
+* Include script as an appendix at the end of your document. 
 
 ## 11.3: Pretty plots
 

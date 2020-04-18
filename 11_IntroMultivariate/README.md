@@ -22,8 +22,8 @@ As the course has moved online, I've broken the Introduction to Multivariate mat
 
 Using `ggplot2` to present ordination graphics instead of base plotting functions.
 
- * Video *coming soon*
- * Script *coming soon*
+ * [Video on YouTube](https://youtu.be/pVskBr82tEE)
+ * Script: [IntroMultivariateGGplotting.R](https://github.com/devanmcg/IntroRangeR/blob/master/11_IntroMultivariate/IntroMultivariateGGplotting.R), bonus material script [IntroMultivariateDissectOrdObjects.R](https://github.com/devanmcg/IntroRangeR/blob/master/11_IntroMultivariate/IntroMultivariateDissectOrdObjects.R)
 
 # Do. 
 
@@ -64,7 +64,11 @@ Fit, plot, and assess a PCA; test and plot by groups.
 
 ## 11.3: Pretty plots
 
-*coming soon*
+Use third-party packages to create clean, uncluttered ordination graphics. 
+
+* Use the same [StudentsLong.csv](https://github.com/devanmcg/IntroRangeR/raw/master/data/StudentsLong.csv) data. 
+* Present a biplot in which the site scores are identified by a grouping variable and species scores are clearly legible (and don't interfere with interpreting the site scores or groups). 
+* Include your script as an appendix at the end of your homework submission. 
 
 
 # D I S C L A I M E R

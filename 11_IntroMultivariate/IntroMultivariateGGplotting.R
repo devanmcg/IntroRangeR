@@ -93,7 +93,7 @@
                 spiders=TRUE, ellipse=FALSE, plot=TRUE)
   # Store as an object (plot = FALSE)
     pca_gg <- gg_ordiplot(chem_pca, groups = man$BurnSeason, 
-                          scaling = 1, plot=FALSE) 
+                          plot=FALSE) 
   
   # Add spiderplot groups and site scores to list of scores
     

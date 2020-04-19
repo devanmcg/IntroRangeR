@@ -95,7 +95,7 @@
     pca_gg <- gg_ordiplot(chem_pca, groups = man$BurnSeason, 
                           plot=FALSE) 
   
-  # Add spiderplot groups and site scores to list of scores
+  # Add spiderplot groups and species scores to list of scores
     
     pca_scores$spiders <-
       pca_gg$df_spiders %>% 

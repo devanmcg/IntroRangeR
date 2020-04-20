@@ -9,7 +9,7 @@
 #
 # Packages
   if (!require("pacman")) install.packages("pacman")
-  pacman::p_load(tidyverse, vegan, gridExtra) 
+  pacman::p_load(tidyverse, vegan, gridExtra, remotes) 
 
   # Load, select, and scale data
     data(varechem) 
@@ -86,7 +86,7 @@
   #
   # Load extension package for ordinations in ggplot
   #
-    pacman::p_load(ggordiplots)
+    pacman::p_load_gh('jfq3/ggordiplots' )
     
   # View default plot (plot = TRUE)
     gg_ordiplot(chem_pca, groups = man$BurnSeason, 

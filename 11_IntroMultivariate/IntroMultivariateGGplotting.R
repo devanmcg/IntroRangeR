@@ -86,7 +86,8 @@
   #
   # Load extension package for ordinations in ggplot
   #
-    pacman::p_load_gh('jfq3/ggordiplots' )
+    remotes::install_github("jfq3/ggordiplots" )
+    pacman::p_load(ggordiplots)
     
   # View default plot (plot = TRUE)
     gg_ordiplot(chem_pca, groups = man$BurnSeason, 

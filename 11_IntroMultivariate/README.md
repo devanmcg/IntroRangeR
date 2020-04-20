@@ -68,6 +68,7 @@ Use third-party packages to create clean, uncluttered ordination graphics.
 
 * Use the same [StudentsLong.csv](https://github.com/devanmcg/IntroRangeR/raw/master/data/StudentsLong.csv) data. 
 * Present a biplot in which the site scores are identified by a grouping variable and species scores are clearly legible (and don't interfere with interpreting the site scores or groups). 
+* Answer this question: *Which traits contribute the most to variation in MDS Axis 1, and in which directions? Axis 2?* Provide evidence to support your answer.
 * Include your script as an appendix at the end of your homework submission. 
 
 

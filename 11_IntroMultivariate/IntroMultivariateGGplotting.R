@@ -89,7 +89,7 @@
     remotes::install_github("jfq3/ggordiplots" )
     pacman::p_load(ggordiplots) 
     # If that doesn't work, just load the function itself:
-      source("https://raw.githubusercontent.com/devanmcg/ggordiplots/master/R/gg_ordiplot.R")
+      source("https://raw.githubusercontent.com/devanmcg/IntroRangeR/master/11_IntroMultivariate/ordinationsGGplot.R")
     
   # View default plot (plot = TRUE)
     gg_ordiplot(chem_pca, groups = man$BurnSeason, 

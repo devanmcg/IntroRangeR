@@ -10,18 +10,22 @@
 
 ### The assignment
 
-Reproduce, as closely as possible, each of the following maps:
+Reproduce, as closely as possible, each of the following maps. 
+Data and tips are below.
 
 * A national map of Canada
   - Provincial boundaries overlaid over Level 1 EPA ecoregions
-  - Projection accommodating curvature of the earth
+  - Projection accommodating curvature of the Earth
 
-<img src="https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/national-1.png" width="600" cap="National map" >
+<img src="https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/national-1.png" width="600" >
+
+* A map of provinces Alberta and Saskatchewan
+  - Provincial boundaries overlaid over Level 2 EPA ecoregions
+  - Projection accommodating curvature of the Earth
+  - Identify the provinces with a font that contrasts with the fill
+  - Indicate the location of these eight `Populated Places` and identify them with a label that does not obscure the location marker.
 
 <img src="https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/provincial-1.png" width="600">
-
-
-
 
 ### Data
 
@@ -32,8 +36,7 @@ Access the SHP files for Alberta and Saskatchewan (unfortunately can't provide h
   - Alberta: `cgn_ab_shp_eng.shp` in `ftp://ftp.geogratis.gc.ca/pub/nrcan_rncan/vector/geobase_cgn_toponyme/prov_shp_eng/cgn_ab_shp_eng.zip`  
   - Saskatchewan: `cgn_sk_shp_eng.shp` in `ftp://ftp.geogratis.gc.ca/pub/nrcan_rncan/vector/geobase_cgn_toponyme/prov_shp_eng/cgn_sk_shp_eng.zip`
   
-
-### Hints 
+### Tips 
 
  * Different scales of time can be `format`ted differently. 
  * You'll need to implement `summarize` at least twice on different `group_by` constructions. 

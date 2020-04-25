@@ -19,9 +19,11 @@
 ### Data
 
 * North American EPA Ecoregions, Levels 1 and 2: [`NA_CEC_Eco_Level2.shp`](http://ecologicalregions.info/data/cec_na/NA_CEC_Eco_Level2.zip) (`.zip`)
-* [Canada geographical place name data](https://www.nrcan.gc.ca/earth-sciences/geography/download-geographical-names-data/9245) (by province)
-  - Alberta: [`cgn_ab_shp_eng.shp`](ftp://ftp.geogratis.gc.ca/pub/nrcan_rncan/vector/geobase_cgn_toponyme/prov_shp_eng/cgn_ab_shp_eng.zip) (`.zip`)
-  - Saskatchewan: [`cgn_sk_shp_eng.shp`](ftp://ftp.geogratis.gc.ca/pub/nrcan_rncan/vector/geobase_cgn_toponyme/prov_shp_eng/cgn_sk_shp_eng.zip) (`.zip`)
+* [Canada geographical place name data](https://www.nrcan.gc.ca/earth-sciences/geography/download-geographical-names-data/9245). 
+These are organized by province. 
+Access the SHP files for Alberta and Saskatchewan (unfortunately can't provide hot ftp links here):
+  - Alberta: [cgn_ab_shp_eng.shp](ftp://ftp.geogratis.gc.ca/pub/nrcan_rncan/vector/geobase_cgn_toponyme/prov_shp_eng/cgn_ab_shp_eng.zip) 
+  - Saskatchewan: [cgn_sk_shp_eng.shp](ftp://ftp.geogratis.gc.ca/pub/nrcan_rncan/vector/geobase_cgn_toponyme/prov_shp_eng/cgn_sk_shp_eng.zip)
   
 
 ### Hints 

@@ -5,11 +5,11 @@
 **12.1: Introduction to mapping** 
 
 * 12.1.1: Basic mapping with `ggplot2`
-  - %[Video available here on YouTube](https://youtu.be/UsUbpj6C4QA)
-  - %Script: [IntroMultivariateOrdinations.R](https://github.com/devanmcg/IntroRangeR/blob/master/11_IntroMultivariate/IntroMultivariateOrdinations.R)
+  - [Video available here on YouTube](https://youtu.be/UsUbpj6C4QA)
+  - Script: [IntroMapping.R](https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/IntroMapping.R)
 * 12.1.2: Adding features to maps with `ggplot2` and `sf`
   - % [Video on YouTube](https://youtu.be/HOQEtTofbjg)
-  - % Script: [IntroMultivariateOrdGroupsGradients.R](https://github.com/devanmcg/IntroRangeR/blob/master/11_IntroMultivariate/IntroMultivariateOrdGroupsGradients.R)
+  - % Script: [AddingMapFeatures.R](https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/AddingMapFeatures.R)
 
 **12.2: Spatial data analysis**
 

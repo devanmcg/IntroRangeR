@@ -1,27 +1,28 @@
-# Homework assignment
+# Learn.
+
+*Lectures*
+
+# Do. 
+
+*Homework assignments*
 
 ## Background 
 
-Gerry Stokka, NDSU Animal Science, put these spikes in the noses of a few calves while they were still nursing on the range. 
-The idea is that they poke mama's udder, she resists nursing, and the calves learn to find their own food, essentially self-weaning. 
 
-<img src="https://github.com/devanmcg/IntroRangeR/blob/master/09_TimeSeriesCounts/WeanySpikes.jpg" width="400">
+<img src="https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/national-1.png" width="400" >
 
-Stokka's lab was curious how this affected their behavior once everyone was officially weaned and brought to the feedlot.
-As the calves went on to the feedlot, I put a few of my [DIY GPS collars](https://onlinelibrary.wiley.com/doi/full/10.1002/ece3.4094) on a subset of the calves and logged their movements for seven days. 
+<img src="https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/provincial-1.png.png" width="600">
+
 
 ## The assignment
 
-### Graph 
-Use these data [CalfDistancesByMinute.Rdata](https://github.com/devanmcg/IntroRangeR/blob/master/data/CalfDistancesByMinute.Rdata)
-to reproduce the following graph as closely as possible:
+### Data
 
-<img src="https://github.com/devanmcg/IntroRangeR/blob/master/09_TimeSeriesCounts/HourlyDistances-1.png" width="600">
-
-### Questions
-
-* How did not having a flap affect behavior over time?
-* What might account for differences between the two groups, and changes within?
+* North American EPA Ecoregions, Levels 1 and 2: [`NA_CEC_Eco_Level2.shp`](http://ecologicalregions.info/data/cec_na/NA_CEC_Eco_Level2.zip) (`.zip`)
+* [Canada geographical place name data](https://www.nrcan.gc.ca/earth-sciences/geography/download-geographical-names-data/9245) (by province)
+  - Alberta: [`cgn_ab_shp_eng.shp`](ftp://ftp.geogratis.gc.ca/pub/nrcan_rncan/vector/geobase_cgn_toponyme/prov_shp_eng/cgn_ab_shp_eng.zip) (`.zip`)
+  - Saskatchewan: [`cgn_sk_shp_eng.shp`](ftp://ftp.geogratis.gc.ca/pub/nrcan_rncan/vector/geobase_cgn_toponyme/prov_shp_eng/cgn_sk_shp_eng.zip) (`.zip`)
+  
 
 ### Hints 
 

@@ -6,15 +6,18 @@
 
 *Homework assignments*
 
-## Background 
+## 12.1: Mapping
+
+### The assignment
+
+Reproduce, as closely as possible, each of the following maps:
+
+<img src="https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/national-1.png" width="600" caption="National map" >
+
+<img src="https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/provincial-1.png" width="600">
 
 
-<img src="https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/national-1.png" width="500" >
 
-<img src="https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/provincial-1.png" width="500">
-
-
-## The assignment
 
 ### Data
 

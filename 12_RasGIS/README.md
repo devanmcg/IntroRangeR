@@ -54,10 +54,10 @@ Access the SHP files for Alberta and Saskatchewan (unfortunately can't provide h
   
 ### Tips 
 
- * Download the data above to your machine and unzip to a folder like `R > data`.
+* Download the data above to your machine and unzip to a folder like `R > data`.
    `read_sf` can load them when given the full file path to the `.shp` file in the local directory. 
    See `?read_sf`. 
- * Regarding Natural Earth data: 
+* Regarding Natural Earth data: 
   - To complete the assignment with Natural Earth data, you will need a different `rnaturalearth` function and an additional package.
  Recommend using the `ne_states` function, which requires the `rnaturalearthhires` package. 
   - I was unable to get `rnaturalearthhires` from *r-cran* but successfully installed it from its [github page](https://github.com/ropensci/rnaturalearthhires/) using `pacman::p_load_current_gh("ropensci/rnaturalearthhires")`. 

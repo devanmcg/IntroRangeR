@@ -29,6 +29,7 @@ Data and tips are below.
 * A national map of Canada
   - Provincial boundaries overlaid over Level 1 EPA ecoregions
   - Projection accommodating curvature of the Earth
+  - Dissolved internal Level 2 boundaries
 
 <img src="https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/national-1.png" width="600" >
 

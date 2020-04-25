@@ -62,7 +62,7 @@ Access the SHP files for Alberta and Saskatchewan (unfortunately can't provide h
  Recommend using the `ne_states` function, which requires the `rnaturalearthhires` package. 
   - I was unable to get `rnaturalearthhires` from *r-cran* but successfully installed it from its [github page](https://github.com/ropensci/rnaturalearthhires/) using `pacman::p_load_current_gh("ropensci/rnaturalearthhires")`. 
  Note that you might be prompted to have a recent version of the `sp` package, for which you can use `install.packages("sp")`.
- - If you have trouble with `pacman::p_load_current_gh`, you can also use `devtools::install_github("ropensci/rnaturalearthhires")` on your first attempt and use `library(rnaturalearthhires)` thereafter. 
- - Remember to avoid using `install.packages` or `install_github` in an `.Rmd` file. 
+  - If you have trouble with `pacman::p_load_current_gh`, you can also use `devtools::install_github("ropensci/rnaturalearthhires")` on your first attempt and use `library(rnaturalearthhires)` thereafter. 
+* Remember to avoid using `install.packages` or `install_github` in an `.Rmd` file. 
  You don't want it to re-install every time you try to knit. 
 

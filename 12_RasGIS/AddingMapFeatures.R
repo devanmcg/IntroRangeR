@@ -32,11 +32,11 @@
         summarise(area = sum(area)) 
     
     # View in ggplot
-    ggplot() +
-      geom_sf(data=sa_cont) 
+    gg1 <- ggplot() +
+      geom_sf(data=sa_cont, fill="white") 
     
 # Combine layers
-    ggplot() +
+    gg2 <- ggplot() +
       geom_sf(data=sa_cont, fill="white") + 
       geom_sf(data=sa_countries, color="darkgrey", fill=NA) 
     
@@ -88,7 +88,7 @@
     sa_cities <- read_sf(tmp_dir, "South_America_Cities") 
   
   sa_cities 
-  
+  gg3 <- 
   ggplot() +
     geom_sf(data=sa_cont, fill="white") + 
     geom_sf(data=sa_countries, color="darkgrey", fill=NA) +
@@ -156,7 +156,7 @@
   
   # Add meaningful values for legend
     # Download from external source (course github page)
-    L1_names_URL = "https://raw.githubusercontent.com/devanmcg/IntroRangeR/master/12_Mapping/SouthAmericaLevel1Names.csv"
+    L1_names_URL = "https://raw.githubusercontent.com/devanmcg/IntroRangeR/master/12_RasGIS/SouthAmericaLevel1Names.csv"
     sa_L1_names <- read_csv(L1_names_URL) %>%
                     mutate(Level1 = as.factor(Level1))
     

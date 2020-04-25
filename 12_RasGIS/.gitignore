@@ -9,8 +9,8 @@
 
 README.html
 
-IntroMappingHomeworkSolution.Rmd
-IntroMappingHomeworkSolution.html
+MappingHomeworkSolution.Rmd
+MappingHomeworkSolution.html
 
 MappingHomeworkScript.R
 
@@ -19,3 +19,4 @@ AfricaMaps.R
 
 SpatialData/
 maps/
+rsconnect/

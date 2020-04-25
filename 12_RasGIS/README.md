@@ -9,9 +9,9 @@
 ## Background 
 
 
-<img src="https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/national-1.png" width="400" >
+<img src="https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/national-1.png" width="500" >
 
-<img src="https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/provincial-1.png.png" width="600">
+<img src="https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/provincial-1.png" width="500">
 
 
 ## The assignment

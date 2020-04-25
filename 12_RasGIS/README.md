@@ -42,6 +42,9 @@ Data and tips are below.
 
 ### Data
 
+*Highly recommend* downloading these data once to your local machine and calling the `.shp` files individually using a full file path when you knit your submission document. 
+Downloading each time you knit will slow it down substantially and repeatedly add pretty decent-sized files to the temp folder. 
+
 * North American EPA Ecoregions, Levels 1 and 2: [`NA_CEC_Eco_Level2.shp`](http://ecologicalregions.info/data/cec_na/NA_CEC_Eco_Level2.zip) (`.zip`)
 * [Canada geographical place name data](https://www.nrcan.gc.ca/earth-sciences/geography/download-geographical-names-data/9245). 
 These are organized by province. 
@@ -51,7 +54,15 @@ Access the SHP files for Alberta and Saskatchewan (unfortunately can't provide h
   
 ### Tips 
 
- * Different scales of time can be `format`ted differently. 
- * You'll need to implement `summarize` at least twice on different `group_by` constructions. 
- * You'll likely need to use `as.POSIXct` again after other manipulations. 
- * Check out various `scale_x_` options when you get to your `ggplot`
+ * Download the data above to your machine and unzip to a folder like `R > data`.
+   `read_sf` can load them when given the full file path to the `.shp` file in the local directory. 
+   See `?read_sf`. 
+ * Regarding Natural Earth data: 
+  - To complete the assignment with Natural Earth data, you will need a different `rnaturalearth` function and an additional package.
+ Recommend using the `ne_states` function, which requires the `rnaturalearthhires` package. 
+  - I was unable to get `rnaturalearthhires` from *r-cran* but successfully installed it from its [github page](https://github.com/ropensci/rnaturalearthhires/) using `pacman::p_load_current_gh("ropensci/rnaturalearthhires")`. 
+ Note that you might be prompted to have a recent version of the `sp` package, for which you can use `install.packages("sp")`.
+ - If you have trouble with `pacman::p_load_current_gh`, you can also use `devtools::install_github("ropensci/rnaturalearthhires")` on your first attempt and use `library(rnaturalearthhires)` thereafter. 
+ - Remember to avoid using `install.packages` or `install_github` in an `.Rmd` file. 
+ You don't want it to re-install every time you try to knit. 
+

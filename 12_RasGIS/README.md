@@ -12,7 +12,7 @@
 
 Reproduce, as closely as possible, each of the following maps:
 
-<img src="https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/national-1.png" width="600" caption="National map" >
+<img src="https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/national-1.png" width="600" cap="National map" >
 
 <img src="https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/provincial-1.png" width="600">
 

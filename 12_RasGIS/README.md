@@ -8,8 +8,8 @@
   - [Video available here on YouTube](https://youtu.be/bXAaAAWSb_E)
   - Script: [IntroMapping.R](https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/IntroMapping.R)
 * 12.1.2: Adding features to maps with `ggplot2` and `sf`
-  - % [Video on YouTube](https://youtu.be/HOQEtTofbjg)
-  - % Script: [AddingMapFeatures.R](https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/AddingMapFeatures.R)
+  - [Video on YouTube](https://youtu.be/qquUJojHT1o)
+  - Script: [AddingMapFeatures.R](https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/AddingMapFeatures.R)
 
 **12.2: Spatial data analysis**
 

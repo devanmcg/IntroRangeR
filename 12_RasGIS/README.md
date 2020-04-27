@@ -5,7 +5,7 @@ Page outline:
 
 - 12.1: Basic mapping \& adding features
     - Learn: [Videos \& script](#intro-mapping-materials)
-    - Do: [Homework assignment](#mapping)
+    - Do: [Homework assignment](#map-data)
     - [Tips on using Natural Earth data](#map-data-tips)
 - 12.2: Spatial analysis 
     - Learn: [Video \& script](#spatial-materials)
@@ -55,7 +55,7 @@ Data and tips are below.
 
 <img src="https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/provincial-1.png" width="600">
 
-### Data {#map-data-tips}
+### Map data
 
 *Highly recommend* downloading these data once to your local machine and calling the `.shp` files individually using a full file path when you knit your submission document. 
 Downloading each time you knit will slow it down substantially and repeatedly add pretty decent-sized files to the temp folder. 

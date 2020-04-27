@@ -12,11 +12,14 @@ README.html
 MappingHomeworkSolution.Rmd
 MappingHomeworkSolution.html
 
+InterpolationHomeworkSolution.Rmd
+InterpolationHomeworkSolution.html
+
 MappingHomeworkScript.R
+InterpolationHomeworkScript.R
 
 
 AfricaMaps.R
 
 SpatialData/
-maps/
 rsconnect/

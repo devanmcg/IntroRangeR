@@ -1,8 +1,21 @@
-pacman::p_load(tidyverse, forcats, sf, rnaturalearth, kknn)
-
+# An Introduction to R
+#
+# Devan Allen McGranahan (devan.mcgranahan@gmail.com)
+#
+# YouTube lectures: https://www.youtube.com/playlist?list=PLKXOvaXmjIGcSHFMe2Wpsaw4yzvWR0AgQ
+# github repo: https://github.com/devanmcg/IntroRangeR
+# 
+# Lesson 12.2: Spatial analysis - Interpolation 
+#
+# Major credit to Timo Grossenbacher: https://timogrossenbacher.ch/2018/03/categorical-spatial-interpolation-with-r/
+#
+# Packages
+  if (!require("pacman")) install.packages("pacman")
+  pacman::p_load(tidyverse, sf, kknn)
+#
 # Create a shorthand reference to Central European CRS
   crs_etrs = "+proj=utm +zone=32 +ellps=GRS80 +units=m +no_defs"
-
+#
 # Germany geo data
   # download
   gs_url <- "https://github.com/devanmcg/categorical-spatial-interpolation/raw/IntroRangeR/analysis/input/german_states.Rdata"
@@ -84,16 +97,16 @@ pacman::p_load(tidyverse, forcats, sf, rnaturalearth, kknn)
 # Create grid 
 #
 # Define parameters:
-  width_in_pixels = 100 # 300 is better but slower 
+    width_in_pixels = 100 # 300 is better but slower 
   # dx is the width of a grid cell in meters
     dx <- ceiling( (st_bbox(germ_buff)["xmax"] - 
                     st_bbox(germ_buff)["xmin"]) / width_in_pixels)
   # dy is the height of a grid cell in meters
   # because we use quadratic grid cells, dx == dy
-  dy = dx
+    dy = dx
   # calculate the height in pixels of the resulting grid
-  height_in_pixels <- floor( (st_bbox(germ_buff)["ymax"] - 
-                              st_bbox(germ_buff)["ymin"]) / dy)
+    height_in_pixels <- floor( (st_bbox(germ_buff)["ymax"] - 
+                                st_bbox(germ_buff)["ymin"]) / dy)
 # Make the grid   
   grid <- st_make_grid(germ_buff, 
                        cellsize = dx,
@@ -102,7 +115,7 @@ pacman::p_load(tidyverse, forcats, sf, rnaturalearth, kknn)
   # View grid
     ggplot() +
       geom_sf(data=grid) +
-      geom_sf(data=germany, fill=NA, color="lightblue")
+      geom_sf(data=germany, fill=NA, color="blue", lwd=2)
 #
 # Prepare data for interpolation
 #
@@ -135,8 +148,8 @@ pacman::p_load(tidyverse, forcats, sf, rnaturalearth, kknn)
   # define "k" for k-nearest-neighbour-interpolation
     knn = 1000 
     
-    # create empty result data frame
-    dialects_output <- data.frame(dialect = as.factor(NA), 
+    # create empty result tibble
+    dialects_output <- tibble(dialect = as.factor(NA), 
                               lon = st_coordinates(grid)[, 1], 
                               lat = st_coordinates(grid)[, 2])
     # run KKNN interpolation function

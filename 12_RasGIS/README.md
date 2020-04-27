@@ -1,14 +1,15 @@
 Lesson 12: R as GIS
 ===================
 
-Page outline:
-
 - 12.1: Basic mapping and adding features
     - Learn: [Videos \& script](#introduction-to-mapping)
     - Do: [Homework assignment](#mapping)
     - [Tips on using Natural Earth data](#map-data)
 - 12.2: Spatial analysis 
     - Learn: [Video \& script](#spatial-data-analysis)
+    - [Vignette on the interpolation example](https://github.com/devanmcg/categorical-spatial-interpolation/blob/IntroRangeR/README.md), including step-by-step discussion of the script used in the lecture. 
+    This was modified from the [original blog post](https://timogrossenbacher.ch/2018/03/categorical-spatial-interpolation-with-r/) by [https://timogrossenbacher.ch](Time Grossenbacher).  
+    - Do: [Homework assignment](#interpolation)
 
 
 Learn.
@@ -106,5 +107,47 @@ Access the SHP files for Alberta and Saskatchewan (unfortunately can't provide h
 * Remember to avoid using `install.packages` or `install_github` in an `.Rmd` file. 
  You don't want it to re-install every time you try to knit. 
 
+## Interpolation 
 
+### NDAWN data
 
+The North Dakota Agricultural Weather Network, or [NDAWN](https://ndawn.ndsu.nodak.edu/), collects hourly weather data across North Dakota and the sugar beet/potato-producing regions in the Red River Valley, Minnesota, and the Yellowstone River Valley, Montana. 
+Current conditions are available online (updated every 5 min), and historical data can be downloaded. 
+
+Prior to writing this assignment, I downloaded all station data for 20 April 2020 and posted them to github as [NDAWN_2020_04_26.csv](https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/NDAWN_2020_04_26.csv). 
+
+### The assignment
+
+Create, as closely as possible, the following three maps: 
+
+* The location of all NDAWN station locations, plus a few towns in North Dakota:
+<img src="https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/maps/StationLocations-1.png" width="600" >
+
+* Maximum temperature values for each station location:
+<img src="https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/maps/StatewidePoints-1.png" width="600" >
+
+* Estimated maximum temperatures for the entire state of North Dakota determined through interpolation. 
+Include a few towns, as well: 
+<img src="https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/maps/StatewideInterpolation-1.png" width="600" >
+
+Provide responses to these questions: 
+
+* On 26 April 2020, which parts of the state were...
+    - the warmest? 
+    - the coolest? 
+* Do the interpolated data agree with the actual NDAWN data?
+How might you test or verify that (don't need to do it, just speculate)?
+
+General tips:
+
+* North Dakota boundaries can be filtered out of the Natural Earth data described above. 
+* Projection: I recommend EPSG 26914 when mapping North Dakota.
+* Differences in these data vs. [example using German linguistic data](https://github.com/devanmcg/categorical-spatial-interpolation/blob/IntroRangeR/README.md):
+    - There aren't nearly as many data points, so thinning isn't necessary. 
+    - The temperature data are continuous, not categorical. 
+    Therefore, ensure that data are stored `as.numeric`. 
+    The `prob` element of the `kknn` object will also be empty, and does not need to be extracted (and thus cannot be plotted).
+* With fewer data, we can alter the following parameters for the interpolation function `kknn`:
+    - `width_in_pixels` can be increased to 500. 
+    - `k` must be substantially lower than in the example. 
+    For best results I recommend `knn = 10` but you should play around with the differences in 5, 10, and 20.

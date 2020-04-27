@@ -8,7 +8,7 @@ Lesson 12: R as GIS
 - 12.2: Spatial analysis 
     - Learn: [Video \& script](#spatial-data-analysis)
     - [Vignette on the interpolation example](https://github.com/devanmcg/categorical-spatial-interpolation/blob/IntroRangeR/README.md), including step-by-step discussion of the script used in the lecture. 
-    This was modified from the [original blog post](https://timogrossenbacher.ch/2018/03/categorical-spatial-interpolation-with-r/) by [https://timogrossenbacher.ch](Time Grossenbacher).  
+    This was modified from the [original blog post](https://timogrossenbacher.ch/2018/03/categorical-spatial-interpolation-with-r/) by [Timo Grossenbacher](https://timogrossenbacher.ch).  
     - Do: [Homework assignment](#interpolation)
 
 

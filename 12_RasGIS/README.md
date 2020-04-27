@@ -46,6 +46,33 @@ Data and tips are below.
 *Highly recommend* downloading these data once to your local machine and calling the `.shp` files individually using a full file path when you knit your submission document. 
 Downloading each time you knit will slow it down substantially and repeatedly add pretty decent-sized files to the temp folder. 
 
+* Canadian borders (national and provincial):
+  - Especially if you think you'll be making a fair number of maps, I recommend downloading the Natural Earth dataset to a local directory using `ne_download`and accessing the data with `ne_load`, both in `rnaturalearth` (and not using other packages):
+
+``` r
+# Hard-code to *your* local directory to store (and retrieve) geo data
+  ne_dir = "C:/R/data/gis/NaturalEarth"
+# Run this once in the console and don't put in a .Rmd file
+  ne_download(scale = 10, # finest scale, largest file (14MB download)
+              type = 'states', 
+              category = 'cultural', 
+              returnclass = "sf",
+              destdir = ne_dir, 
+              load = FALSE)
+# Use this in any .Rmd file you want geo data for
+  ne_sf <- ne_load(scale = 10, 
+                   type = 'states', 
+                   category = 'cultural', 
+                   returnclass = "sf",
+                   destdir = ne_dir)
+# Then filter for the country you need
+  canada <- 
+    ne_sf %>%
+      filter(admin == "Canada")
+# States and provinces stored in the 'names' column
+
+```
+
 * North American EPA Ecoregions, Levels 1 and 2: [`NA_CEC_Eco_Level2.shp`](http://ecologicalregions.info/data/cec_na/NA_CEC_Eco_Level2.zip) (`.zip`)
 * [Canada geographical place name data](https://www.nrcan.gc.ca/earth-sciences/geography/download-geographical-names-data/9245). 
 These are organized by province. 
@@ -59,6 +86,8 @@ Access the SHP files for Alberta and Saskatchewan (unfortunately can't provide h
    `read_sf` can load them when given the full file path to the `.shp` file in the local directory. 
    See `?read_sf`. 
 * Regarding Natural Earth data: 
+  - The steps below have already caused some folks problems. 
+  You might as well just download and save the global file as described above.
   - To complete the assignment with Natural Earth data, you will need a different `rnaturalearth` function and an additional package.
  Recommend using the `ne_states` function, which requires the `rnaturalearthhires` package. 
   - I was unable to get `rnaturalearthhires` from *r-cran* but successfully installed it from its [github page](https://github.com/ropensci/rnaturalearthhires/) using `pacman::p_load_current_gh("ropensci/rnaturalearthhires")`. 

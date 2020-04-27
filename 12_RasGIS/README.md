@@ -47,7 +47,7 @@ Data and tips are below.
 Downloading each time you knit will slow it down substantially and repeatedly add pretty decent-sized files to the temp folder. 
 
 * Canadian borders (national and provincial):
-  - Especially if you think you'll be making a fair number of maps, I recommend downloading the Natural Earth dataset to a local directory using `ne_download`and accessing the data with `ne_load`, both in `rnaturalearth` (and not using other packages):
+  - Especially if you think you'll be making a fair number of maps, I recommend downloading the Natural Earth dataset to a local directory using `rnaturalearth::ne_download`and accessing the data with `read_sf`:
 
 ``` r
 # Hard-code to *your* local directory to store (and retrieve) geo data
@@ -60,11 +60,7 @@ Downloading each time you knit will slow it down substantially and repeatedly ad
               destdir = ne_dir, 
               load = FALSE)
 # Use this in any .Rmd file you want geo data for
-  ne_sf <- ne_load(scale = 10, 
-                   type = 'states', 
-                   category = 'cultural', 
-                   returnclass = "sf",
-                   destdir = ne_dir)
+    ne_sf <- read_sf(ne_dir, "ne_10m_admin_1_states_provinces_lakes")
 # Then filter for the country you need
   canada <- 
     ne_sf %>%

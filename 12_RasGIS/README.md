@@ -28,7 +28,9 @@ Learn.
 
 ## Spatial data analysis
 
-*coming soon* 
+* 12.2: Interpolation
+    - *Video coming soon*
+    - Script: [Interpolation.R](https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/Interpolation.R)
 
 # Do. 
 
@@ -81,7 +83,6 @@ Downloading each time you knit will slow it down substantially and repeatedly ad
     ne_sf %>%
       filter(admin == "Canada")
 # States and provinces stored in the 'names' column
-
 ```
 
 * North American EPA Ecoregions, Levels 1 and 2: [`NA_CEC_Eco_Level2.shp`](http://ecologicalregions.info/data/cec_na/NA_CEC_Eco_Level2.zip) (`.zip`)
@@ -114,7 +115,8 @@ Access the SHP files for Alberta and Saskatchewan (unfortunately can't provide h
 The North Dakota Agricultural Weather Network, or [NDAWN](https://ndawn.ndsu.nodak.edu/), collects hourly weather data across North Dakota and the sugar beet/potato-producing regions in the Red River Valley, Minnesota, and the Yellowstone River Valley, Montana. 
 Current conditions are available online (updated every 5 min), and historical data can be downloaded. 
 
-Prior to writing this assignment, I downloaded all station data for 26 April 2020 and posted them to github as [NDAWN_2020_04_26.csv](https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/NDAWN_2020_04_26.csv). 
+Prior to writing this assignment, I downloaded all station data for 20 April 2020 and posted them to github as [NDAWN_2020_04_20.csv](https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/NDAWN_2020_04_20.csv). 
+[NDAWN_2020_04_26.csv](https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/NDAWN_2020_04_26.csv) is also available.
 
 ### The assignment
 
@@ -132,7 +134,7 @@ Include a few towns, as well:
 
 Provide responses to these questions: 
 
-* On 26 April 2020, which parts of the state were...
+* On the day you mapped (April 20 or 26), which parts of the state were...
     - the warmest? 
     - the coolest? 
 * Do the interpolated data agree with the actual NDAWN data?

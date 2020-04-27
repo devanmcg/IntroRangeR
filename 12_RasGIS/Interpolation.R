@@ -137,8 +137,8 @@ pacman::p_load(tidyverse, forcats, sf, rnaturalearth, kknn)
     
     # create empty result data frame
     dialects_output <- data.frame(dialect = as.factor(NA), 
-                              lon = st_coordinates(grid_input)[, 1], 
-                              lat = st_coordinates(grid_input)[, 2])
+                              lon = st_coordinates(grid)[, 1], 
+                              lat = st_coordinates(grid)[, 2])
     # run KKNN interpolation function
     dialects_kknn <- kknn::kknn(dialect ~ ., 
                                train = dialects_thin, 

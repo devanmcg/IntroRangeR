@@ -5,7 +5,7 @@ Page outline:
 
 - 12.1: Basic mapping \& adding features
     - Learn: [Videos \& script](#intro-mapping-materials)
-    - Do: [Homework assignment](#12.1:-mapping)
+    - Do: [Homework assignment](#mapping)
     - [Tips on using Natural Earth data](#map-data-tips)
 - 12.2: Spatial analysis 
     - Learn: [Video \& script](#spatial-materials)
@@ -33,7 +33,7 @@ Learn.
 
 *Homework assignments*
 
-## 12.1: Mapping
+## Mapping
 
 ### The assignment
 

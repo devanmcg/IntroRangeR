@@ -1,17 +1,31 @@
-# Learn.
+Lesson 12: R as GIS
+===================
+
+Page outline:
+
+- 12.1: Basic mapping \& adding features
+    - Learn: [Videos \& script](#intro-mapping-materials)
+    - Do: [Homework assignment](#intro-mapping-hw)
+    - [Tips on using Natural Earth data](#map-data-tips)
+- 12.2: Spatial analysis 
+    - Learn: [Video \& script](#spatial-materials)
+
+
+Learn.
+------
 
 *Lectures*
 
-**12.1: Introduction to mapping** 
+## 12.1: Introduction to mapping {#intro-mapping-materials}
 
 * 12.1.1: Basic mapping with `ggplot2`
   - [Video available here on YouTube](https://youtu.be/UsUbpj6C4QA)
   - Script: [IntroMapping.R](https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/IntroMapping.R)
 * 12.1.2: Adding features to maps with `ggplot2` and `sf`
-  - % [Video on YouTube](https://youtu.be/HOQEtTofbjg)
-  - % Script: [AddingMapFeatures.R](https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/AddingMapFeatures.R)
+  - [Video on YouTube](https://youtu.be/HOQEtTofbjg)
+  - Script: [AddingMapFeatures.R](https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/AddingMapFeatures.R)
 
-**12.2: Spatial data analysis**
+## 12.2: Spatial data analysis {#spatial-materials}
 
 *coming soon* 
 
@@ -19,7 +33,7 @@
 
 *Homework assignments*
 
-## 12.1: Mapping
+## 12.1: Mapping {#intro-mapping-hw}
 
 ### The assignment
 
@@ -41,7 +55,7 @@ Data and tips are below.
 
 <img src="https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/provincial-1.png" width="600">
 
-### Data
+### Data {#map-data-tips}
 
 *Highly recommend* downloading these data once to your local machine and calling the `.shp` files individually using a full file path when you knit your submission document. 
 Downloading each time you knit will slow it down substantially and repeatedly add pretty decent-sized files to the temp folder. 

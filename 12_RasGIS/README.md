@@ -114,7 +114,7 @@ Access the SHP files for Alberta and Saskatchewan (unfortunately can't provide h
 The North Dakota Agricultural Weather Network, or [NDAWN](https://ndawn.ndsu.nodak.edu/), collects hourly weather data across North Dakota and the sugar beet/potato-producing regions in the Red River Valley, Minnesota, and the Yellowstone River Valley, Montana. 
 Current conditions are available online (updated every 5 min), and historical data can be downloaded. 
 
-Prior to writing this assignment, I downloaded all station data for 20 April 2020 and posted them to github as [NDAWN_2020_04_26.csv](https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/NDAWN_2020_04_26.csv). 
+Prior to writing this assignment, I downloaded all station data for 26 April 2020 and posted them to github as [NDAWN_2020_04_26.csv](https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/NDAWN_2020_04_26.csv). 
 
 ### The assignment
 

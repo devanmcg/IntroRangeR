@@ -29,7 +29,7 @@ Learn.
 ## Spatial data analysis
 
 * 12.2: Interpolation
-    - *Video coming soon*
+    - [Video on YouTube](https://youtu.be/pqQ7i5zA898)
     - Script: [Interpolation.R](https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/Interpolation.R)
 
 # Do. 

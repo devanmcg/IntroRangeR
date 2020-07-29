@@ -1,4 +1,14 @@
-# Homework assignment
+# Learn.
+
+*Lecture* 
+
+Lesson 9: Count data and time series
+* [Video on YouTube](https://youtu.be/IZYCHAet9xA) 
+* Script: [TimeSeriesCount.R](https://github.com/devanmcg/IntroRangeR/blob/master/09_TimeSeriesCounts/TimeSeriesCount.R)
+
+# Do. 
+
+*Homework assignment*
 
 ## Background 
 

@@ -1,4 +1,4 @@
-"make.model","make","country","mpg","cyl","disp","hp","drat","wt","qsec","vs","am","gear","carb","origin","continent"
+"make.model","make","country","mpg","cyl","disp","hp","drat","wt","qsec","vs","transmission","gear","carb","origin","continent"
 "AMC Javelin","AMC","USA",15.2,"8",304,150,3.15,3.435,17.3,"0","Automatic","3","2","domestic","North America"
 "Cadillac Fleetwood","Cadillac","USA",10.4,"8",472,205,2.93,5.25,17.98,"0","Automatic","3","4","domestic","North America"
 "Camaro Z28","Chevrolet","USA",13.3,"8",350,245,3.73,3.84,15.41,"0","Automatic","3","4","domestic","North America"

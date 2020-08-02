@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 "","make.model","mpg","cyl","disp","hp","drat","wt","qsec","vs","transmission","gear","carb","make","country","origin","continent","sportiness"
 "1","1",21,"6",160,110,3.9,2.62,16.46,"0","Manual","4","4",NA,NA,NA,NA,"Not sporty"
 "2","2",21,"6",160,110,3.9,2.875,17.02,"0","Manual","4","4",NA,NA,NA,NA,"Not sporty"
@@ -66,6 +67,9 @@
 "64","Volvo 142E",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"Volvo","Sweden","foreign","Europe","Not sporty"
 =======
 "make.model","make","country","mpg","cyl","disp","hp","drat","wt","qsec","vs","transmission","gear","carb","origin","continent"
+=======
+"make.model","make","country","mpg","cyl","disp","hp","drat","wt","qsec","vs","am","gear","carb","origin","continent"
+>>>>>>> 22f3ee12b99fe0c210d90b5a37202b5779c243a9
 "AMC Javelin","AMC","USA",15.2,"8",304,150,3.15,3.435,17.3,"0","Automatic","3","2","domestic","North America"
 "Cadillac Fleetwood","Cadillac","USA",10.4,"8",472,205,2.93,5.25,17.98,"0","Automatic","3","4","domestic","North America"
 "Camaro Z28","Chevrolet","USA",13.3,"8",350,245,3.73,3.84,15.41,"0","Automatic","3","4","domestic","North America"

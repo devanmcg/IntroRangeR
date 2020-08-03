@@ -1,4 +1,6 @@
 # IntroRangeR
+
+While materials for the course still live here, they are best accessed via the course blog, [IntroRangeR.org](http://www.introranger.org). 
  
 This is a public repository for my NDSU graduate seminar *Introduction to* ***R***. 
 Fork or bookmark for most of the most recent course materials (homework solutions excluded!).

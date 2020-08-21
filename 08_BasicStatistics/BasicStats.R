@@ -1,10 +1,10 @@
 # An Introduction to R
 # Devan Allen McGranahan (devan.mcgranahan@gmail.com)
 # 
-# Lesson 8: Basic statistical analysis
+# Lesson 8.1: Basic statistical analysis
 #
   if (!require("pacman")) install.packages("pacman")
-  pacman::p_load(tidyverse, GGally) 
+  pacman::p_load(tidyverse) 
 
   mtcars <- mutate_at(mtcars, vars(cyl, vs, am,
                                    gear, carb), 
@@ -70,46 +70,3 @@
   summary(cyl.lm)
   anova(cyl.lm)
   TukeyHSD(aov(cyl.lm)) # wrap lm() object in aov() 
-  
-# Multiple regression 
-  # Two continuous variables 
-  GGally::ggpairs(mtcars, columns = c("hp","mpg", "wt"))
-    
-    mrc.lm <- lm(mpg ~ hp + wt, mtcars)
-    summary(mrc.lm)
-    anova(mrc.lm)
-  
-  # Simple model comparison 
-    m0 <- lm(mpg ~ 1, mtcars)
-    m1 <- lm(mpg ~ hp, mtcars)
-    m2 <- lm(mpg ~ hp + wt, mtcars)
-    anova(m0, m1, m2)
-    coef(m2) # View regression coefficients (similar to effect size)
-    confint(m2)
-
-  # Continuous + categorical variables
-    mrd.gg <- ggplot(mtcars, aes(x=hp, y=mpg, 
-                                 color=transmission)) + theme_bw(14) 
-    mrd.gg + geom_point() 
-    mrd.gg + geom_point() +
-            geom_smooth(method="lm", se=FALSE)
-    
-    mrd.lm <- lm(mpg ~ hp + transmission, mtcars)
-    summary(mrd.lm)
-    anova(mrd.lm)
-  
-    m0 <- lm(mpg ~ 1, mtcars)
-    m1 <- lm(mpg ~ hp, mtcars)
-    m2 <- lm(mpg ~ hp + transmission, mtcars)
-    anova(m0, m1, m2)
-    coef(m2) 
-    confint(m2)
-    
-  # Testing for statistical interactions 
-     int.lm1 <- lm(mpg ~ hp:wt, mtcars)
-     int.lm2 <- lm(mpg ~ hp + wt + hp:wt, mtcars)
-     int.lm3 <- lm(mpg ~ hp * wt, mtcars) 
-     
-     anova(int.lm1)
-     anova(int.lm2)
-     anova(int.lm3)

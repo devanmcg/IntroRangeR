@@ -22,39 +22,46 @@
     pacman::p_load(tidyverse, grid, gridExtra, 
                    maps,  ggmap, maptools,  
                    tm, SnowballC, wordcloud)
- # Set the working directory to your R folder: 
-    setwd("E:/R") # specific path might vary!
 #
 # END Code Chunk 1
 #
 # START Code Chunk 2
 #
   # Fetch survey data
-  survey.d <- read.csv("./data/SurveyResponsesSP20.csv")
+    #
+    # Two options: 
+      #
+      # Current (or most recent) term only:
+        survey.d <- read.csv(url("https://raw.githubusercontent.com/devanmcg/IntroRangeR/master/data/SurveyResponsesMostRecent.csv"))
+      #
+      # Data from all-time:
+        survey.d <- read.csv(url("https://raw.githubusercontent.com/devanmcg/IntroRangeR/master/data/SurveyResponsesAll.csv"))
 #
 # END Code Chunk 2
 #
 # START Code Chunk 3
 #
   # Bar graphs
-    (degree.gg <- ggplot(survey.d, aes(x=reorder(degree,degree, 
-                                                 function(x)-length(x)), 
-                                      fill=factor(degree))) + 
+    (degree.gg <- 
+        ggplot(survey.d, 
+               aes(x=reorder(degree,degree, 
+                              function(x)-length(x)))) + 
       geom_bar() +
-        labs(x = "Degree type", y = "Number of students") + 
-        scale_fill_brewer(palette = "Set1") + 
+        labs(x = "Degree type", 
+             y = "Number of students") + 
         theme_bw(16) + 
         theme(axis.text=element_text(color="black"), 
               axis.title=element_text(face="bold"),
               panel.grid.major.x  = element_blank(),
               legend.position = "none") )
     
-  (program.gg <- ggplot(survey.d, aes(x=reorder(program,program, 
-                                                function(x)-length(x)), 
-                                      fill=factor(program))) + 
+  (program.gg <- 
+      ggplot(survey.d, 
+             aes(x=reorder(program,program, 
+                            function(x)-length(x)))) + 
     geom_bar() +
-      labs(x = "Program", y = "Number of students") + 
-       scale_fill_brewer(palette = "Set1") + 
+      labs(x = "Program", 
+           y = "Number of students") + 
       theme_bw(16) +  
       theme(axis.text=element_text(color="black"),
             axis.text.x = element_text(angle = 33, hjust = 1),
@@ -69,10 +76,10 @@
 # START Code Chunk 4
 # 
   ggplot(survey.d, aes(x=reorder(program,program, 
-                                 function(x)-length(x)), 
-                       fill=factor(degree))) + 
-    geom_bar() +
-    labs(x = "Program", y = "Number of students") + 
+                                 function(x)-length(x)))) + 
+    geom_bar(aes(fill=degree)) +
+    labs(x = "Program", 
+         y = "Number of students") + 
     scale_fill_brewer(palette = "Set1", name="Degree") + 
     theme_bw(16) +  
     theme(axis.text=element_text(color="black"),
@@ -125,7 +132,11 @@
     theme(legend.position = "bottom") +
     labs(x="longitude", y="latitude", 
          title = "Where we did our undergrad") )
-  
+#
+# END Code Chunk 6
+#  
+# START Code Chunk 7
+#  
   # Can't leave Alaska out
     ak.md <- world.md %>% filter(region == "USA", 
                                  subregion == "Alaska", 
@@ -133,7 +144,12 @@
                                  lat >= 50) 
     us.gg +     geom_path(data=ak.md, aes(x=long, y=lat, group=group), 
                              color="black",  size=0.25) 
-
+#
+# END Code Chunk 7
+#  
+# START Code Chunk 8
+#
+  # Intro R is worldwide! Must include our international colleagues:
    ggplot() +coord_quickmap( ) + theme_minimal(16) + 
      geom_polygon(data=world.md, aes(x=long, y=lat, group=group), 
                   color="white", fill="grey90", size=0.25) + 
@@ -147,9 +163,9 @@
      labs(x="longitude", y="latitude", 
           title="Where we ALL did our undergrad")
 #
-# END Code Chunk 6
+# END Code Chunk 8
 #
-# START Code Chunk 7
+# START Code Chunk 9
 #
   # Make a word cloud of relationships with data
   #
@@ -162,4 +178,4 @@
             random.order=FALSE, 
             random.color=TRUE)
 #
-# END Code Chunk 7
+# END Code Chunk 9

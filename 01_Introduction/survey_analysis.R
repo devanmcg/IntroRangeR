@@ -36,7 +36,10 @@
       #
       # Data from all-time:
         survey.d <- read.csv(url("https://raw.githubusercontent.com/devanmcg/IntroRangeR/master/data/SurveyResponsesAll.csv"))
-#
+      # Clean up a bit 
+        survey.d <- filter(survey.d, !is.na(program )) 
+        
+        #
 # END Code Chunk 2
 #
 # START Code Chunk 3
@@ -123,7 +126,7 @@
     geom_polygon(data=l48.md, aes(x=long, y=lat, group=group), 
                  color="white", fill="grey90", size=0.25) + 
     stat_sum(data=survey.d %>%
-               filter(country == "United States"), 
+               filter(country == "US"), 
              aes(x=long, y=lat, 
                  size=factor(..n..), 
                  fill=degree), 

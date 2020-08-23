@@ -20,7 +20,7 @@ Learn.
 ## Introduction to mapping
 
 * 12.1.1: Basic mapping with `ggplot2`
-  - [Video available here on YouTube](https://youtu.be/UsUbpj6C4QA)
+  - [Video available here on YouTube](https://youtu.be/bXAaAAWSb_E)
   - Script: [IntroMapping.R](https://github.com/devanmcg/IntroRangeR/blob/master/12_RasGIS/IntroMapping.R)
 * 12.1.2: Adding features to maps with `ggplot2` and `sf`
   - [Video on YouTube](https://youtu.be/HOQEtTofbjg)

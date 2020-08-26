@@ -1,61 +1,69 @@
 "degree","program","state","water","relationship","gender","moist","country","city","CityID","long","lat"
-"Masters","Range","ND","Moist","Inept, bumbling, rusty, awkward, clumsy, amateur, & frustration    However I am eager to become more proficient within the statistical world.",NA,NA,"US","Valley City","Valley City, ND","-98.00315","46.92331"
-"Masters","Range","AR","Damp","Excited, confused, overwhelmed, intrigued","Female",NA,"US","Fayetteville","Fayetteville, AR","-94.15743","36.06258"
-"Masters","Range","ND","Damp","It's complicated.",NA,NA,"US","Valley City","Valley City, ND","-98.00315","46.92331"
-"PhD","Range","IA","Moist","acquainted, chummy, occasionally dysfunctional, fragile, complicated,  bromantic","Male",NA,"US","Ames","Ames, IA","-93.61994","42.03471"
-"Masters","Range","MN","Damp","Cumbersome, confusing, revealing, Relatively meaningless on its own until summarized","Female",NA,"US","Crookston","Crookston, MN","-96.60812","47.77414"
-"PhD","NRM","WY","Moist","One hit wonder, amateur hour",NA,NA,"US","Laramie","Laramie, WY","-105.5911","41.31137"
-"Masters","ECS","ND","Moist","Daunting, intriguing, confusing, complicated",NA,NA,"US","Fargo","Fargo, ND","-96.7898","46.87719"
-"Masters","Range","WV","Moist","Familiar, sensitive, intricate, bittersweet","Female",NA,"US","Shepherdstown","Shepherdstown, WV","-77.80416","39.4301"
-"Masters","ECS","ND","Moist","Complicated, scattered, inconsistent",NA,NA,"US","Fargo","Fargo, ND","-96.7898","46.87719"
-"Masters","ECS","FL","Moist","Complicated, Collection, Unsure, Analysis","Female",NA,"US","Gainesville","Gainesville, FL","-82.32483","29.65163"
-"Masters","Other","ND","Damp","Have taken one course that used R. Have done some analysis by hand in past classes.","Male",NA,"US","Fargo","Fargo, ND","-96.7898","46.87719"
-"Masters","Range","MN","Moist","exciting, intimidating, tedious, confusing","Female",NA,"US","Northfield","Northfield, MN","-93.1616","44.4583"
+"Masters","Range","ND","Moist","Inept, bumbling, rusty, awkward, clumsy, amateur, & frustration    However I am eager to become more proficient within the statistical world.",NA,NA,"US","Valley City","Valley City, ND",-98.00315,46.92331
+"Masters","Range","AR","Damp","Excited, confused, overwhelmed, intrigued","Female",NA,"US","Fayetteville","Fayetteville, AR",-94.15743,36.06258
+"Masters","Range","ND","Damp","It's complicated.",NA,NA,"US","Valley City","Valley City, ND",-98.00315,46.92331
+"PhD","Range","IA","Moist","acquainted, chummy, occasionally dysfunctional, fragile, complicated,  bromantic","Male",NA,"US","Ames","Ames, IA",-93.61994,42.03471
+"Masters","Range","MN","Damp","Cumbersome, confusing, revealing, Relatively meaningless on its own until summarized","Female",NA,"US","Crookston","Crookston, MN",-96.60812,47.77414
+"PhD","NRM","WY","Moist","One hit wonder, amateur hour",NA,NA,"US","Laramie","Laramie, WY",-105.5911,41.31137
+"Masters","ECS","ND","Moist","Daunting, intriguing, confusing, complicated",NA,NA,"US","Fargo","Fargo, ND",-96.7898,46.87719
+"Masters","Range","WV","Moist","Familiar, sensitive, intricate, bittersweet","Female",NA,"US","Shepherdstown","Shepherdstown, WV",-77.80416,39.4301
+"Masters","ECS","ND","Moist","Complicated, scattered, inconsistent",NA,NA,"US","Fargo","Fargo, ND",-96.7898,46.87719
+"Masters","ECS","FL","Moist","Complicated, Collection, Unsure, Analysis","Female",NA,"US","Gainesville","Gainesville, FL",-82.32483,29.65163
+"Masters","Other","ND","Damp","Have taken one course that used R. Have done some analysis by hand in past classes.","Male",NA,"US","Fargo","Fargo, ND",-96.7898,46.87719
+"Masters","Range","MN","Moist","exciting, intimidating, tedious, confusing","Female",NA,"US","Northfield","Northfield, MN",-93.1616,44.4583
 "PhD","Crop Science",NA,"Damp",NA,"Male",NA,"Bangladesh",NA,"NA, Bangladesh",NA,NA
-"Masters","Range","NC","Damp","Unprepared, anxious, but-it'll-be-fine-I'm-sure","Female",NA,"US","Charlotte","Charlotte, NC","-80.84313","35.22709"
-"Masters","Entomology","WA","Damp","organization excel fun overwhelming interesting numbers text","Female",NA,"US","Seattle","Seattle, WA","-122.33207","47.60621"
-"Masters","Range","MT","Damp","cool, comfortable, scattered, r, datasheets, digital","Female",NA,"US","Dillon","Dillon, MT","-112.63752","45.21631"
-"PhD","Range","KS","Damp","I'm sure it will be fine once I have a better understanding of what I can do with it.","Female",NA,"US","Manhattan","Manhattan, KS","-96.57167","39.18361"
-"Masters","Crop Science","ND","Moist","I like to see trends in my data.","Male",NA,"US","Fargo","Fargo, ND","-96.7898","46.87719"
-"Masters","ECS","MN","Damp","lots of it, uncertain, organization","Female",NA,"US","Northfield","Northfield, MN","-93.1616","44.4583"
-"Masters","Other","NC","Damp","Frustrating, anger, boring, overwhelming, but extremely exciting","Female",NA,"US","Boiling Springs","Boiling Springs, NC","-81.66704","35.25429"
-"Masters","Other","NC","Damp","Frustrating, anger, boring, overwhelming, but extremely exciting","Female",NA,"US","Boiling Springs","Boiling Springs, NC","-84.00963","35.20592"
-"Masters","Other",NA,"Damp","Data is the key components of research.","Male",NA,"Bangladesh","Khulna","Khulna, Bangladesh","89.56439","22.80979"
+"Masters","Range","NC","Damp","Unprepared, anxious, but-it'll-be-fine-I'm-sure","Female",NA,"US","Charlotte","Charlotte, NC",-80.84313,35.22709
+"Masters","Entomology","WA","Damp","organization excel fun overwhelming interesting numbers text","Female",NA,"US","Seattle","Seattle, WA",-122.33207,47.60621
+"Masters","Range","MT","Damp","cool, comfortable, scattered, r, datasheets, digital","Female",NA,"US","Dillon","Dillon, MT",-112.63752,45.21631
+"PhD","Range","KS","Damp","I'm sure it will be fine once I have a better understanding of what I can do with it.","Female",NA,"US","Manhattan","Manhattan, KS",-96.57167,39.18361
+"Masters","Crop Science","ND","Moist","I like to see trends in my data.","Male",NA,"US","Fargo","Fargo, ND",-96.7898,46.87719
+"Masters","ECS","MN","Damp","lots of it, uncertain, organization","Female",NA,"US","Northfield","Northfield, MN",-93.1616,44.4583
+"Masters","Other","NC","Damp","Frustrating, anger, boring, overwhelming, but extremely exciting","Female",NA,"US","Boiling Springs","Boiling Springs, NC",-81.66704,35.25429
+"Masters","Other",NA,"Damp","Data is the key components of research.","Male",NA,"Bangladesh","Khulna","Khulna, Bangladesh",89.8308375,22.6208225
 "Masters","Crop Science",NA,"Damp","interested, very new","Male",NA,"Bangladesh",NA,"NA, Bangladesh",NA,NA
-"Masters","Crop Science","UT","Moist","interesting, mining, Big Data, modeling, precision, gives me a headache","Male",NA,"US","Provo","Provo, UT","-111.65853","40.23384"
-"Masters","Other","ND","Damp","love/hate","Female",NA,"US","Fargo","Fargo, ND","-96.7898","46.87719"
-"PhD","Crop Science","ID","Moist","ambiguous  complicated  heterogeneous  formidable","Male",NA,"US","Boise","Boise, ID","-116.20345","43.6135"
-"Other","Crop Science",NA,"Damp","field data, stats, anova, glm, mixed models, regression boxplot, means, lsd,","Female",NA,"Chile","Santiago","Santiago, Chile","-70.64827","-33.45694"
-"PhD","Range","KS","Damp","Excited, application, determine, neutral","Female",NA,"US","Manhattan","Manhattan, KS","-96.57167","39.18361"
-"Masters","Soils",NA,"Damp","Beginner","Male",NA,"Nepal","Bharatpur","Bharatpur, Nepal","84.43589","27.6768"
-"Masters","Range","MN","Moist","numbers, a lot, excitement, intimidated","Female",NA,"US","Northfield","Northfield, MN","-93.1616","44.4583"
-"Masters","NRM","ND","Moist","Intimidating, Fascinating, Concrete","Male",NA,"US","Fargo","Fargo, ND","-96.7898","46.87719"
-"Masters","Biology","ND","Damp","Love hate coffee confusion alcohol","Female","Oh man I can't stand it!","US","Fargo","Fargo, ND","-96.7898","46.87719"
-"Masters","Plant Sciences","NY","Moist","Unfulfilling, underdeveloped, respect, trust, mistrust","Male",NA,"US","Ithaca","Ithaca, NY","-76.49661","42.44063"
-"Masters","Biology","ND","Damp","Time consuming, ominous","Female",NA,"US","Fargo","Fargo, ND","-96.7898","46.87719"
-"Masters","Range","WI","Damp","minimal, limited, lacking, stressful, intrigued, curious,","Female",NA,"US","Stevens Point","Stevens Point, WI","-89.57456","44.52358"
-"PhD","Zoology","CT","Moist","Scary, unknown, stats-deficient, no R experience, no coding experience","Female",NA,"US","New Haven","New Haven, CT","-72.92816","41.30815"
-"Masters","Biology","IN","Damp","Love, Hate, Confusing, Great, Tired, Beautiful","Female",NA,"US","Greencastle","Greencastle, IN","-86.86473","39.64449"
-"Masters","ECS","MN","Moist","Curious","Male",NA,"US","Saint Paul","Saint Paul, MN","-93.09327","44.94441"
-"Masters","ECS","PA","Moist","Intrigued, skeptical, respectful. I enjoy collecting and analyzing data. I think that being able to evaluate data accurately and effectively requires great knowledge and care. I have much to learn. Data can be manipulated and interpreted in a myriad of ways and it is my responsibility as a scientist to handle my data with integrity and honesty.","Female",NA,"US","Allentown","Allentown, PA","-75.49018","40.60843"
-"Masters","NRM","WI","Damp","overwhelmed, swamped, abundant","Male",NA,"US","Stevens Point","Stevens Point, WI","-89.57456","44.52358"
-"Masters","Range","ND","Moist","Meh, mediocre, passable, indifferent","Male",NA,"US","Fargo","Fargo, ND","-96.7898","46.87719"
-"Masters","Range","NC","Damp","frustrating, incomplete, uncertain, informative","Female","Oh man I can't stand it!","US","Charlotte","Charlotte, NC","-80.84313","35.22709"
-"Masters","Biology","ND","Moist","love-hate learning improving","Male",NA,"US","Fargo","Fargo, ND","-96.7898","46.87719"
-"Masters","ECS","OK","Damp","Stats are scary, Unsure, Love, Final Answer","Female","Oh man I can't stand it!","US","Stillwater","Stillwater, OK","-97.05837","36.11561"
-"PhD","Biology",NA,"Damp","symbiotic, definite/stable, no innovation","Female",NA,"China","Kunming","Kunming, China","102.71833","25.03889"
-"Masters","Range","ND","Damp","Anxiety struggle headache sifting anger mind-numbing monotonous dull annoying","Female",NA,"US","Fargo","Fargo, ND","-96.7898","46.87719"
-"Masters","Range","IA","Moist","fun hot spicy","Male",NA,"US","Sioux Center","Sioux Center, IA","-96.17558","43.07971"
-"Masters","ECS","ND","Damp","I like data. I want to know how to better interpret data. I want to do this in R.","Female",NA,"US","Bismarck","Bismarck, ND","-100.78374","46.80833"
-"Other","Range","AK","Damp","Organized Messy Complicated","Female",NA,"US","Anchorage","Anchorage, AK","-149.90028","61.21806"
-"Masters","Entomology","ID","Damp","Complicated, Intrigued, Bewildered, Tearful","Male",NA,"US","Moscow","Moscow, ID","-117.00017","46.73239"
-"Masters","Range","KY","Moist","expanding; experienced at recording, TBD on analyzing/manipulating; currently playing around with it; figuring it out; amicable","Female",NA,"US","Murray","Murray, KY","-88.31476","36.61033"
-"Masters","ECS","MN","Moist","arduous necessary okay laborious simplistic remedial","Non-binary",NA,"US","Moorhead","Moorhead, MN","-96.76951","46.87386"
-"Masters","ECS","LA","Moist","Strugglebus, interest, time, frustrating, disinterest,","Male",NA,"US","Lafayette","Lafayette, LA","-92.01984","30.22409"
-"Masters","ECS","NC","Moist","hesitant, necessary, interested, unsure","Female","Oh man I can't stand it!","US","Raleigh","Raleigh, NC","-78.63861","35.7721"
-"PhD","ECS","MO","Moist","love-hate, fragile","Female",NA,"US","Fayette","Fayette, MO","-92.68379","39.14587"
-"PhD","ECS",NA,"Moist","Inevitable, interesting, intriguing, could be frustrating but overall pretty good","Male",NA,"Nigeria","Lagos","Lagos, Nigeria","3.39467","6.45407"
-"Masters","ECS","MN","Damp","Frustrating, Humbling","Female",NA,"US","Morris","Morris, MN","-95.91394","45.58607"
-"Masters","ECS","GA","Damp","Curious, interested, organized","Female","Oh man I can't stand it!","US","Athens","Athens, GA","-83.37794","33.96095"
-"Masters","Range",NA,"Moist","Afraid confused intimidated","Female",NA,"Canada","Saskatoon","Saskatoon, Canada","-106.66892","52.13238"
-"PhD","Other",NA,"Damp","Foundation, Vital, preprocessing, mining, database, data structure, queries, sorting","Male",NA,"Bangladesh","Dhaka","Dhaka, Bangladesh","90.40744","23.7104"
+"Masters","Crop Science","UT","Moist","interesting, mining, Big Data, modeling, precision, gives me a headache","Male",NA,"US","Provo","Provo, UT",-111.65853,40.23384
+"Masters","Other","ND","Damp","love/hate","Female",NA,"US","Fargo","Fargo, ND",-96.7898,46.87719
+"PhD","Crop Science","ID","Moist","ambiguous  complicated  heterogeneous  formidable","Male",NA,"US","Boise","Boise, ID",-116.20345,43.6135
+"Other","Crop Science",NA,"Damp","field data, stats, anova, glm, mixed models, regression boxplot, means, lsd,","Female",NA,"Chile","Santiago","Santiago, Chile",-71.1897533333333,-37.59614
+"PhD","Range","KS","Damp","Excited, application, determine, neutral","Female",NA,"US","Manhattan","Manhattan, KS",-96.57167,39.18361
+"Masters","Soils",NA,"Damp","Beginner","Male",NA,"Nepal","Bharatpur","Bharatpur, Nepal",84.0786064285714,27.5335278571429
+"Masters","Range","MN","Moist","numbers, a lot, excitement, intimidated","Female",NA,"US","Northfield","Northfield, MN",-93.1616,44.4583
+"Masters","NRM","ND","Moist","Intimidating, Fascinating, Concrete","Male",NA,"US","Fargo","Fargo, ND",-96.7898,46.87719
+"Masters","Biology","ND","Damp","Love hate coffee confusion alcohol","Female","Oh man I can't stand it!","US","Fargo","Fargo, ND",-96.7898,46.87719
+"Masters","Plant Sciences","NY","Moist","Unfulfilling, underdeveloped, respect, trust, mistrust","Male",NA,"US","Ithaca","Ithaca, NY",-76.49661,42.44063
+"Masters","Biology","ND","Damp","Time consuming, ominous","Female",NA,"US","Fargo","Fargo, ND",-96.7898,46.87719
+"Masters","Range","WI","Damp","minimal, limited, lacking, stressful, intrigued, curious,","Female",NA,"US","Stevens Point","Stevens Point, WI",-89.57456,44.52358
+"PhD","Zoology","CT","Moist","Scary, unknown, stats-deficient, no R experience, no coding experience","Female",NA,"US","New Haven","New Haven, CT",-72.92816,41.30815
+"Masters","Biology","IN","Damp","Love, Hate, Confusing, Great, Tired, Beautiful","Female",NA,"US","Greencastle","Greencastle, IN",-86.86473,39.64449
+"Masters","ECS","MN","Moist","Curious","Male",NA,"US","Saint Paul","Saint Paul, MN",-93.09327,44.94441
+"Masters","ECS","PA","Moist","Intrigued, skeptical, respectful. I enjoy collecting and analyzing data. I think that being able to evaluate data accurately and effectively requires great knowledge and care. I have much to learn. Data can be manipulated and interpreted in a myriad of ways and it is my responsibility as a scientist to handle my data with integrity and honesty.","Female",NA,"US","Allentown","Allentown, PA",-75.49018,40.60843
+"Masters","NRM","WI","Damp","overwhelmed, swamped, abundant","Male",NA,"US","Stevens Point","Stevens Point, WI",-89.57456,44.52358
+"Masters","Range","ND","Moist","Meh, mediocre, passable, indifferent","Male",NA,"US","Fargo","Fargo, ND",-96.7898,46.87719
+"Masters","Range","NC","Damp","frustrating, incomplete, uncertain, informative","Female","Oh man I can't stand it!","US","Charlotte","Charlotte, NC",-80.84313,35.22709
+"Masters","Biology","ND","Moist","love-hate learning improving","Male",NA,"US","Fargo","Fargo, ND",-96.7898,46.87719
+"Masters","ECS","OK","Damp","Stats are scary, Unsure, Love, Final Answer","Female","Oh man I can't stand it!","US","Stillwater","Stillwater, OK",-97.05837,36.11561
+"PhD","Biology",NA,"Damp","symbiotic, definite/stable, no innovation","Female",NA,"China","Kunming","Kunming, China",102.71833,25.03889
+"Masters","Range","ND","Damp","Anxiety struggle headache sifting anger mind-numbing monotonous dull annoying","Female",NA,"US","Fargo","Fargo, ND",-96.7898,46.87719
+"Masters","Range","IA","Moist","fun hot spicy","Male",NA,"US","Sioux Center","Sioux Center, IA",-96.17558,43.07971
+"Masters","ECS","ND","Damp","I like data. I want to know how to better interpret data. I want to do this in R.","Female",NA,"US","Bismarck","Bismarck, ND",-100.78374,46.80833
+"Other","Range","AK","Damp","Organized Messy Complicated","Female",NA,"US","Anchorage","Anchorage, AK",-149.90028,61.21806
+"Masters","Entomology","ID","Damp","Complicated, Intrigued, Bewildered, Tearful","Male",NA,"US","Moscow","Moscow, ID",-117.00017,46.73239
+"Masters","Range","KY","Moist","expanding; experienced at recording, TBD on analyzing/manipulating; currently playing around with it; figuring it out; amicable","Female",NA,"US","Murray","Murray, KY",-88.31476,36.61033
+"Masters","ECS","MN","Moist","arduous necessary okay laborious simplistic remedial","Non-binary",NA,"US","Moorhead","Moorhead, MN",-96.76951,46.87386
+"Masters","ECS","LA","Moist","Strugglebus, interest, time, frustrating, disinterest,","Male",NA,"US","Lafayette","Lafayette, LA",-92.01984,30.22409
+"Masters","ECS","NC","Moist","hesitant, necessary, interested, unsure","Female","Oh man I can't stand it!","US","Raleigh","Raleigh, NC",-78.63861,35.7721
+"PhD","ECS","MO","Moist","love-hate, fragile","Female",NA,"US","Fayette","Fayette, MO",-92.68379,39.14587
+"PhD","ECS",NA,"Moist","Inevitable, interesting, intriguing, could be frustrating but overall pretty good","Male",NA,"Nigeria","Lagos","Lagos, Nigeria",3.39467,6.45407
+"Masters","ECS","MN","Damp","Frustrating, Humbling","Female",NA,"US","Morris","Morris, MN",-95.91394,45.58607
+"Masters","ECS","GA","Damp","Curious, interested, organized","Female","Oh man I can't stand it!","US","Athens","Athens, GA",-83.37794,33.96095
+"Masters","Range",NA,"Moist","Afraid confused intimidated","Female",NA,"Canada","Saskatoon","Saskatoon, Canada",-106.66892,52.13238
+"PhD","Other",NA,"Damp","Foundation, Vital, preprocessing, mining, database, data structure, queries, sorting","Male",NA,"Bangladesh","Dhaka","Dhaka, Bangladesh",90.38643,23.760665
+"Masters","ECS","PA","Damp","Comfortable, basic, functional","Female","Oh man I can't stand it!","US","Meadville","Meadville, PA",-80.15145,41.64144
+"PhD","Plant Pathology",NA,"Damp","Figure, statistics, mean, average, ANOVA Standard Deviation, interpretation Degrees of Freedom etc","Male",NA,"Bangladesh","Dhaka","Dhaka, Bangladesh",90.38643,23.760665
+"PhD","Microbiology","013","Damp","some understanding, want to learn to be run analysis and models, make efficient figures","Male",NA,"US","Arecibo","Arecibo, 013",-66.71573,18.47245
+"Masters","Microbiology",NA,"Damp","No idea until now.","Female",NA,"India","Kolkata","Kolkata, India",88.36836,22.55498
+"Masters","Microbiology",NA,"Damp","Interesting, Fun and Organised","Female",NA,"Nepal","Dang","Dang, Nepal",82.2670925,28.6559275
+"PhD","Microbiology","NY","Moist","struggle","Female",NA,"US","Albany","Albany, NY",-73.75623,42.65258
+"PhD","ECS",NA,"Damp","research, analysis, results, presentation","Female",NA,"Bangladesh","Dhaka","Dhaka, Bangladesh",90.38643,23.760665
+"Masters","Range","WI","Damp","Overwhelming, uncharted","Female","Oh man I can't stand it!","US","Ashland","Ashland, WI",-90.8838,46.59244
+"Masters","Other",NA,"Damp",NA,"Female",NA,"Bangladesh","Dhaka","Dhaka, Bangladesh",90.38643,23.760665

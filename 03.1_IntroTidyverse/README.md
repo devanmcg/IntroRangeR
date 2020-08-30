@@ -1,9 +1,6 @@
 # An introduction to data wrangling with *tidyverse*
 
--   [Reproducibility](#reproducibility)
--   [Preparations](#preparations)
--   [Load Data](#load-data)
--   [Preprocess Data](#preprocess-data)
+-   [Materials](#materials)
 -   [Homework assignment](#homework-assignment)
  
 ## Materials 

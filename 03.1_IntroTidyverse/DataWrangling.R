@@ -6,7 +6,7 @@
 # YouTube lectures: https://www.youtube.com/playlist?list=PLKXOvaXmjIGcSHFMe2Wpsaw4yzvWR0AgQ
 # github repo: https://github.com/devanmcg/IntroRangeR
 # 
-# Lesson 3: Intro to data manipulation with tidyverse
+# Lesson 3: Intro to data wrangling with tidyverse
 #
 # Packages
 #

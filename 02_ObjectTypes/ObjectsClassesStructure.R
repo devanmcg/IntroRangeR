@@ -2,6 +2,7 @@
 #
 # Devan Allen McGranahan (devan.mcgranahan@gmail.com)
 #
+# Course website: https://www.introranger.org 
 # YouTube lectures: https://www.youtube.com/playlist?list=PLKXOvaXmjIGcSHFMe2Wpsaw4yzvWR0AgQ
 # github repo: https://github.com/devanmcg/IntroRangeR
 # 

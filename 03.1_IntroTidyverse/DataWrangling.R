@@ -1,5 +1,10 @@
 # An Introduction to R
+#
 # Devan Allen McGranahan (devan.mcgranahan@gmail.com)
+#
+# Course website: https://www.introranger.org 
+# YouTube lectures: https://www.youtube.com/playlist?list=PLKXOvaXmjIGcSHFMe2Wpsaw4yzvWR0AgQ
+# github repo: https://github.com/devanmcg/IntroRangeR
 # 
 # Lesson 3: Intro to data manipulation with tidyverse
 #
@@ -19,15 +24,14 @@
   # Read from a Google Sheets file published  
     # online in .csv format:
   URL <- url("https://docs.google.com/spreadsheets/d/e/2PACX-1vRBNT5RoZ1AXpUHC-b5cCSe7GEj4x9lhwh5FeNV-NQDrB5G9qa1gTPAhigq0gh7WFHicfBrT7s-rx3q/pub?gid=1985705954&single=true&output=csv")
-  mtcars_origins <- read.csv(URL)
-
-#
-# Data manipulation 
-#
-#
-  str(mtcars)
-  head(mtcars)    
-
+  mtcars_origins <- read.csv(URL) 
+  class(mtcars_origins)
+  # convert to tibble
+  mtcars_origins <- as_tibble(mtcars_origins)
+  class(mtcars_origins)
+  
+  mtcars_origins
+  
 # Adding variables 
 
 # The mtcars dataset is a tad wonky. 

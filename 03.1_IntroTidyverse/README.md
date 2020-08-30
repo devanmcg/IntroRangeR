@@ -13,7 +13,7 @@
 
 **Video lecture on YouTube**
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/TPifWRJ-5dw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Lesson 3 Data wrangling](http://img.youtube.com/vi/TPifWRJ-5dw/0.jpg)](https://youtu.be/TPifWRJ-5dw "Lesson 3 Data wrangling")
 
 [Walk through the script](https://www.introranger.org/post/lesson-3-intro-to-tidyverse/#walking-through-the-script) 
 

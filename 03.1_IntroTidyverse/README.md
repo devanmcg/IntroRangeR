@@ -1,21 +1,24 @@
--
-    -   [Reproducibility](#reproducibility)
-    -   [Preparations](#preparations)
-    -   [Load Data](#load-data)
-    -   [Preprocess Data](#preprocess-data)
-    -   [Homework assignment](#homework-assignment)
- 
 # An introduction to data wrangling with *tidyverse*
 
+-   [Reproducibility](#reproducibility)
+-   [Preparations](#preparations)
+-   [Load Data](#load-data)
+-   [Preprocess Data](#preprocess-data)
+-   [Homework assignment](#homework-assignment)
+ 
 ## Materials 
 
 **Script**
+
+[`DataWrangling.R`](https://raw.githubusercontent.com/devanmcg/IntroRangeR/master/03.1_IntroTidyverse/DataWrangling.R)
+
+[Walk through the script](https://www.introranger.org/post/lesson-3-intro-to-tidyverse/#walking-through-the-script) on the [IntroRangeR](http://www.introranger.org) course website. 
 
 **Video lecture on YouTube**
 
 [![Lesson 3 Data wrangling](http://img.youtube.com/vi/TPifWRJ-5dw/0.jpg)](https://youtu.be/TPifWRJ-5dw "Lesson 3 Data wrangling")
 
-[Walk through the script](https://www.introranger.org/post/lesson-3-intro-to-tidyverse/#walking-through-the-script) 
+
 
 ## Homework assignment 
 

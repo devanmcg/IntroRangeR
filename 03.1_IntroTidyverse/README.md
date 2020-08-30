@@ -1,6 +1,23 @@
+-
+    -   [Reproducibility](#reproducibility)
+    -   [Preparations](#preparations)
+    -   [Load Data](#load-data)
+    -   [Preprocess Data](#preprocess-data)
+    -   [Homework assignment](#homework-assignment)
+ 
+# An introduction to data wrangling with *tidyverse*
+
+## Materials 
+
+**Script**
+
+**Video lecture on YouTube**
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TPifWRJ-5dw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+[Walk through the script](https://www.introranger.org/post/lesson-3-intro-to-tidyverse/#walking-through-the-script) 
+
 ## Homework assignment 
-
-
 
 For this assignment, use script from class to produce summary statistics and a boxplot with means using a different dataset, `mpg`, which comes with tidyverse. Upload your table and graph in a .pdf or .docx file created via R markdown. 
 

@@ -1,28 +1,34 @@
 # An Introduction to R
+#
 # Devan Allen McGranahan (devan.mcgranahan@gmail.com)
+#
+# Course website: https://www.introranger.org 
+# YouTube lectures: https://www.youtube.com/playlist?list=PLKXOvaXmjIGcSHFMe2Wpsaw4yzvWR0AgQ
+# github repo: https://github.com/devanmcg/IntroRangeR
 # 
-# Lesson 5: More ggplot - continuing the introduction to ggplot 
+# Lesson 5: More ggplot - continuing the introduction to ggplot
+#
 # Load packages
-  pacman::p_load(tidyverse, knitr)
+  if (!require("pacman")) install.packages("pacman")
+    pacman::p_load(tidyverse, knitr)
     
-# View data
-  as_tibble(ChickWeight)  # cool alternative to str(). 
-                          ## only views as tibble: 
-                          ### ChickWeight <- as_tibble(ChickWeight)
-                          ### would convert data.frame to tibble
+# Convert to tibble and view data
+    ChickWeight <- as_tibble(ChickWeight)  
+    ChickWeight
+    
   # Boxplot for factors 
     # Trim the dataset down to last round of  (Time)
   
     EndWeight <- filter(ChickWeight, Time==max(Time)) # dplyr::filter >> base::subset
      
   # Tweaking appearance
-  
-    EndWeight <- mutate(EndWeight, ActualDiet = 
-                                          recode(Diet, 
-                                            "1"="corn", 
-                                            "2"="oats", 
-                                            "3"="burgers", 
-                                            "4"="tacos") )
+    EndWeight <- mutate(EndWeight, 
+                          ActualDiet = 
+                            recode(Diet, 
+                                   "1"="corn", 
+                                   "2"="oats", 
+                                   "3"="burgers", 
+                                   "4"="tacos") )
   
     ggplot(EndWeight) + 
       geom_boxplot(aes(x=ActualDiet, y=weight))
@@ -34,24 +40,48 @@
       ggplot(EndWeight, aes(x=reorder(ActualDiet, weight, median), y=weight)) + 
         geom_boxplot()
       
+    # Alternative using mutate() in a pipe: 
+      
+      EndWeight %>%
+        mutate(ActualDiet = reorder(ActualDiet, weight, median)) %>%
+      ggplot(aes(x=ActualDiet, y=weight)) + 
+        geom_boxplot()
+      
     # Easily reverse direction by reordering Y variable on opposite sign:
       
-      EW_gg <-  ggplot(EndWeight, aes(x=reorder(ActualDiet, -weight, median), y=weight)) 
+      EW_gg <-  
+        EndWeight %>%
+        mutate(ActualDiet = reorder(ActualDiet, -weight, median)) %>%
+        ggplot(aes(x=ActualDiet, y=weight))
       EW_gg + geom_boxplot()
       
-      EW_gg <- EW_gg + labs(x="Chick diet", y="End weight (g)") 
+      EW_gg <- EW_gg + labs(x="Chick diet", 
+                            y="End weight (g)") 
       EW_gg + geom_boxplot() # This comment is only in your homework if you copy-pasted w/out thinking
 
-  # jitter adds points to show distribution  
+# Adding individual observations to boxplots 
+  EW_gg + geom_boxplot() +
+    geom_point()
+  # Shows fewer points than there actually are: 
+    EndWeight %>%
+      group_by(ActualDiet) %>%
+      summarize(Count = n())
+  # jitter adds points with random noise 
+    # to show distributionand reduce overlap
     EW_gg + geom_boxplot() +
             geom_jitter()
-    
+  
+   # Reduce the amount of noise:
     EW_gg + geom_boxplot() +
       geom_jitter(width=0.15)
-    
+   
+   # Dress it up a bit:
     EW_gg + geom_boxplot() +
-      geom_jitter(width=0.15, pch=21, stroke=1.5,
-                  color="black", fill="red")
+      geom_jitter(width=0.15, 
+                  pch=21, 
+                  stroke=1.5,
+                  color="black", 
+                  fill="red")
     
   # Violin plot gives shape to the distribution  
     EW_gg + geom_violin() 
@@ -59,6 +89,13 @@
     EW_gg + geom_violin(draw_quantiles= c(0.25, 0.5, 0.75)) # quartiles
     EW_gg + geom_violin(draw_quantiles= c(0.5))             # median
  
+    EW_gg + geom_violin(draw_quantiles= 
+                          c(0.25, 0.5, 0.75)) +
+      geom_jitter(width=0.15, 
+                  pch=21, 
+                  stroke=1.5,
+                  color="black", 
+                  fill="red")
 # Plotting error bars
   # Summarize mean and appropriate variance estimate
   EWsumm <- EndWeight %>%
@@ -89,8 +126,11 @@
             knitr::kable()
       
   # Create plot
-  EW_gg <- ggplot(EWsumm, aes(x=reorder(ActualDiet, -mean, max), y=mean))
-  EW_gg + geom_point()  
+    EW_gg <- 
+      EWsumm %>%
+      mutate(ActualDiet = reorder(ActualDiet, -mean, max)) %>%
+      ggplot(aes(x=ActualDiet, y=mean))
+    EW_gg + geom_point()  
   
   EW_gg + geom_point() +
           geom_errorbar(aes(ymin=mean-sem, 
@@ -104,8 +144,11 @@
   EW_gg + geom_errorbar(aes(ymin=mean-sem, 
                       ymax=mean+sem), 
                   width=0.25) +
-          geom_point(shape=21, color="black", fill="white",
-                     size=3, stroke=1.5) 
+          geom_point(shape=21, 
+                     color="black", 
+                     fill="white",
+                     size=3, 
+                     stroke=1.5) 
 
 # Adding another variable 
   # Mutate verb adds multiple columns in one call:
@@ -123,33 +166,41 @@
     EndWeight <- filter(ChickWeight, Time==max(Time))
   
   # Recalculate summary stats with multiple levels 
-    EWsumm <- EndWeight %>%
-                group_by(Grain, Source) %>% 
-                  summarise( 
-                      mean=mean(weight), 
-                      sem=sd(weight)/sqrt(length(weight)) )
+    EWsumm <- 
+      EndWeight %>%
+      group_by(Grain, Source) %>% 
+      summarise( 
+        mean=mean(weight), 
+        sem=sd(weight)/sqrt(length(weight)) ) %>%
+      ungroup() 
   
   # Easy to add second variable to a boxplot...
-    ggplot(EndWeight, aes(x=reorder(Grain, -weight, median), y=weight)) + 
+    EndWeight %>%
+      mutate(Grain = reorder(Grain, -weight, median)) %>%
+      ggplot(aes(x=Grain, y=weight)) + 
       geom_boxplot(aes(fill=Source))
   
   # ... but not so easy for mean w/ errorbars?
-    ggplot(EWsumm, aes(x=reorder(Grain, -mean, max),
-                        y=mean,
-                        color=Source)) +   
+    EWsumm %>%
+      mutate(Grain = reorder(Grain, -mean, max)) %>%
+      ggplot(aes(x=Grain,
+                 y=mean,
+                 color=Source)) +   
       geom_errorbar(aes(ymin=mean-sem, 
                         ymax=mean+sem)) +
-      geom_point()  
+      geom_point() 
   
   # solution: use position_dodge to prevent overlap 
-    ggplot(EWsumm, aes(x=reorder(Grain, -mean, max),
-                        y=mean,
-                        color=Source)) +   
-    geom_errorbar(aes(ymin=mean-sem, 
-                      ymax=mean+sem), 
-                  width=0.15, 
-                  position=position_dodge(width = 0.25)) +
-    geom_point(position=position_dodge(width = 0.25)) 
+    EWsumm %>%
+      mutate(Grain = reorder(Grain, -mean, max)) %>%
+      ggplot(aes(x=Grain,
+                 y=mean,
+                 color=Source)) +   
+      geom_errorbar(aes(ymin=mean-sem, 
+                        ymax=mean+sem), 
+                    width=0.15, 
+                    position=position_dodge(width = 0.25)) +
+      geom_point(position=position_dodge(width = 0.25))
     
 # ChickWeight data are actually a time series: 
   ggplot(ChickWeight, aes(x=Time, y=weight)) + 
@@ -175,15 +226,16 @@
                        sem=round(sd(weight)/sqrt(length(weight)), 1) )
     
     # plot group summaries over time
-      (TS_gg <- ggplot(TSsumm, aes(x=Time,
+      TS_gg <- ggplot(TSsumm, aes(x=Time,
                                   y=mean,
                                   color=Grain)) +   
-                geom_errorbar(aes(ymin=mean-sem, 
-                                  ymax=mean+sem), 
-                              width=1, 
-                              position=position_dodge(width = 0.25)) +
-                geom_point(position=position_dodge(width = 0.25), 
-                           shape=21, fill="white", stroke=1.5) )
+        geom_errorbar(aes(ymin=mean-sem, 
+                          ymax=mean+sem), 
+                      width=1, 
+                      position=position_dodge(width = 0.25)) +
+        geom_point(position=position_dodge(width = 0.25), 
+                   shape=21, fill="white", stroke=1.5) 
+      TS_gg
       # Connect the summarized observations by group along the time series
         TS_gg + geom_line(aes(group=Grain),
                         position=position_dodge(width = 0.25))  
@@ -191,33 +243,47 @@
 # Show individual performances with emphasis on group means. 
   # Note empty call to ggplot() 
   # and data= arguments mapping correct data.frame to each geom
-    (grain_gg <- ggplot() +   theme_bw(14) + 
-      geom_line(data=ChickWeight, aes(x=Time, 
-                                       y=weight,
-                                       color=Grain, 
-                                       group=Chick), 
+    grain_gg <- 
+      ggplot() +   theme_bw(14) + 
+      geom_line(data=ChickWeight, 
+                aes(x=Time, 
+                    y=weight,
+                    color=Grain, 
+                    group=Chick), 
+                alpha=0.25) +
+      geom_point(data=ChickWeight, 
+                 aes(x=Time, 
+                     y=weight,
+                     color=Grain), 
                  alpha=0.25) +
-      geom_point(data=ChickWeight, aes(x=Time, 
-                                       y=weight,
-                                       color=Grain), 
-                 alpha=0.25) +
-      geom_errorbar(data=TSsumm, aes(x=Time,
-                                      color=Grain, 
-                                      ymin=mean-sem, 
-                                      ymax=mean+sem), 
-                    width=1, lwd=1.5,
+      geom_errorbar(data=TSsumm, 
+                    aes(x=Time,
+                        color=Grain, 
+                        ymin=mean-sem, 
+                        ymax=mean+sem), 
+                    width=1, 
+                    lwd=1.5,
                     position=position_dodge(width = 0.25)) +
-      geom_line(data=TSsumm, aes(x=Time,
-                                  y=mean,
-                                  color=Grain, 
-                                  group=Grain), 
-                position=position_dodge(width = 0.25), lwd=1.5) +
-      geom_point(data=TSsumm, aes(x=Time,
-                                   y=mean,
-                                   color=Grain),
+      geom_line(data=TSsumm, 
+                aes(x=Time,
+                    y=mean,
+                    color=Grain, 
+                    group=Grain), 
+                position=position_dodge(width = 0.25),
+                lwd=1.5) +
+      geom_point(data=TSsumm, 
+                 aes(x=Time,
+                     y=mean,
+                     color=Grain),
                  position=position_dodge(width = 0.25), 
-                 shape=21, fill="white", stroke=1.5, size=4) )
-      grain_gg +  facet_wrap(~Source)
+                 shape=21, 
+                 fill="white", 
+                 stroke=1.5, 
+                 size=4) 
+    grain_gg
+    
+    # Add another level of information:
+    grain_gg +  facet_wrap(~Source)
 
 ##
 ##  An example of a more complex workflow ending with facet_grid
@@ -226,21 +292,21 @@
 # Start all over: remove ChickWeight and restore default 
 #
   rm(ChickWeight)
-  as_tibble(ChickWeight)
+  (ChickWeight <- as_tibble(ChickWeight))
 #
 # Pour data through a pipe and into ggplot. 
 # Note ~~nested~~ pipe for data modification
   ChickWeight %>%
-     mutate(Grain = recode(Diet, 
-                           "1"="corn", 
-                           "2"="corn", 
-                           "3"="oats", 
-                           "4"="oats" ), 
-            Source = recode(Diet, 
-                            "1"="conventional", 
-                            "2"="organic", 
-                            "3"="conventional", 
-                            "4"="organic")) %>%
+    mutate(Grain = recode(Diet, 
+                          "1"="corn", 
+                          "2"="corn", 
+                          "3"="oats", 
+                          "4"="oats" ), 
+           Source = recode(Diet, 
+                           "1"="conventional", 
+                           "2"="organic", 
+                           "3"="conventional", 
+                           "4"="organic")) %>%
     ggplot() + theme_bw(14) + 
     geom_line(aes(x=Time, 
                   y=weight,
@@ -251,31 +317,36 @@
                alpha=0.25) +
     geom_errorbar(data=. %>%
                     group_by(Grain, Time) %>% 
-                      summarise(
-                        mean=mean(weight), 
-                        sem= sd(weight)/sqrt(length(weight)) ), 
+                    summarise(
+                      mean=mean(weight), 
+                      sem= sd(weight)/sqrt(length(weight)) ), 
                   aes(x=Time,
                       ymin=mean-sem, 
                       ymax=mean+sem), 
-                  width=1, lwd=1.5,
+                  width=1, 
+                  lwd=1.5,
                   position=position_dodge(width = 0.25)) +
     geom_line(data=. %>%
-                    group_by(Grain, Time) %>% 
-                      summarise(
-                        mean=mean(weight), 
-                        sem= sd(weight)/sqrt(length(weight)) ),
+                group_by(Grain, Time) %>% 
+                summarise(
+                  mean=mean(weight), 
+                  sem= sd(weight)/sqrt(length(weight)) ),
               aes( x=Time,
                    y=mean,
                    group=Grain), 
-              position=position_dodge(width = 0.25), lwd=1.5) +
+              position=position_dodge(width = 0.25), 
+              lwd=1.5) +
     geom_point(data=. %>%
-                     group_by(Grain, Time) %>% 
-                       summarise(
-                         mean= mean(weight), 
-                         sem=  sd(weight)/sqrt(length(weight)) ), 
+                 group_by(Grain, Time) %>% 
+                 summarise(
+                   mean= mean(weight), 
+                   sem=  sd(weight)/sqrt(length(weight)) ), 
                aes(x=Time,
                    y=mean),
                position=position_dodge(width = 0.25), 
-               shape=21, fill="white", stroke=1.5, size=4) + 
+               shape=21, 
+               fill="white", 
+               stroke=1.5, 
+               size=4) + 
     facet_grid(Grain ~ Source)
   

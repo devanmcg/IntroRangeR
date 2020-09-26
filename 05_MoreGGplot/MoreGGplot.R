@@ -37,7 +37,10 @@
     # X axis order can be reordered by applying a function to Y values
     # In this case, function is median:
     
-      ggplot(EndWeight, aes(x=reorder(ActualDiet, weight, median), y=weight)) + 
+      ggplot(EndWeight, aes(x=reorder(ActualDiet, # variable to order
+                                      weight,     # values to order by
+                                      median),    # ordering function
+                            y=weight)) + 
         geom_boxplot()
       
     # Alternative using mutate() in a pipe: 

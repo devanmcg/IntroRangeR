@@ -12,10 +12,10 @@
   pacman::p_load(tidyverse) 
 
 # Load some data from github
-load(url("https://github.com/devanmcg/IntroRangeR/raw/master/data/swha.dat.Rdata") )
-
-swha <- as_tibble(swha.dat) # Swainson's Hawk counts before and during Rx fires 
-swha
+  load(url("https://github.com/devanmcg/IntroRangeR/raw/master/data/swha.dat.Rdata") )
+  
+  swha <- as_tibble(swha.dat) # Swainson's Hawk counts before and during Rx fires 
+  swha
 
 # Are these data normal?
   swha_gg <- ggplot(swha, aes(x=diff)) + theme_bw(16) + 

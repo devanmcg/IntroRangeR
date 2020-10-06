@@ -6,6 +6,9 @@
 *.httr-oauth
 *.ini
 *.jpeg
+*.docx
+
+rsconnect/
 
 MoreTidyverseHomeworkSolution.Rmd
 MoreTidyverseHomeworkSolution.html

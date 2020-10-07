@@ -6,11 +6,12 @@
 *.httr-oauth
 *.ini
 *.jpeg
+*.html
+*.Rmd
+*.docx
+*.pdf
+
+rsconnect/
 
 IntroDistributionsHomeworkSolution_files/
 
-IntroDistributionsHomeworkAssignment.Rmd
-
-IntroDistributionsHomeworkSolution.Rmd
-IntroDistributionsHomeworkSolution.html
-IntroDistributionsHomeworkSolution.pdf

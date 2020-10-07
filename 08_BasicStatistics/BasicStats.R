@@ -10,67 +10,151 @@
   if (!require("pacman")) install.packages("pacman")
   pacman::p_load(tidyverse) 
 
-  mtcars <- mutate_at(mtcars, vars(cyl, vs, am,
-                                   gear, carb), 
+  mtcars <- mutate_at(mtcars, vars(cyl, am), 
                       as.character ) %>%
               mutate(am = recode(am, "0"="Automatic",   
-                                     "1"="Manual")) %>% 
-                rename(transmission = am) 
+                                 "1"="Manual")) %>% 
+              rename(transmission = am) 
+  
+##
+## Basic pairwise comparisons (among groups)
+##
 
-# Basic pairwise comparisons
-
-# Do manual transmissions really get better fuel economy?
+# Hypothesis: manual transmissions get better 
+# fuel economy than automatic transmissions
   ggplot(mtcars, aes(x=transmission, y=mpg)) + theme_bw(14) +
     geom_boxplot(aes(fill=transmission), 
-                 size = 1.5, show.legend =F) 
+                 size = 1.5, show.legend =F)
 
 # Check distribution
   ggplot(mtcars, aes(x=mpg)) + theme_bw(14)  +
-    geom_density(alpha=.5, fill="lightgreen") + 
+    geom_density(alpha=0.5, fill="lightblue") + 
     geom_histogram(aes(y=..density..),      
-                   binwidth=1, fill="purple", 
-                   alpha=0.8, colour="black")
+                   binwidth=1, fill="lightgreen", 
+                   alpha=0.8, colour="black") +
+    stat_function(data=mtcars, 
+                  fun = dnorm, 
+                  args=list(mean=mean(mtcars$mpg),
+                            sd=sd(mtcars$mpg)),
+                  colour="blue", 
+                  size=1.1) +
+    xlim(c(0,40))
   
-  ggplot(mtcars, aes(x=log(mpg))) + theme_bw(14) +
-    geom_density(alpha=.5, fill="lightgreen") + 
-    geom_histogram(aes(y=..density..),      
-                   binwidth=0.1, fill="purple", 
-                   alpha=0.8, colour="black") 
+# Check for skewness (median:mean)
+  # Data as they are:
+    tibble(Mean = mean(mtcars$mpg), 
+           Median = median(mtcars$mpg), 
+           Ratio = Mean/Median)  %>%
+      mutate_all(~round(.,2)) 
   
-  ggplot(mtcars, aes(x=log(mpg), fill=transmission)) + theme_bw(14) + 
-    geom_histogram(aes(y=..density..),      
-                   binwidth=0.1,  alpha=0.8, colour="black")  +
-    geom_density(alpha=.5) 
-
-# T test 
-
-  t.test(mpg ~ transmission, mtcars)
-  
-# ANOVA 
-  tr.lm <- lm(mpg ~ transmission, mtcars)
-  tr.lm
-  summary(tr.lm)
-  anova(tr.lm)
+  # Log-transformed:
+    tibble(Mean = mean(log(mtcars$mpg)), 
+           Median = median(log(mtcars$mpg)), 
+           Ratio = Mean/Median) %>%
+      mutate_all(~round(.,2))
  
-# Linear regression 
+  # Proceed with log-transformed data... 
+      mtcars <- mutate(mtcars, lmpg = log(mpg))
+      
+  # ... and re-plot distribution:
+      ggplot(mtcars, aes(x=lmpg)) + theme_bw(14) +
+        geom_density(alpha=.5, fill="lightblue") + 
+        geom_histogram(aes(y=..density..),      
+                       binwidth=0.1, 
+                       fill="lightgreen", 
+                       alpha=0.8,
+                       colour="black")  +
+        stat_function(data=mtcars, 
+                      fun = dnorm, 
+                      args=list(mean=mean(mtcars$lmpg),
+                                sd=sd(mtcars$lmpg)),
+                      colour="blue", 
+                      size=1.1) +
+        xlim(c(2,4)) 
+#  
+# t test 
+#
+  # Moments/distribution parameters
+    mtcars %>% 
+      group_by(transmission) %>%
+      summarize(Mean = mean(lmpg), 
+                SD = sd(lmpg), 
+                n = n() ) %>%
+      mutate_at(vars(Mean, SD), ~round(., 3))
+    
+  # View distributions by transmission types
+    ggplot(mtcars, aes(x=lmpg, 
+                       fill = transmission)) + theme_bw(14) +
+      geom_density(alpha=.5) + 
+      geom_histogram(aes(y=..density..),
+                     binwidth = 0.025,
+                     alpha=0.8,
+                     colour="black") +
+      stat_function(data=mtcars, 
+                    fun = dnorm, 
+                    args=list(mean=2.8,
+                              sd=0.2), 
+                    colour="darkred", 
+                    size=2)  + 
+      stat_function(data=mtcars, 
+                    fun = dnorm, 
+                    args=list(mean = 3.2, 
+                              sd = 0.3),
+                    colour="blue", 
+                    size=2)  + 
+      annotate("label", 
+               x=c(2.75, 3.25), 
+               y=c(1,2), 
+               label = c("Automatic", "Manual"), 
+               color=c("darkred", "blue"), 
+               size=5)
 
-  sp.gg <- ggplot(mtcars, aes(x=hp, y=mpg)) + theme_bw(14) 
-  sp.gg + geom_point()
+  # Calculate a t statistic
+    # Group means
+      X_a = 2.817
+      X_m = 3.163
+    # Standard deviations
+      s_a = 0.235
+      s_m = 0.263
+    # Sample sizes
+      n_a = 19
+      n_m = 13
+    
+    t_w = (X_a - X_m) / sqrt((s_a^2/n_a) + (s_m^2/n_m) )
+    t_w # Welch's t statistic 
+    
+  # Test significance with t.test() :
+    t.test(lmpg ~ transmission, mtcars)
+#  
+# Analysis of Variance (ANOVA)
+#
+  # fit model with lm() 
+    tr_lm <- lm(lmpg ~ transmission, mtcars)
+    tr_lm
   
-  sp.gg + geom_point() +
-       geom_smooth(method="lm", se=FALSE) 
+  # Compare difference of group means...
+    X_a - X_m
+    
+  # ... to the model coefficient:
+    coef(tr_lm)
+    
+  # Evaluate model (significance tests, etc.)
+    summary(tr_lm) # t test & F test
+    anova(tr_lm)   # F test only
+ 
+# Multiple comparisons (Factors with >2 levels) 
+  # View data
+    ggplot(mtcars, aes(x=cyl, y=mpg, 
+                       fill=cyl)) + 
+      theme_bw(14) +
+      geom_boxplot(show.legend = F) 
   
-  hp.lm <- lm(mpg ~ hp, mtcars)
-  summary(hp.lm)
-  anova(hp.lm)
-  
-# Multiple comparisons 
-  # Factors with >2 levels 
-  
-  ggplot(mtcars, aes(x=cyl, y=mpg)) + theme_bw(14) +
-    geom_boxplot(aes(fill=cyl), show.legend = F) 
-  
-  cyl.lm <- lm(mpg ~ cyl, mtcars)
-  summary(cyl.lm)
-  anova(cyl.lm)
-  TukeyHSD(aov(cyl.lm)) # wrap lm() object in aov() 
+  # Fit model
+    cyl_lm <- lm(lmpg ~ cyl, mtcars)
+    
+  # Evaluate
+    anova(cyl_lm)
+    summary(cyl_lm)
+
+  # Tukey post-hoc comparison
+    aov(cyl_lm) %>% TukeyHSD()  # wrap lm() object in aov() 

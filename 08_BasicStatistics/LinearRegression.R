@@ -5,11 +5,23 @@
 # YouTube lectures: https://www.youtube.com/playlist?list=PLKXOvaXmjIGcSHFMe2Wpsaw4yzvWR0AgQ
 # github repo: https://github.com/devanmcg/IntroRangeR
 # 
-# Lesson 8.2: Multiple regression
+# Lesson 8.2: Linear regression
 #
 # Packages
   if (!require("pacman")) install.packages("pacman")
   pacman::p_load(tidyverse, GGally)
+  
+# Linear regression 
+  
+  sp.gg <- ggplot(mtcars, aes(x=hp, y=mpg)) + theme_bw(14) 
+  sp.gg + geom_point()
+  
+  sp.gg + geom_point() +
+    geom_smooth(method="lm", se=F) 
+  
+  hp.lm <- lm(mpg ~ hp, mtcars)
+  summary(hp.lm)
+  anova(hp.lm)
 
 # Two continuous variables 
   # Fit

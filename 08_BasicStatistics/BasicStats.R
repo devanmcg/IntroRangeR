@@ -11,10 +11,12 @@
   pacman::p_load(tidyverse) 
 
   mtcars <- mutate_at(mtcars, vars(cyl, am), 
-                      as.character ) %>%
+                      as.factor ) %>%
               mutate(am = recode(am, "0"="Automatic",   
-                                 "1"="Manual")) %>% 
-              rename(transmission = am) 
+                                     "1"="Manual"), 
+                     am = factor(am, levels=c("Manual", 
+                                              "Automatic"))) %>% 
+              rename(transmission = am)
   
 ##
 ## Basic pairwise comparisons (among groups)
@@ -120,7 +122,7 @@
       n_a = 19
       n_m = 13
     
-    t_w = (X_a - X_m) / sqrt((s_a^2/n_a) + (s_m^2/n_m) )
+    t_w = (X_m - X_a) / sqrt((s_m^2/n_m) + (s_a^2/n_a) )
     t_w # Welch's t statistic 
     
   # Test significance with t.test() :
@@ -133,9 +135,10 @@
     tr_lm
   
   # Compare difference of group means...
-    X_a - X_m
+    X_m
+    X_m - X_a
     
-  # ... to the model coefficient:
+  # ... to the model coefficients:
     coef(tr_lm)
     
   # Evaluate model (significance tests, etc.)
@@ -158,3 +161,4 @@
 
   # Tukey post-hoc comparison
     aov(cyl_lm) %>% TukeyHSD()  # wrap lm() object in aov() 
+    

@@ -9,15 +9,17 @@
 #
 # Packages
   if (!require("pacman")) install.packages("pacman")
-  pacman::p_load(tidyverse, GGally)
+  pacman::p_load(tidyverse)
   
 # Prepare data (steps taken in Lesson 8.1)
   mtcars <- mutate_at(mtcars, vars(cyl, am), 
-                      as.character ) %>%
-    mutate(am = recode(am, "0"="Automatic",   
-                           "1"="Manual"), 
-           lmpg = log(mpg)) %>% 
-    rename(transmission = am) 
+                      as.factor ) %>%
+            mutate(am = recode(am, "0"="Automatic",   
+                               "1"="Manual"), 
+                   am = factor(am, levels=c("Manual", 
+                                            "Automatic")), 
+                   lmpg = log(mpg)) %>% 
+            rename(transmission = am) 
   
 # Linear regression 
   # Scatterplot
@@ -117,7 +119,7 @@
     wt_lm <- lm(lmpg ~ wt, mtcars) 
   
   # ... and compare:
-    anova(wt_lm, cat_lm)
+    anova(wt_lm, cat_lm) 
     
   # Fit an interaction model... 
     int_lm <- lm(lmpg ~ wt + transmission + wt:transmission, mtcars)

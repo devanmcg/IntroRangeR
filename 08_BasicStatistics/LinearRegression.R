@@ -61,9 +61,6 @@
   # Confidence intervals 
     confint(mr_lm)
     
-  # scatterplot matrix
-    ggpairs(mtcars, columns = c("lmpg","hp", "wt", "drat"))
-    
   # Custom function to combine regression coefficients 
     # and confidence intervals into tidy object
     coefR <- function(x) {

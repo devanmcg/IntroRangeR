@@ -9,6 +9,12 @@
 
 BasicStatsHomeworkAssignment.Rmd
 
+rsconnect/
+BasicStatsHomeworkSolution_files/
+t_tests.R
 BasicStatsHomeworkSolution.Rmd
 BasicStatsHomeworkSolution.html
 BasicStatsHomeworkSolution.pdf
+
+BasicStatsHomeworkSolution.docx
+BasicStatsHomeworkSolution2.docx

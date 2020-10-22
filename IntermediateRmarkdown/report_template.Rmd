@@ -1,17 +1,10 @@
 ---
 title: "Intro to R"
 subtitle: Write-up demonstration
-author: "Devan Allen McGranahan"
+author: "DAM"
 date: "`r Sys.Date()`"
-output:
-  pdf_document:
-    toc_depth: '5'
-  html_document:
-    df_print: paged
-    toc_depth: '5'
-  word_document:
-    toc_depth: '5'
-csl: superscripted.csl
+output: word_document
+csl: author_year.csl
 bibliography: bibliography.bib
 ---
 
@@ -19,7 +12,7 @@ bibliography: bibliography.bib
 knitr::opts_chunk$set(message = FALSE, warning=FALSE, 
                       echo=FALSE, eval=TRUE, fig.path='Figs/') 
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load(plyr, dplyr, xtable, ggplot2, knitr)
+pacman::p_load(tidyverse, xtable, ggplot2, knitr)
 
 ```
 
@@ -28,12 +21,10 @@ pacman::p_load(plyr, dplyr, xtable, ggplot2, knitr)
 clev.d <- read.csv("C:/Users/Devan.McGranahan/GoogleDrive/rangeR/rangeR/Intro R seminar/data/AllClevelandCrimeData.csv")
 ```
 
-
-
-
 # Background 
 
-Sometimes crime increases around sports venues on game days [@kurland2014].  It happens in Cleveland, too [@mayntz2001].  
+Sometimes crime increases around sports venues on game days [@kurland2014].  
+It happens in Cleveland, too [@mayntz2001].  
 
 # Methods
 
@@ -52,8 +43,8 @@ Cleveland.
 
 ```{r gd_charges}
 # Calculate total charges per venue, game day/non-game day
-    charge.tot <- ddply(clev.d, .(Venue, GameDay),
-                    summarize, charges=length(GameDay))
+charge.tot <- ddply(clev.d, .(Venue, GameDay),
+                summarize, charges=length(GameDay))
 charge.tot
 ```
 

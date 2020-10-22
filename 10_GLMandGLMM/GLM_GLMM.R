@@ -1,4 +1,4 @@
-# An Introduction to R
+# An Introduction to R (www.introranger.org)
 #
 # Devan Allen McGranahan (devan.mcgranahan@gmail.com)
 #
@@ -8,7 +8,8 @@
 # Lesson 10: Fitting GLM and GLMM regression models
 #
 # Packages
-  # Need to have these installed, but recommend *not* loading them
+  # Need to have these installed, but recommend *not* loading them. 
+  # Remember: Only run this line once per computer. Don't re-install.
     install.packages(c("car", "lme4"))
 
   # Always need pacman and tidyverse!
@@ -16,27 +17,29 @@
     pacman::p_load(tidyverse) 
   
 # Load data 
-  clev.d <- read_csv("./data/AllClevelandCrimeData.csv")
-  clev.d 
+  clev_d <- read_csv("./data/AllClevelandCrimeData.csv")
+  clev_d 
   
-  clev.d <- clev.d %>% mutate(GameDay = recode(GameDay, "0" = "No", 
+  clev_d <- clev_d %>% mutate(GameDay = recode(GameDay, "0" = "No", 
                                                         "1" = "Yes") ) 
   
 # Count data 
 
 # Are there more charges on game days? 
-  ggplot(clev.d) + theme_bw(16) +
-    geom_bar(aes(x=GameDay), stat="count")
+  ggplot(clev_d) + theme_bw(16) +
+    geom_bar(aes(x=GameDay), 
+             stat="count")
   
   # Summarize
-  GD <- clev.d %>%
+  GD <- clev_d %>%
           group_by(GameDay) %>%
             summarize(charges=n())
   GD
 
   # Test 
     # fit the GLM model 
-      glm_gd <- glm(charges ~ GameDay, GD, family=poisson(link = "log"))
+      glm_gd <- glm(charges ~ GameDay, GD, 
+                    family=poisson(link = "identity"))
     
     # Evaluate
      summary(glm_gd)  # Pretty familiar    
@@ -47,23 +50,25 @@
 
 # Non-independence 
     
- ggplot(clev.d) + theme_bw(16) +
-   geom_bar(aes(x=GameDay, fill=Venue), 
+ ggplot(clev_d) + theme_bw(16) +
+   geom_bar(aes(x=GameDay, 
+                fill=Venue), 
             stat="count",
             position = position_dodge2())
  
-  GD.v <- clev.d %>%
+  GD_v <- clev_d %>%
             group_by(Venue, GameDay) %>%
-              summarize(charges=n()) %>% ungroup
-  GD.v
+              summarize(charges=n()) %>% 
+            ungroup
+  GD_v
 
-  glmer_gd <- lme4::glmer(charges ~ GameDay + (1|Venue), GD.v, 
-                          family=poisson(link = "log"))
+  glmer_gd <- lme4::glmer(charges ~ GameDay + (1|Venue), GD_v, 
+                          family=poisson(link = "identity"))
   summary(glmer_gd)    
   anova(glmer_gd, test = "Chisq") # Trick doesn't work on glmer
   car::Anova(glmer_gd)  # This still works  
 
-  # TO use anova(), create a null model and compare
-  glmer_0 <- lme4::glmer(charges ~ 1 + (1|Venue), GD.v, 
+  # To use anova(), create a null model and compare
+  glmer_0 <- lme4::glmer(charges ~ 1 + (1|Venue), GD_v, 
                           family=poisson(link = "log"))
   anova(glmer_0, glmer_gd) 

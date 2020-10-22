@@ -1,7 +1,7 @@
 ---
-title: "Intro to R"
-subtitle: Write-up demonstration
-author: "DAM"
+title: 
+subtitle:  
+author: 
 date: "`r Sys.Date()`"
 output: word_document
 csl: author_year.csl
@@ -9,16 +9,14 @@ bibliography: bibliography.bib
 ---
 
 ```{r setup, echo=FALSE, message=FALSE}
-knitr::opts_chunk$set(message = FALSE, warning=FALSE, 
-                      echo=FALSE, eval=TRUE, fig.path='Figs/') 
-if (!require("pacman")) install.packages("pacman")
-pacman::p_load(tidyverse, xtable, ggplot2, knitr)
-
+knitr::opts_chunk$set(message = FALSE, warning=FALSE, echo=FALSE) 
+pacman::p_load( )
+setwd('...')
 ```
 
 
 ```{r data_loading}
-clev.d <- read.csv("C:/Users/Devan.McGranahan/GoogleDrive/rangeR/rangeR/Intro R seminar/data/AllClevelandCrimeData.csv")
+clev.d <- read.csv("./data/AllClevelandCrimeData.csv")
 ```
 
 # Background 
@@ -28,13 +26,13 @@ It happens in Cleveland, too [@mayntz2001].
 
 # Methods
 
-\subsection{Study area}
+## Study area
 
 Cleveland. 
 
-\subsection*{Favorite graphing package}
+## Favorite graphing package
 
-\textbf{ggplot2}!
+**ggplot2**!
 
 
 # Results
@@ -43,61 +41,17 @@ Cleveland.
 
 ```{r gd_charges}
 # Calculate total charges per venue, game day/non-game day
-charge.tot <- ddply(clev.d, .(Venue, GameDay),
-                summarize, charges=length(GameDay))
-charge.tot
+
 ```
 
-See Table \ref{table}. 
+ 
+# Discussion
 
-```{r kable}
-kable(charge.tot, caption='\\label{table}Contingency table of total charges on game days and non-game days, by venue.')
-```
-
-
-```{r charges_sum}
- gd.charges <- subset(clev.d, ChargeType %in% c("VIOLENT", 
-                                                 "RESISTING ARREST",
-                                                 "PROPERTY"))
-  
-
-  # Stop the shouting!
-  gd.charges$ChargeType <- tolower(gd.charges$ChargeType)
-``` 
-
-```{r charge.sum.gg, fig.cap="\\label{gg.fig}Frequency of crime by three categories on game days and non-game days in Cleveland,Ohio."}
-  ggplot(gd.charges) + theme_bw(14) +
-    geom_bar(aes(x=reorder(ChargeType, 
-                           ChargeType,
-                           function(x)-length(x)), 
-                 fill=factor(GameDay)), 
-             stat="count", 
-             position = "dodge") +
-    labs(x="Charge type", 
-         y="Frequency of incidents") + 
-    theme(axis.text.x=element_text(angle=45, hjust=1),
-          legend.position=c(0.75,0.8), 
-          legend.key.width=unit(0.25, "in")) +
-    scale_fill_brewer(palette="Set1", 
-                      name="Game day?", 
-                      labels=c("No","Yes"))
-```
-
-
-Crimes happened in Cleveland (Fig. \ref{gg.fig}). 
 
 
 # Code
 
 ```{r ref.label=knitr::all_labels( ), echo=TRUE,eval=FALSE}
 ```
-
-
-
-# Session info
-
-```{r sessionInfo, echo=FALSE}
-sessionInfo();
-``` 
 
 # References cited 

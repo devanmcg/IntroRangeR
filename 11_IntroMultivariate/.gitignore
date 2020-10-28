@@ -6,20 +6,12 @@
 *.httr-oauth
 *.ini
 *.jpeg
+*.Rmd
+*.html
+*.pdf
 
-IntroMultivariateHomeworkAssignment.Rmd
-
-README.html
-
-GGOrdHomeworkSolution.Rmd
-GGOrdHomeworkSolution.html
-
-OrdinationHomeworkSolution.Rmd
-OrdinationHomeworkSolution.html
-
-ClusteringHomeworkSolution.Rmd
-ClusteringHomeworkSolution.html
-ClusteringHomeworkSolution.pdf
+rsconnect/ 
+ClusteringHomeworkSolution_files/ 
 
 IntroMultivariate.R
 IntroMultivariate2.R

@@ -5,10 +5,10 @@
 *.log
 *.httr-oauth
 *.ini
+*.Rmd
+*.html
+*.pdf
 
-TimeSeriesCountHomeworkAssignment.Rmd
+rsconnect/
+
 HomeworkDataWorkup.R
-
-TimeSeriesCountHomeworkSolution.Rmd
-TimeSeriesCountHomeworkSolution.html
-TimeSeriesCountHomeworkSolution.pdf

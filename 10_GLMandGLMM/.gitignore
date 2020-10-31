@@ -6,9 +6,8 @@
 *.httr-oauth
 *.ini
 *.jpeg
+*.Rmd
+*.html
+*.pdf
 
-GLM_HomeworkAssignment.Rmd
-
-GLM_HomeworkSolution.Rmd
-GLM_HomeworkSolution.html
-GLM_HomeworkSolution.pdf
+rsconnect/

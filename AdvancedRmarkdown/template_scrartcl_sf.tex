@@ -73,8 +73,8 @@ $if(tables)$
 \usepackage{longtable,booktabs}
 $endif$
 
-%$if(graphics)$
-%\usepackage{graphicx}
+$if(graphics)$
+\usepackage{graphicx}
 % We will generate all images so they have a width \maxwidth. This means
 % that they will get their normal width if they fit onto the page, but
 % are scaled down if they would overflow the margins.
@@ -84,7 +84,7 @@ $endif$
 %\makeatother
 %\let\Oldincludegraphics\includegraphics
 %\renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=\maxwidth]{#1}}
-%$endif$
+$endif$
 
 $if(title)$
 \title{$title$$if(subtitle)$ \newline \\ \Large \emph{$subtitle$} $endif$ $if(anonymous)$$else$$if(thanks)$\thanks{$thanks$} $endif$$endif$ }

@@ -54,13 +54,15 @@
       plot(fit, sortg = TRUE, grpmts.plot = TRUE)
     # More focused ggplot
       fit$results %>% 
-        broom::tidy() %>%
-          gather(groups, value, -.rownames) %>%
-            rename(metric = .rownames) %>%
+        as.data.frame() %>%
+        rownames_to_column("metric") %>%
+          pivot_longer(names_to = "groups", 
+                       values_to = "value", 
+                       - metric) %>%
               mutate(groups = str_extract(groups, "\\d+"), 
                      groups = as.numeric(groups)) %>%
         filter(metric != "SSE") %>%
-        ggplot(aes(x=groups, y = value)) + theme_bw(16) +
+       ggplot(aes(x=groups, y = value)) + theme_bw(16) +
         geom_line(lwd=1.5, col="blue") +
         geom_point(pch=21, col="lightgrey", 
                    bg="blue", stroke = 1.5, size=5) +
@@ -97,13 +99,15 @@
   fit_s <- cascadeKM(chem_s, 1, 10, iter = 5000)
   
   fit_s$results %>% 
-    broom::tidy() %>%
-    gather(groups, value, -.rownames) %>%
-    rename(metric = .rownames) %>%
+        as.data.frame() %>%
+        rownames_to_column("metric") %>%
+          pivot_longer(names_to = "groups", 
+                       values_to = "value", 
+                       - metric) %>%
     mutate(groups = str_extract(groups, "\\d+"), 
            groups = as.numeric(groups)) %>%
     filter(metric != "SSE") %>%
-    ggplot(aes(x=groups, y = value)) + theme_bw(16) +
+   ggplot(aes(x=groups, y = value)) + theme_bw(16) +
     geom_line(lwd=1.5, col="blue") +
     geom_point(pch=21, col="lightgrey", 
                bg="blue", stroke = 1.5, size=5) +

@@ -1,4 +1,4 @@
-# An Introduction to R
+# An Introduction to R (www.IntroRangeR.org)
 #
 # Devan Allen McGranahan (devan.mcgranahan@gmail.com)
 #
@@ -9,11 +9,12 @@
 #
 # Packages
   if (!require("pacman")) install.packages("pacman")
-  pacman::p_load(tidyverse, sf)
+  pacman::p_load(maps, mapproj, rgeos)   # Dependencies
+  pacman::p_load(tidyverse, sf)          # Main packages
 
 # Basic mapping with maps data
 
-  world <- map_data("world") 
+  world <- maps::map_data("world") 
   class(world)
   
   world %>%

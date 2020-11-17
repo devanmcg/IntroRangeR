@@ -1,4 +1,4 @@
-# An Introduction to R
+# An Introduction to R (www.introranger.org)
 #
 # Devan Allen McGranahan (devan.mcgranahan@gmail.com)
 #

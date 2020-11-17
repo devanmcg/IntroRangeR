@@ -1,4 +1,4 @@
-# An Introduction to R
+# An Introduction to R (www.IntroRangeR.org)
 #
 # Devan Allen McGranahan (devan.mcgranahan@gmail.com)
 #
@@ -11,7 +11,10 @@
 #
 # Packages
   if (!require("pacman")) install.packages("pacman")
-  pacman::p_load(tidyverse, sf, rnaturalearth, rnaturalearthdata)
+  pacman::p_load(lwgeom)              # dependency
+  pacman::p_load(tidyverse, sf, 
+                 rnaturalearth, 
+                 rnaturalearthdata)
 
 # Load Natural Earth data for South America as sf
   sa_countries <- ne_countries(continent = "South America", 
@@ -32,11 +35,11 @@
         summarise(area = sum(area)) 
     
     # View in ggplot
-    gg1 <- ggplot() +
-      geom_sf(data=sa_cont, fill="white") 
+      ggplot() +
+        geom_sf(data=sa_cont, fill="white") 
     
 # Combine layers
-    gg2 <- ggplot() +
+    ggplot() +
       geom_sf(data=sa_cont, fill="white") + 
       geom_sf(data=sa_countries, color="darkgrey", fill=NA) 
     
@@ -88,7 +91,7 @@
     sa_cities <- read_sf(tmp_dir, "South_America_Cities") 
   
   sa_cities 
-  gg3 <- 
+
   ggplot() +
     geom_sf(data=sa_cont, fill="white") + 
     geom_sf(data=sa_countries, color="darkgrey", fill=NA) +
